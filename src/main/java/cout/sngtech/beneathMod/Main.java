@@ -15,6 +15,8 @@ public class Main
 	
 	public Main()
 	{
+		FMLJavaLoaderContext.get().getModEventBus().addListener(this::commonSetup);
+		FMLJavaLoaderCOntext.get().getModEventBus().addListener(this::clientSetup);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
@@ -26,5 +28,10 @@ public class Main
 	void clientSetup(FMLClientSetupEvent e)
 	{
 		logger.info("Client Setup Event Registered");
+	}
+	
+	void onServerStartup(FMLServerStartingEvent e)
+	{
+		logger.info("Server Starting...");
 	}
 }
