@@ -7,16 +7,20 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("Beneath")
+@Mod(Main.MODID)
 public class Main 
 {
-	Logger logger = LogManager.getLogger();
+	public static final String MODID = "beneath";
+	Logger logger = LogManager.getLogger(MODID);
 	
 	public Main()
 	{
-		FMLJavaLoaderContext.get().getModEventBus().addListener(this::commonSetup);
-		FMLJavaLoaderContext.get().getModEventBus().addListener(this::clientSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStartup);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
