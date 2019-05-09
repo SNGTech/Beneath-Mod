@@ -14,7 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class Main 
 {
 	public static final String MODID = "beneath";
-	Logger logger = LogManager.getLogger(MODID);
+	public static Logger logger = LogManager.getLogger(MODID);
 	
 	public Main()
 	{
