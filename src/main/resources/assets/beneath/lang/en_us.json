@@ -1,6 +1,20 @@
 {
+	//Minerals (Items)
 	"item.beneath.rock": "Rock",
 	"item.beneath.iron_ore_rock": "Iron Ore Rock",
 	"item.beneath.copper_ore_rock": "Copper Ore Rock",
-	"item.beneath.bauxite_ore_rock": "Bauxtie Ore Rock"
+	"item.beneath.bauxite_ore_rock": "Bauxite Ore Rock",
+	
+	//Decorations (Blocks)
+	"block.beneath.carved_stone_bricks": "Carved Stone Bricks",
+	"block.beneath.line_chiseled_stone_bricks": "Line Chiseled Stone Bricks",
+	
+	//Minerals (Blocks)
+	"block.beneath.raw_limestone": "Raw Limestone",
+	"block.beneath.copper_ore": "Copper Ore",
+	"block.beneath.bauxite_ore": "Bauxite Ore",
+	
+	//Item Groups
+    "itemGroup.Beneath Items": "Beneath Items",
+    "itemGroup.Beneath Blocks": "Beneath Blocks"
 }

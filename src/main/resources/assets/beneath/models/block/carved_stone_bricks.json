@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "beneath:block/carved_stone_bricks"
+    }
+}
