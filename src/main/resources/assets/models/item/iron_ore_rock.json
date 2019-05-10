@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "beneath:item/iron_ore_rock"
-    }
-}
