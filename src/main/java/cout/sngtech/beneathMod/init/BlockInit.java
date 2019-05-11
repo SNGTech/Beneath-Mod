@@ -1,6 +1,8 @@
 package cout.sngtech.beneathMod.init;
 
 import cout.sngtech.beneathMod.Main;
+import cout.sngtech.beneathMod.blocks.BlockBauxiteOre;
+import cout.sngtech.beneathMod.blocks.BlockCopperOre;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.SoundType;
@@ -18,8 +20,8 @@ public class BlockInit
 	
 	//Minerals
 	public static final Block raw_limestone = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone"));
-	public static final Block copper_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
-	public static final Block bauxite_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
+	public static final Block copper_ore = new BlockCopperOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
+	public static final Block bauxite_ore = new BlockBauxiteOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents

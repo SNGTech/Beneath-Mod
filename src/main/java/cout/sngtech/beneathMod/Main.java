@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import cout.sngtech.beneathMod.itemgroups.BeneathBlocksGroup;
 import cout.sngtech.beneathMod.itemgroups.BeneathItemsGroup;
+import cout.sngtech.beneathMod.world.gen.features.OreGeneration;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -31,6 +32,8 @@ public class Main
 	
 	void commonSetup(FMLCommonSetupEvent e)
 	{
+		OreGeneration.registerOreGeneration();
+		
 		logger.info("Common Setup Event Registered");
 	}
 	
