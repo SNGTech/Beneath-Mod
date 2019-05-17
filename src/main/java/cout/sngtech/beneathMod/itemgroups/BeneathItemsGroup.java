@@ -1,7 +1,6 @@
 package cout.sngtech.beneathMod.itemgroups;
 
 import cout.sngtech.beneathMod.init.ItemInit;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 

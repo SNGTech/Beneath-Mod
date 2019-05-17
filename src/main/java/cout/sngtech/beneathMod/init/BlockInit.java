@@ -3,6 +3,7 @@ package cout.sngtech.beneathMod.init;
 import cout.sngtech.beneathMod.Main;
 import cout.sngtech.beneathMod.blocks.BlockBauxiteOre;
 import cout.sngtech.beneathMod.blocks.BlockCopperOre;
+import cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.SoundType;
@@ -24,7 +25,7 @@ public class BlockInit
 	public static final Block bauxite_ore = new BlockBauxiteOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
 	
 	//Tile Entities
-	//public static final Block oak_crate = new BlockCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
+	public static final Block oak_crate = new BlockOakCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -41,11 +42,13 @@ public class BlockInit
 				//Minerals
 				raw_limestone,
 				copper_ore,
-				bauxite_ore
+				bauxite_ore,
 				
 				//Tile Entities
-				//oak_crate
+				oak_crate
 			);
+			
+			Main.logger.info("Registered Blocks");
 		}
 	}
 }

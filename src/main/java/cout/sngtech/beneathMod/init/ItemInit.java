@@ -29,7 +29,7 @@ public class ItemInit
 	public static final Item copper_ore = new ItemBlock(BlockInit.copper_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
 	public static final Item bauxite_ore = new ItemBlock(BlockInit.bauxite_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
 	
-	//public static final Item oak_crate = new ItemBlock(BlockInit.oak_crate, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
+	public static final Item oak_crate = new ItemBlock(BlockInit.oak_crate, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -54,9 +54,9 @@ public class ItemInit
 				
 				raw_limestone,
 				copper_ore,
-				bauxite_ore
+				bauxite_ore,
 				
-				//oak_crate
+				oak_crate
 			);
 			
 			Main.logger.info("Registered Items");

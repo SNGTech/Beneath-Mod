@@ -1,7 +1,7 @@
 package cout.sngtech.beneathMod.containers;
 
 import cout.sngtech.beneathMod.containers.slots.SlotCrate;
-import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
+import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerCrate extends Container
 {
-	private final TileEntityCrate inventory;
+	private final TileEntityOakCrate inventory;
 	
-	public ContainerCrate(InventoryPlayer playerInventory, TileEntityCrate inventory, EntityPlayer player) 
+	public ContainerCrate(InventoryPlayer playerInventory, TileEntityOakCrate inventory, EntityPlayer player) 
 	{
 		this.inventory = inventory;
 	      inventory.openInventory(player);

@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.containers.slots;
 
-import cout.sngtech.beneathMod.blocks.tileentities.BlockCrate;
+import cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -15,6 +15,6 @@ public class SlotCrate extends Slot
 
 	public boolean isItemValid(ItemStack stack)
 	{
-		return !(Block.getBlockFromItem(stack.getItem()) instanceof BlockCrate);
+		return !(Block.getBlockFromItem(stack.getItem()) instanceof BlockOakCrate);
 	}
 }
