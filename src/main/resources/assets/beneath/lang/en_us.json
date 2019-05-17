@@ -5,6 +5,9 @@
 	"item.beneath.copper_ore_rock": "Copper Ore Rock",
 	"item.beneath.bauxite_ore_rock": "Bauxite Ore Rock",
 	
+	//Wearables (Items)
+	"item.beneath.mining_helmet": "Mining Helmet",
+	
 	//Decorations (Blocks)
 	"block.beneath.carved_stone_bricks": "Carved Stone Bricks",
 	"block.beneath.line_chiseled_stone_bricks": "Line Chiseled Stone Bricks",

@@ -23,6 +23,9 @@ public class BlockInit
 	public static final Block copper_ore = new BlockCopperOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
 	public static final Block bauxite_ore = new BlockBauxiteOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
 	
+	//Tile Entities
+	//public static final Block oak_crate = new BlockCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
+	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
 	{
@@ -39,6 +42,9 @@ public class BlockInit
 				raw_limestone,
 				copper_ore,
 				bauxite_ore
+				
+				//Tile Entities
+				//oak_crate
 			);
 		}
 	}
