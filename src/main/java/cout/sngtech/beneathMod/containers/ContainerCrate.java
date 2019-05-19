@@ -7,6 +7,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 
 public class ContainerCrate extends Container
 {
@@ -15,34 +16,34 @@ public class ContainerCrate extends Container
 	public ContainerCrate(InventoryPlayer playerInventory, TileEntityOakCrate inventory, EntityPlayer player) 
 	{
 		this.inventory = inventory;
-	      inventory.openInventory(player);
+		playerInventory.openInventory(player);
 	
-	      for(int k = 0; k < 3; ++k) 
-	      {
-	         for(int l = 0; l < 5; ++l) 
-	         {
-	            this.addSlot(new SlotCrate(inventory, l + k * 9, 8 + l * 18, 18 + k * 18));
-	         }
-	      }
-	
-	      for(int i = 0; i < 3; ++i) 
-	      {
-	         for(int k = 0; k < 9; ++k) 
-	         {
-	            this.addSlot(new Slot(playerInventory, k + i * 9 + 9, 8 + k * 18, 84 + i * 18));
-	         }
-	      }
-	
-	      for(int j = 0; j < 9; ++j) 
-	      {
-	         this.addSlot(new Slot(playerInventory, j, 8 + j * 18, 142));
-	      }
+		for(int k = 0; k < 3; ++k) 
+		{
+			for(int l = 0; l < 5; ++l) 
+			{
+				this.addSlot(new SlotCrate(inventory.getInventory(), l + k * 9, 8 + l * 15, 15 + k * 15));
+			}
+		}
+
+		for(int i = 0; i < 3; ++i) 
+		{
+			for(int k = 0; k < 9; ++k) 
+			{
+				this.addSlot(new Slot(playerInventory, k + i * 9 + 9, 8 + k * 18, 84 + i * 15));
+			}
+		}
+
+		for(int j = 0; j < 9; ++j) 
+		{
+			this.addSlot(new Slot(playerInventory, j, 8 + j * 18, 142));
+		}
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) 
 	{
-		return this.inventory.isUsableByPlayer(player);
+		return true;
 	}
 	
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) 
@@ -53,14 +54,14 @@ public class ContainerCrate extends Container
 	      {
 	         ItemStack itemstack1 = slot.getStack();
 	         itemstack = itemstack1.copy();
-	         if (index < this.inventory.getSizeInventory()) 
+	         if (index < this.inventorySlots.size()) 
 	         {
-	            if (!this.mergeItemStack(itemstack1, this.inventory.getSizeInventory(), this.inventorySlots.size(), true)) 
+	            if (!this.mergeItemStack(itemstack1, this.inventorySlots.size(), this.inventorySlots.size(), true)) 
 	            {
 	               return ItemStack.EMPTY;
 	            }
 	         } 
-	         else if (!this.mergeItemStack(itemstack1, 0, this.inventory.getSizeInventory(), false)) 
+	         else if (!this.mergeItemStack(itemstack1, 0, this.inventorySlots.size(), false)) 
 	         {
 	            return ItemStack.EMPTY;
 	         }
@@ -76,11 +77,5 @@ public class ContainerCrate extends Container
 	      }
 	
 	      return itemstack;
-	   }
-	
-	public void onContainerClosed(EntityPlayer player) 
-	{
-		super.onContainerClosed(player);
-		this.inventory.closeInventory(player);
 	}
 }

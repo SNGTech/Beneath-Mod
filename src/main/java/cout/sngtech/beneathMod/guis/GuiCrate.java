@@ -8,7 +8,11 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.items.ItemStackHandler;
 
+@OnlyIn(Dist.CLIENT)
 public class GuiCrate extends GuiContainer
 {
 	private static final ResourceLocation GUI_CRATE = new ResourceLocation(Main.MODID + ":textures/gui/container/crate.png");

@@ -1,16 +1,18 @@
 package cout.sngtech.beneathMod.containers.slots;
 
 import cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate;
+import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
 import net.minecraft.block.Block;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
-public class SlotCrate extends Slot
+public class SlotCrate extends SlotItemHandler
 {
-	public SlotCrate(IInventory inventoryIn, int index, int xPosition, int yPosition) 
+	public SlotCrate(ItemStackHandler inventory, int index, int xPosition, int yPosition) 
 	{
-		super(inventoryIn, index, xPosition, yPosition);
+		super(inventory, index, xPosition, yPosition);
 	}
 
 	public boolean isItemValid(ItemStack stack)

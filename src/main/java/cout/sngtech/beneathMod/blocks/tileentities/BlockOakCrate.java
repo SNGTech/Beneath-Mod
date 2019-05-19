@@ -1,7 +1,7 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
 import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,11 +14,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
-public class BlockOakCrate extends BlockContainer
+public class BlockOakCrate extends Block
 {
 	public BlockOakCrate(Properties builder) 
 	{
@@ -26,7 +28,13 @@ public class BlockOakCrate extends BlockContainer
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(IBlockReader worldIn) 
+	public boolean hasTileEntity(IBlockState state) 
+	{
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
 	{
 		return new TileEntityOakCrate();
 	}
@@ -34,10 +42,17 @@ public class BlockOakCrate extends BlockContainer
 	@Override
 	public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) 
 	{
-		if(!world.isRemote)
+		if(world.isRemote)
 		{
-			TileEntityOakCrate te = (TileEntityOakCrate) world.getTileEntity(pos);
-			NetworkHooks.openGui((EntityPlayerMP) player, (IInteractionObject) te, buf -> buf.writeBlockPos(pos));
+			return true;
+		}
+		else
+		{
+			TileEntity te = world.getTileEntity(pos);
+			if(te instanceof TileEntityOakCrate)
+			{
+				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityOakCrate) te, buf -> buf.writeBlockPos(pos));
+			}
 		}
 		
 		return true;
@@ -56,19 +71,19 @@ public class BlockOakCrate extends BlockContainer
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onReplaced(IBlockState state, World world, BlockPos pos, IBlockState newState, boolean isMoving) 
 	{
-		if (state.getBlock() != newState.getBlock()) 
+		TileEntity te = world.getTileEntity(pos);
+		LazyOptional<IItemHandler> handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+		for (int slot = 0; slot < ((IItemHandler) handler).getSlots(); slot++) 
 		{
-			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof IInteractionObject)
-			{
-				InventoryHelper.dropInventoryItems(world, pos, (TileEntityOakCrate)tileentity);
-			}
-
-	         super.onReplaced(state, world, pos, newState, isMoving);
-	 	}
+			ItemStack stack = ((IItemHandler) handler).getStackInSlot(slot);
+			InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+		}
+		
+		super.onReplaced(state, world, pos, newState, isMoving);
 	}
 	
 	public EnumBlockRenderType getRenderType(IBlockState state) 

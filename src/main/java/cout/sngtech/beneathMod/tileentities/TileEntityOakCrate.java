@@ -1,96 +1,116 @@
 package cout.sngtech.beneathMod.tileentities;
 
+import javax.annotation.Nullable;
+
 import cout.sngtech.beneathMod.Main;
 import cout.sngtech.beneathMod.containers.ContainerCrate;
 import cout.sngtech.beneathMod.init.TileEntityInit;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityLockableLoot;
-import net.minecraft.util.NonNullList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IInteractionObject;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
-public class TileEntityOakCrate extends TileEntityLockableLoot implements IInteractionObject
+public class TileEntityOakCrate extends TileEntity implements IInteractionObject
 {
-	private NonNullList<ItemStack> contents = NonNullList.withSize(15, ItemStack.EMPTY);
+	ItemStackHandler inventory = new ItemStackHandler(15)
+	{
+		@Override
+		protected void onContentsChanged(int slot) 
+		{
+			super.onContentsChanged(slot);
+			markDirty();
+		}
+	};
+	
+	private ITextComponent customName;
 	
 	public TileEntityOakCrate() 
 	{
 		super(TileEntityInit.oak_crate);
 	}
-
+	
 	@Override
 	public ITextComponent getName() 
 	{
-		ITextComponent itextcomponent = this.getCustomName();
-	    return (ITextComponent)(itextcomponent != null ? itextcomponent : new TextComponentTranslation("container.oak.crate"));
+		return (ITextComponent) (this.getCustomName() != null ? this.getCustomName() : new TextComponentTranslation("container.oak_crate"));
+	}
+    
+	public boolean hasCustomName() 
+	{
+	      return this.customName != null;
+	}
+	
+    @Nullable
+    public ITextComponent getCustomName() 
+    {
+    	return this.customName;
+    }
+	
+    public void setCustomName(@Nullable ITextComponent name) 
+    {
+    	this.customName = name;
+    }
+	
+	@Override
+	public void read(NBTTagCompound compound) 
+	{
+		this.inventory.deserializeNBT(compound.getCompound("inventory"));
+		
+		if (compound.contains("CustomName", 8)) 
+		{
+			this.customName = ITextComponent.Serializer.fromJson(compound.getString("CustomName"));
+	    }
+		
+		super.read(compound);
 	}
 	
 	@Override
-    public void read(NBTTagCompound compound)
-    {
-        super.read(compound);
-
-        this.contents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
-
-        if (!this.checkLootAndRead(compound))
-        {
-            ItemStackHelper.loadAllItems(compound, this.contents);
-        }
-
-        if (compound.contains("CustomName", 8))
-        {
-            this.customName = ITextComponent.Serializer.fromJson(compound.getString("CustomName"));
-        }
-    }
-
-    @Override
-    public NBTTagCompound write(NBTTagCompound compound)
-    {
-        super.write(compound);
-        if (!this.checkLootAndWrite(compound))
-        {
-            ItemStackHelper.saveAllItems(compound, this.contents);
-        }
-
-        ITextComponent itextcomponent = this.getCustomName();
-        if (itextcomponent != null)
-        {
-            compound.setString("CustomName", ITextComponent.Serializer.toJson(itextcomponent));
-        }
-
-        return compound;
-    }
-
-	@Override
-	public int getSizeInventory() 
+	public NBTTagCompound write(NBTTagCompound compound) 
 	{
-		return this.contents.size();
-	}
-
-	@Override
-	public boolean isEmpty() 
-	{
-		for(ItemStack itemstack : this.contents) 
+		compound.setTag("inventory", inventory.serializeNBT());
+		
+		if (this.customName != null) 
 		{
-			if (!itemstack.isEmpty()) 
-	      	{
-				return false;
-	      	}
-	    }
-
-		return true;
+	     	compound.setString("CustomName", ITextComponent.Serializer.toJson(this.customName));
+	  	}
+		
+		return super.write(compound);
 	}
-
+	
 	@Override
-	public int getInventoryStackLimit() 
+	public NBTTagCompound getUpdateTag() 
 	{
-		return 64;
+		return this.write(new NBTTagCompound());
+	}
+	
+    @Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) 
+    {
+		this.read(pkt.getNbtCompound());
+	}
+	
+	@Override
+	public SPacketUpdateTileEntity getUpdatePacket() 
+	{
+		return new SPacketUpdateTileEntity(this.pos, 0, this.getUpdateTag());
+	} 
+	
+	public ItemStackHandler getInventory()
+	{
+		return this.inventory;
 	}
 
 	@Override
@@ -104,16 +124,11 @@ public class TileEntityOakCrate extends TileEntityLockableLoot implements IInter
 	{
 		return Main.MODID + ":crate";
 	}
-
+	
 	@Override
-	protected NonNullList<ItemStack> getItems() 
+	public <T> LazyOptional<T> getCapability(Capability<T> cap, EnumFacing side) 
 	{
-		return this.contents;
-	}
-
-	@Override
-	protected void setItems(NonNullList<ItemStack> items) 
-	{
-		this.contents = items;
+		if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return LazyOptional.of(() -> this.inventory).cast();
+		return super.getCapability(cap, side);
 	}
 }

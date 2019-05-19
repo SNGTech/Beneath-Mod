@@ -25,6 +25,8 @@ public class ItemInit
 	public static final Item carved_stone_bricks = new ItemBlock(BlockInit.carved_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks"));
 	public static final Item line_chiseled_stone_bricks = new ItemBlock(BlockInit.line_chiseled_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks"));
 	
+	//public static final Item sandy_bricks = new ItemBlock(BlockInit.line_chiseled_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks"));
+	
 	public static final Item raw_limestone = new ItemBlock(BlockInit.raw_limestone, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone"));
 	public static final Item copper_ore = new ItemBlock(BlockInit.copper_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
 	public static final Item bauxite_ore = new ItemBlock(BlockInit.bauxite_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
