@@ -12,20 +12,22 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
+@ObjectHolder(Main.MODID)
 public class BlockInit 
 {
 	//Decorations
-	public static final Block carved_stone_bricks = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks"));
-	public static final Block line_chiseled_stone_bricks = new BlockRotatedPillar(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks"));
+	public static final Block carved_stone_bricks = null;
+	public static final Block line_chiseled_stone_bricks = null;
 	
 	//Minerals
-	public static final Block raw_limestone = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone"));
-	public static final Block copper_ore = new BlockCopperOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore"));
-	public static final Block bauxite_ore = new BlockBauxiteOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore"));
+	public static final Block raw_limestone = null;
+	public static final Block copper_ore = null;
+	public static final Block bauxite_ore = null;
 	
 	//Tile Entities
-	public static final Block oak_crate = new BlockOakCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"));
+	public static final Block oak_crate = null;
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -36,19 +38,19 @@ public class BlockInit
 			e.getRegistry().registerAll
 			(
 				//Decorations
-				carved_stone_bricks,
-				line_chiseled_stone_bricks,
+				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
+				new BlockRotatedPillar(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
 					
 				//Minerals
-				raw_limestone,
-				copper_ore,
-				bauxite_ore,
+				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
+				new BlockCopperOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
+				new BlockBauxiteOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
 				
 				//Tile Entities
-				oak_crate
+				new BlockOakCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"))
 			);
 			
-			Main.logger.info("Registered Blocks");
+			Main.logger.debug("Registered Blocks");
 		}
 	}
 }

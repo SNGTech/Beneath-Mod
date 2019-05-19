@@ -10,7 +10,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.items.ItemStackHandler;
 
 @OnlyIn(Dist.CLIENT)
 public class GuiCrate extends GuiContainer
@@ -38,7 +37,7 @@ public class GuiCrate extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) 
 	{
 		this.fontRenderer.drawString(this.tileentity.getDisplayName().getUnformattedComponentText(), 8, 6, 4210752);
-		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedComponentText(), 8, this.ySize - 111, 4210752);
+		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedComponentText(), 8, this.ySize - 93, 4210752);
 	}
 	
 	@Override

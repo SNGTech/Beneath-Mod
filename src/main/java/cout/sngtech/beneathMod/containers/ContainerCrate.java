@@ -1,28 +1,24 @@
 package cout.sngtech.beneathMod.containers;
 
-import cout.sngtech.beneathMod.containers.slots.SlotCrate;
 import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerCrate extends Container
 {
-	private final TileEntityOakCrate inventory;
-	
 	public ContainerCrate(InventoryPlayer playerInventory, TileEntityOakCrate inventory, EntityPlayer player) 
 	{
-		this.inventory = inventory;
 		playerInventory.openInventory(player);
 	
 		for(int k = 0; k < 3; ++k) 
 		{
-			for(int l = 0; l < 5; ++l) 
+			for(int l = 0; l < 5; ++l)  
 			{
-				this.addSlot(new SlotCrate(inventory.getInventory(), l + k * 9, 8 + l * 15, 15 + k * 15));
+				this.addSlot(new SlotItemHandler(inventory.getInventory(), l + k * 5, 44 + l * 18, 18 + k * 18));
 			}
 		}
 
@@ -30,7 +26,7 @@ public class ContainerCrate extends Container
 		{
 			for(int k = 0; k < 9; ++k) 
 			{
-				this.addSlot(new Slot(playerInventory, k + i * 9 + 9, 8 + k * 18, 84 + i * 15));
+				this.addSlot(new Slot(playerInventory, k + i * 9 + 9, 8 + k * 18, 84 + i * 18));
 			}
 		}
 
@@ -46,36 +42,32 @@ public class ContainerCrate extends Container
 		return true;
 	}
 	
-	public ItemStack transferStackInSlot(EntityPlayer player, int index) 
-	{
-	      ItemStack itemstack = ItemStack.EMPTY;
-	      Slot slot = this.inventorySlots.get(index);
-	      if (slot != null && slot.getHasStack()) 
-	      {
-	         ItemStack itemstack1 = slot.getStack();
-	         itemstack = itemstack1.copy();
-	         if (index < this.inventorySlots.size()) 
-	         {
-	            if (!this.mergeItemStack(itemstack1, this.inventorySlots.size(), this.inventorySlots.size(), true)) 
-	            {
-	               return ItemStack.EMPTY;
-	            }
-	         } 
-	         else if (!this.mergeItemStack(itemstack1, 0, this.inventorySlots.size(), false)) 
-	         {
-	            return ItemStack.EMPTY;
-	         }
-	
-	         if (itemstack1.isEmpty()) 
-	         {
-	            slot.putStack(ItemStack.EMPTY);
-	         } 
-	         else 
-	         {
-	            slot.onSlotChanged();
-	         }
-	      }
-	
-	      return itemstack;
+	@Override
+	public ItemStack transferStackInSlot(final EntityPlayer player, final int index) {
+		ItemStack itemstack = ItemStack.EMPTY;
+		final Slot slot = this.inventorySlots.get(index);
+		if ((slot != null) && slot.getHasStack()) {
+			final ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
+
+			final int containerSlots = this.inventorySlots.size() - player.inventory.mainInventory.size();
+			if (index < containerSlots) {
+				if (!mergeItemStack(itemstack1, containerSlots, this.inventorySlots.size(), true)) {
+					return ItemStack.EMPTY;
+				}
+			} else if (!mergeItemStack(itemstack1, 0, containerSlots, false)) {
+				return ItemStack.EMPTY;
+			}
+			if (itemstack1.getCount() == 0) {
+				slot.putStack(ItemStack.EMPTY);
+			} else {
+				slot.onSlotChanged();
+			}
+			if (itemstack1.getCount() == itemstack.getCount()) {
+				return ItemStack.EMPTY;
+			}
+			slot.onTake(player, itemstack1);
+		}
+		return itemstack;
 	}
 }

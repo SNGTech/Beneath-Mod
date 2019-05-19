@@ -19,6 +19,9 @@
 
 	//Tile Entities
 	"block.beneath.oak_crate": "Oak Crate",
+	
+	//Containers
+	"container.oak_crate": "Oak Crate",
 
 	//Item Groups
     "itemGroup.Beneath Items": "Beneath Items",

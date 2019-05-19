@@ -6,11 +6,13 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
+@ObjectHolder(Main.MODID)
 public class TileEntityInit 
 {
 	//Storage
-	public static final TileEntityType<?> oak_crate = TileEntityType.Builder.create(TileEntityOakCrate::new).build(null).setRegistryName(Main.MODID, "oak_crate");
+	public static final TileEntityType<?> oak_crate = null;
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -21,10 +23,10 @@ public class TileEntityInit
 			e.getRegistry().registerAll
 			(
 				//Storage
-				oak_crate
+				TileEntityType.Builder.create(TileEntityOakCrate::new).build(null).setRegistryName(Main.MODID, "oak_crate")
 			);
 			
-			Main.logger.info("Registered Tile Entities");
+			Main.logger.debug("Registered Tile Entities");
 		}
 	}
 }
