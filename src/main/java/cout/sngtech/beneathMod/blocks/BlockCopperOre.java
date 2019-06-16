@@ -19,7 +19,7 @@ public class BlockCopperOre extends Block
 	@Override
 	public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune) 
 	{
-		return ItemInit.copper_ore_rock;
+		return ItemInit.COPPER_ORE_ROCK;
 	}
 	
 	@Override

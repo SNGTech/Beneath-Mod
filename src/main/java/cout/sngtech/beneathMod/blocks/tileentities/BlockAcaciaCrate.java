@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
-import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
+import cout.sngtech.beneathMod.tileentities.TileEntityAcaciaCrate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -15,9 +15,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BlockOakCrate extends BlockCrate
+public class BlockAcaciaCrate extends BlockCrate
 {
-	public BlockOakCrate(Properties builder) 
+	public BlockAcaciaCrate(Properties builder) 
 	{
 		super(builder);
 	}
@@ -25,7 +25,7 @@ public class BlockOakCrate extends BlockCrate
 	@Override
 	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
 	{
-		return new TileEntityOakCrate();
+		return new TileEntityAcaciaCrate();
 	}
 	
 	@Override
@@ -38,9 +38,9 @@ public class BlockOakCrate extends BlockCrate
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof TileEntityOakCrate)
+			if(te instanceof TileEntityAcaciaCrate)
 			{
-				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityOakCrate) te, buf -> buf.writeBlockPos(pos));
+				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityAcaciaCrate) te, buf -> buf.writeBlockPos(pos));
 			}
 		}
 		
@@ -53,9 +53,9 @@ public class BlockOakCrate extends BlockCrate
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TileEntityOakCrate) 
+			if (tileentity instanceof TileEntityAcaciaCrate) 
 			{
-				((TileEntityOakCrate)tileentity).setCustomName(stack.getDisplayName());
+				((TileEntityAcaciaCrate)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -66,12 +66,12 @@ public class BlockOakCrate extends BlockCrate
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof TileEntityOakCrate)
+		if(te instanceof TileEntityAcaciaCrate)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((TileEntityOakCrate) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((TileEntityAcaciaCrate) te).getInventory().getSlots(); i++)
 			{
-				stack = ((TileEntityOakCrate) te).getInventory().getStackInSlot(i);
+				stack = ((TileEntityAcaciaCrate) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					float f = RANDOM.nextFloat() * 0.75F + 0.125F;

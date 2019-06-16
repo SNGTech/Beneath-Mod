@@ -19,7 +19,7 @@ public class BlockBauxiteOre extends Block
 	@Override
 	public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune) 
 	{
-		return ItemInit.bauxite_ore_rock;
+		return ItemInit.BAUXITE_ORE_ROCK;
 	}
 	
 	@Override

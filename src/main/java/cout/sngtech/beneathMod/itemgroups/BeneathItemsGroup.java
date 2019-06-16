@@ -14,6 +14,6 @@ public class BeneathItemsGroup extends ItemGroup
 	@Override
 	public ItemStack createIcon() 
 	{
-		return new ItemStack(ItemInit.rock);
+		return new ItemStack(ItemInit.ROCK);
 	}
 }

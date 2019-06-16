@@ -2,7 +2,7 @@ package cout.sngtech.beneathMod.guis;
 
 import cout.sngtech.beneathMod.Main;
 import cout.sngtech.beneathMod.containers.ContainerCrate;
-import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
+import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,9 +16,9 @@ public class GuiCrate extends GuiContainer
 {
 	private static final ResourceLocation GUI_CRATE = new ResourceLocation(Main.MODID + ":textures/gui/container/crate.png");
 	private final InventoryPlayer playerInventory;
-	private final TileEntityOakCrate tileentity;
+	private final TileEntityCrate tileentity;
 	
-	public GuiCrate(InventoryPlayer playerInv, TileEntityOakCrate crateInventory, EntityPlayer player) 
+	public GuiCrate(InventoryPlayer playerInv, TileEntityCrate crateInventory, EntityPlayer player) 
 	{
 		super(new ContainerCrate(playerInv, crateInventory, player));
 		this.playerInventory = playerInv;

@@ -20,8 +20,8 @@ public class OreGeneration
 	{
 		for(Biome biome : ForgeRegistries.BIOMES)
 		{
-			addOreGen(copper_ore_gen, 10, 10, 10, 75, biome, BlockInit.copper_ore.getDefaultState(), 6);
-			addOreGen(bauxite_ore_gen, 5, 10, 10, 40, biome, BlockInit.bauxite_ore.getDefaultState(), 4);
+			addOreGen(copper_ore_gen, 10, 10, 10, 75, biome, BlockInit.COPPER_ORE.getDefaultState(), 6);
+			addOreGen(bauxite_ore_gen, 5, 10, 10, 40, biome, BlockInit.BAUXITE_ORE.getDefaultState(), 4);
 		}
 	}
 	

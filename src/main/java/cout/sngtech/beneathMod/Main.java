@@ -23,8 +23,8 @@ public class Main
 	public static final String MODID = "beneath";
 	public static Logger logger = LogManager.getLogger(MODID);
 	
-	public static final ItemGroup beneath_items = new BeneathItemsGroup();
-	public static final ItemGroup beneath_blocks = new BeneathBlocksGroup();
+	public static final ItemGroup BENEATH_ITEMS = new BeneathItemsGroup();
+	public static final ItemGroup BENEATH_BLOCKS = new BeneathBlocksGroup();
 	public Main()
 	{
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);

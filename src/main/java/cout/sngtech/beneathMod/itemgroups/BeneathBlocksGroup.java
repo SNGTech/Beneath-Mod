@@ -15,6 +15,6 @@ public class BeneathBlocksGroup extends ItemGroup
 	@Override
 	public ItemStack createIcon() 
 	{
-		return new ItemStack(Item.BLOCK_TO_ITEM.get(BlockInit.copper_ore));
+		return new ItemStack(Item.BLOCK_TO_ITEM.get(BlockInit.COPPER_ORE));
 	}
 }

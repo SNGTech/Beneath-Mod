@@ -19,13 +19,13 @@ public class EventHandler
 		if(e.getState().getBlock() == Blocks.STONE)
 		{
 			e.getDrops().remove(0);
-			e.getDrops().add(new ItemStack(ItemInit.rock));
+			e.getDrops().add(new ItemStack(ItemInit.ROCK));
 		}
 		
 		else if(e.getState().getBlock() == Blocks.IRON_ORE)
 		{
 			e.getDrops().remove(0);
-			e.getDrops().add(new ItemStack(ItemInit.iron_ore_rock));
+			e.getDrops().add(new ItemStack(ItemInit.IRON_ORE_ROCK));
 		}
 	}
 	

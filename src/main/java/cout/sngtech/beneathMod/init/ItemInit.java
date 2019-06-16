@@ -13,22 +13,27 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ItemInit 
 {
 	//Minerals
-	public static final Item rock = null;
-	public static final Item iron_ore_rock = null;
-	public static final Item copper_ore_rock = null;
-	public static final Item bauxite_ore_rock = null;
+	public static final Item ROCK = null;
+	public static final Item IRON_ORE_ROCK = null;
+	public static final Item COPPER_ORE_ROCK = null;
+	public static final Item BAUXITE_ORE_ROCK = null;
 	
 	//Item Blocks
-	public static final Item carved_stone_bricks = null;
-	public static final Item line_chiseled_stone_bricks = null;
+	public static final Item CARVED_STONE_BRICKS = null;
+	public static final Item LINE_CHISELED_STONE_BRICKS = null;
 	
 	//public static final Item sandy_bricks = new ItemBlock(BlockInit.line_chiseled_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks"));
 	
-	public static final Item raw_limestone = null;
-	public static final Item copper_ore = null;
-	public static final Item bauxite_ore = null;
+	public static final Item RAW_LIMESTONE = null;
+	public static final Item COPPER_ORE = null;
+	public static final Item BAUXITE_ORE = null;
 	
-	public static final Item oak_crate = null;
+	public static final Item OAK_CRATE = null;
+	public static final Item SPRUCE_CRATE = null;
+	public static final Item BIRCH_CRATE = null;
+	public static final Item JUNGLE_CRATE = null;
+	public static final Item ACACIA_CRATE = null;
+	public static final Item DARK_OAK_CRATE = null;
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -39,20 +44,25 @@ public class ItemInit
 			e.getRegistry().registerAll
 			(
 				//MineralsS
-				new Item(new Item.Properties().group(Main.beneath_items)).setRegistryName(new ResourceLocation(Main.MODID, "rock")),
-				new Item(new Item.Properties().group(Main.beneath_items)).setRegistryName(new ResourceLocation(Main.MODID, "iron_ore_rock")),
-				new Item(new Item.Properties().group(Main.beneath_items)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore_rock")),
-				new Item(new Item.Properties().group(Main.beneath_items)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore_rock")),
+				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "rock")),
+				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "iron_ore_rock")),
+				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore_rock")),
+				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore_rock")),
 				
 				//Item Blocks
-				new ItemBlock(BlockInit.carved_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
-				new ItemBlock(BlockInit.line_chiseled_stone_bricks, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
+				new ItemBlock(BlockInit.CARVED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
+				new ItemBlock(BlockInit.LINE_CHISELED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
 				
-				new ItemBlock(BlockInit.raw_limestone, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
-				new ItemBlock(BlockInit.copper_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
-				new ItemBlock(BlockInit.bauxite_ore, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
+				new ItemBlock(BlockInit.RAW_LIMESTONE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
+				new ItemBlock(BlockInit.COPPER_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
+				new ItemBlock(BlockInit.BAUXITE_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
 				
-				new ItemBlock(BlockInit.oak_crate, new Item.Properties().group(Main.beneath_blocks)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate"))
+				new ItemBlock(BlockInit.OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate")),
+				new ItemBlock(BlockInit.SPRUCE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
+				new ItemBlock(BlockInit.BIRCH_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
+				new ItemBlock(BlockInit.JUNGLE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
+				new ItemBlock(BlockInit.ACACIA_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
+				new ItemBlock(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
 			);
 			
 			Main.logger.debug("Registered Items");

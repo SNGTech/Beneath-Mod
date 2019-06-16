@@ -3,6 +3,7 @@ package cout.sngtech.beneathMod.tileentities;
 import javax.annotation.Nullable;
 
 import cout.sngtech.beneathMod.Main;
+import cout.sngtech.beneathMod.containers.ContainerCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -45,7 +46,7 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
 	public ITextComponent getName() 
 	{
 		ITextComponent itextcomponent = this.getCustomName();
-	    return (ITextComponent)(itextcomponent != null ? itextcomponent : new TextComponentTranslation("container.oak_crate"));
+	    return (ITextComponent)(itextcomponent != null ? itextcomponent : new TextComponentTranslation(containerRegistryName));
 	}
     
 	public boolean hasCustomName() 
@@ -82,10 +83,11 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
 	{
 		compound.setTag("inventory", inventory.serializeNBT());
 		
-		if (this.customName != null) 
-		{
-	     	compound.setString("CustomName", ITextComponent.Serializer.toJson(this.customName));
-	  	}
+		ITextComponent itextcomponent = this.getCustomName();
+	    if (itextcomponent != null) 
+	    {
+	       compound.setString("CustomName", ITextComponent.Serializer.toJson(itextcomponent));
+	    }
 		
 		return super.write(compound);
 	}
@@ -116,7 +118,7 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer player) 
 	{
-		return null;
+		return new ContainerCrate(playerInventory, this, player);
 	}
 
 	@Override

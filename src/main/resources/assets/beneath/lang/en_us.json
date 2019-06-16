@@ -19,9 +19,19 @@
 
 	//Tile Entities
 	"block.beneath.oak_crate": "Oak Crate",
+	"block.beneath.spruce_crate": "Spruce Crate",
+	"block.beneath.birch_crate": "Birch Crate",
+	"block.beneath.jungle_crate": "Jungle Crate",
+	"block.beneath.acacia_crate": "Acacia Crate",
+	"block.beneath.dark_oak_crate": "Dark Oak Crate",
 	
 	//Containers
 	"container.oak_crate": "Oak Crate",
+	"container.spruce_crate": "Spruce Crate",
+	"container.birch_crate": "Birch Crate",
+	"container.jungle_crate": "Jungle Crate",
+	"container.acacia_crate": "Acacia Crate",
+	"container.dark_oak_crate": "Dark Oak Crate",
 
 	//Item Groups
     "itemGroup.Beneath Items": "Beneath Items",

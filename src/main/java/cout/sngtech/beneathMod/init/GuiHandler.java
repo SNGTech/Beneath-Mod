@@ -1,7 +1,7 @@
 package cout.sngtech.beneathMod.init;
 
 import cout.sngtech.beneathMod.guis.GuiCrate;
-import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
+import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +17,7 @@ public class GuiHandler
 
         if (openContainer.getId().equals(openContainer.getId()))
         {
-        	return new GuiCrate((InventoryPlayer)Minecraft.getInstance().player.inventory, (TileEntityOakCrate)Minecraft.getInstance().world.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ())), (EntityPlayer) Minecraft.getInstance().player);
+        	return new GuiCrate((InventoryPlayer)Minecraft.getInstance().player.inventory, (TileEntityCrate)Minecraft.getInstance().world.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ())), (EntityPlayer) Minecraft.getInstance().player);
         }
 
         return null;
