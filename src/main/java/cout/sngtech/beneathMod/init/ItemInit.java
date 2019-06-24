@@ -1,8 +1,8 @@
 package cout.sngtech.beneathMod.init;
 
 import cout.sngtech.beneathMod.Main;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,19 +50,19 @@ public class ItemInit
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore_rock")),
 				
 				//Item Blocks
-				new ItemBlock(BlockInit.CARVED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
-				new ItemBlock(BlockInit.LINE_CHISELED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
+				new BlockItem(BlockInit.CARVED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
+				new BlockItem(BlockInit.LINE_CHISELED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
 				
-				new ItemBlock(BlockInit.RAW_LIMESTONE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
-				new ItemBlock(BlockInit.COPPER_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
-				new ItemBlock(BlockInit.BAUXITE_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
+				new BlockItem(BlockInit.RAW_LIMESTONE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
+				new BlockItem(BlockInit.COPPER_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
+				new BlockItem(BlockInit.BAUXITE_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
 				
-				new ItemBlock(BlockInit.OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate")),
-				new ItemBlock(BlockInit.SPRUCE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
-				new ItemBlock(BlockInit.BIRCH_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
-				new ItemBlock(BlockInit.JUNGLE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
-				new ItemBlock(BlockInit.ACACIA_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
-				new ItemBlock(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
+				new BlockItem(BlockInit.OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate")),
+				new BlockItem(BlockInit.SPRUCE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
+				new BlockItem(BlockInit.BIRCH_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
+				new BlockItem(BlockInit.JUNGLE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
+				new BlockItem(BlockInit.ACACIA_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
+				new BlockItem(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
 			);
 			
 			Main.logger.debug("Registered Items");

@@ -2,26 +2,26 @@ package cout.sngtech.beneathMod.tileentities;
 
 import javax.annotation.Nullable;
 
-import cout.sngtech.beneathMod.Main;
-import cout.sngtech.beneathMod.containers.ContainerCrate;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.nbt.NBTTagCompound;
+import cout.sngtech.beneathMod.containers.CrateContainer;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
+import net.minecraft.util.INameable;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.IInteractionObject;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class TileEntityCrate extends TileEntity implements IInteractionObject
+public class TileEntityCrate extends TileEntity implements INamedContainerProvider, INameable
 {
 	ItemStackHandler inventory = new ItemStackHandler(15)
 	{
@@ -46,7 +46,7 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
 	public ITextComponent getName() 
 	{
 		ITextComponent itextcomponent = this.getCustomName();
-	    return (ITextComponent)(itextcomponent != null ? itextcomponent : new TextComponentTranslation(containerRegistryName));
+		return (ITextComponent)(itextcomponent != null ? itextcomponent : new TranslationTextComponent(containerRegistryName));
 	}
     
 	public boolean hasCustomName() 
@@ -59,6 +59,11 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
     {
     	return this.customName;
     }
+    
+    @Override
+	public ITextComponent getDisplayName() {
+		return this.getName();
+	}
 	
     public void setCustomName(@Nullable ITextComponent name) 
     {
@@ -66,7 +71,7 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
     }
 	
 	@Override
-	public void read(NBTTagCompound compound) 
+	public void read(CompoundNBT compound) 
 	{
 		this.inventory.deserializeNBT(compound.getCompound("inventory"));
 		
@@ -79,56 +84,55 @@ public class TileEntityCrate extends TileEntity implements IInteractionObject
 	}
 	
 	@Override
-	public NBTTagCompound write(NBTTagCompound compound) 
+	public CompoundNBT write(CompoundNBT compound) 
 	{
-		compound.setTag("inventory", inventory.serializeNBT());
+		compound.putString("inventory", inventory.serializeNBT().toString());
 		
 		ITextComponent itextcomponent = this.getCustomName();
 	    if (itextcomponent != null) 
 	    {
-	       compound.setString("CustomName", ITextComponent.Serializer.toJson(itextcomponent));
+	       compound.putString("CustomName", ITextComponent.Serializer.toJson(itextcomponent));
 	    }
 		
 		return super.write(compound);
 	}
 	
 	@Override
-	public NBTTagCompound getUpdateTag() 
+	public CompoundNBT getUpdateTag() 
 	{
-		return this.write(new NBTTagCompound());
+		return this.write(new CompoundNBT());
 	}
 	
-    @Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) 
-    {
+	@Override
+	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) 
+	{
 		this.read(pkt.getNbtCompound());
 	}
 	
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() 
+	public SUpdateTileEntityPacket getUpdatePacket() 
 	{
-		return new SPacketUpdateTileEntity(this.pos, 0, this.getUpdateTag());
+		return new SUpdateTileEntityPacket(this.pos, 0, this.getUpdateTag());
 	} 
 	
 	public ItemStackHandler getInventory()
 	{
 		return this.inventory;
 	}
-
-	@Override
-	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer player) 
+	
+	public int getInventorySize()
 	{
-		return new ContainerCrate(playerInventory, this, player);
-	}
-
-	@Override
-	public String getGuiID() 
-	{
-		return Main.MODID + ":crate";
+		return this.inventory.getSlots();
 	}
 	
 	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> cap, EnumFacing side) 
+	public Container createMenu(int windowId, PlayerInventory playerInv, PlayerEntity player) 
+	{
+		return new CrateContainer(windowId, playerInv, player, this, this.getCustomName().toString());
+	}
+	
+	@Override
+	public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) 
 	{
 		if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return LazyOptional.of(() -> this.inventory).cast();
 		return super.getCapability(cap, side);

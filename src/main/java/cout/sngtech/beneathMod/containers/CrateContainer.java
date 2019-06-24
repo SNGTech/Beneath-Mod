@@ -1,17 +1,28 @@
 package cout.sngtech.beneathMod.containers;
 
+import cout.sngtech.beneathMod.init.ContainerInit;
 import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.Slot;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class ContainerCrate extends Container
+public class CrateContainer extends Container
 {
-	public ContainerCrate(InventoryPlayer playerInventory, TileEntityCrate inventory, EntityPlayer player) 
+	static TileEntityCrate crate = new TileEntityCrate();
+	static PlayerEntity player;
+	
+	public CrateContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData)
+    {
+        this(windowId, playerInventory, player, crate, extraData.readString(128));
+    }
+	
+	public CrateContainer(int windowId, PlayerInventory playerInventory, PlayerEntity player, TileEntityCrate inventory, String text) 
 	{
+		super(ContainerInit.CRATE, windowId);
 		playerInventory.openInventory(player);
 	
 		for(int k = 0; k < 3; ++k) 
@@ -37,13 +48,13 @@ public class ContainerCrate extends Container
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer player) 
+	public boolean canInteractWith(PlayerEntity player) 
 	{
 		return true;
 	}
 	
 	@Override
-	public ItemStack transferStackInSlot(final EntityPlayer player, final int index) {
+	public ItemStack transferStackInSlot(final PlayerEntity player, final int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		final Slot slot = this.inventorySlots.get(index);
 		if ((slot != null) && slot.getHasStack()) {

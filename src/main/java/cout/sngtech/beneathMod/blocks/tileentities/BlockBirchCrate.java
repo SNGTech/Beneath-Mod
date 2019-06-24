@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BlockBirchCrate extends BlockCrate
+public class BlockBirchCrate extends AbstractCrateBlock
 {
 	public BlockBirchCrate(Properties builder) 
 	{

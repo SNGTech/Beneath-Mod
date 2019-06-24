@@ -1,35 +1,36 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
 import cout.sngtech.beneathMod.tileentities.TileEntityOakCrate;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BlockOakCrate extends BlockCrate
+public class BlockOakCrate extends AbstractCrateBlock
 {
 	public BlockOakCrate(Properties builder) 
 	{
 		super(builder);
 	}
-
+	
 	@Override
-	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
+	public TileEntity createNewTileEntity(IBlockReader world) 
 	{
 		return new TileEntityOakCrate();
 	}
 	
 	@Override
-	public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) 
+	public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
 		if(world.isRemote)
 		{
@@ -40,7 +41,7 @@ public class BlockOakCrate extends BlockCrate
 			TileEntity te = world.getTileEntity(pos);
 			if(te instanceof TileEntityOakCrate)
 			{
-				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityOakCrate) te, buf -> buf.writeBlockPos(pos));
+				NetworkHooks.openGui((ServerPlayerEntity) player, (TileEntityOakCrate) te, (buf -> buf.writeBlockPos(pos)));
 			}
 		}
 		
@@ -48,7 +49,7 @@ public class BlockOakCrate extends BlockCrate
 	}
 	
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) 
+	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) 
 	{
 		if (stack.hasDisplayName()) 
 		{
@@ -62,7 +63,7 @@ public class BlockOakCrate extends BlockCrate
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public void onReplaced(IBlockState state, World world, BlockPos pos, IBlockState newState, boolean isMoving) 
+	public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) 
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
@@ -74,20 +75,23 @@ public class BlockOakCrate extends BlockCrate
 				stack = ((TileEntityOakCrate) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
-					float f = RANDOM.nextFloat() * 0.75F + 0.125F;
-					float f1 = RANDOM.nextFloat() * 0.75F;
-					float f2 = RANDOM.nextFloat() * 0.75F + 0.125F;
+					double d0 = (double)EntityType.ITEM.getWidth();
+			        double d1 = 1.0D - d0;
+			        double d2 = d0 / 2.0D;
+			        double d3 = Math.floor((double)pos.getX()) + RANDOM.nextDouble() * d1 + d2;
+			        double d4 = Math.floor((double)pos.getY()) + RANDOM.nextDouble() * d1;
+			        double d5 = Math.floor((double)pos.getZ()) + RANDOM.nextDouble() * d1 + d2;
 
-					while(!stack.isEmpty()) 
-					{
-						EntityItem item = new EntityItem(world, pos.getX() + (double)f, pos.getY() + (double)f1, pos.getZ() + (double)f2, stack.split(RANDOM.nextInt(21) + 10));
-						item.motionX = RANDOM.nextGaussian() * (double)0.05F;
-						item.motionY = RANDOM.nextGaussian() * (double)0.05F + (double)0.2F;
-						item.motionZ = RANDOM.nextGaussian() * (double)0.05F;
-						world.spawnEntity(item);
-					}
+			        while(!stack.isEmpty()) 
+			        {
+			           ItemEntity itementity = new ItemEntity(world, d3, d4, d5, stack.split(RANDOM.nextInt(21) + 10));
+			           itementity.setMotion(RANDOM.nextGaussian() * (double)0.05F, RANDOM.nextGaussian() * (double)0.05F + (double)0.2F, RANDOM.nextGaussian() * (double)0.05F);
+			           world.addEntity(itementity);
+			        }
 				}
 			}
+			
+			world.updateComparatorOutputLevel(pos, this);
 		}
 			
 		super.onReplaced(state, world, pos, newState, isMoving);

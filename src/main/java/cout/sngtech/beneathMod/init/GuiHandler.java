@@ -1,25 +1,15 @@
 package cout.sngtech.beneathMod.init;
 
-import cout.sngtech.beneathMod.guis.GuiCrate;
-import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.fml.network.FMLPlayMessages;
+import cout.sngtech.beneathMod.Main;
+import cout.sngtech.beneathMod.guis.CrateScreen;
+import net.minecraft.client.gui.ScreenManager;
+import net.minecraftforge.registries.ObjectHolder;
 
+@ObjectHolder(Main.MODID)
 public class GuiHandler
 {
-	public static GuiScreen openGui(FMLPlayMessages.OpenContainer openContainer)
-    {
-        BlockPos pos = openContainer.getAdditionalData().readBlockPos();
-
-        if (openContainer.getId().equals(openContainer.getId()))
-        {
-        	return new GuiCrate((InventoryPlayer)Minecraft.getInstance().player.inventory, (TileEntityCrate)Minecraft.getInstance().world.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ())), (EntityPlayer) Minecraft.getInstance().player);
-        }
-
-        return null;
-    }
+	public static void registerScreens()
+	{
+		ScreenManager.registerFactory(ContainerInit.CRATE, CrateScreen::new);
+	}
 }

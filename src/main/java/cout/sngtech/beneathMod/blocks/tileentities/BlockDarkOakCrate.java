@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BlockDarkOakCrate extends BlockCrate
+public class BlockDarkOakCrate extends AbstractCrateBlock
 {
 	public BlockDarkOakCrate(Properties builder) 
 	{

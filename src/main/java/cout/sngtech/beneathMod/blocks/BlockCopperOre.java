@@ -4,7 +4,6 @@ import java.util.Random;
 
 import cout.sngtech.beneathMod.init.ItemInit;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,7 +15,7 @@ public class BlockCopperOre extends Block
 		super(properties);
 	}
 	
-	@Override
+	/*@Override
 	public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune) 
 	{
 		return ItemInit.COPPER_ORE_ROCK;
@@ -26,5 +25,5 @@ public class BlockCopperOre extends Block
 	public int quantityDropped(IBlockState state, Random random) 
 	{
 		return 1;
-	}
+	}*/
 }

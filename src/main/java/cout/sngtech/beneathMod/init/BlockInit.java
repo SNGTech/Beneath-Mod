@@ -10,7 +10,7 @@ import cout.sngtech.beneathMod.blocks.tileentities.BlockJungleCrate;
 import cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate;
 import cout.sngtech.beneathMod.blocks.tileentities.BlockSpruceCrate;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
@@ -50,7 +50,7 @@ public class BlockInit
 			(
 				//Decorations
 				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
-				new BlockRotatedPillar(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
+				new RotatedPillarBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
 					
 				//Minerals
 				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),

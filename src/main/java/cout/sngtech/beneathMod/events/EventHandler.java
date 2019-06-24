@@ -1,10 +1,8 @@
 package cout.sngtech.beneathMod.events;
 
 import cout.sngtech.beneathMod.init.ItemInit;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,14 +27,14 @@ public class EventHandler
 		}
 	}
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onPlayerEnterVoidEvent(PlayerTickEvent e)
 	{
 		EntityPlayer player = e.player;
 		if(player.posY <= -2)
 		{
 			//To be removed when layer two is created
-			player.sendMessage(new TextComponentString("TODO: TRANSPORT PLAYER TO LAYER 2 OF THE WORLD!!!"));
+			player.sendMessage(new TextC("TODO: TRANSPORT PLAYER TO LAYER 2 OF THE WORLD!!!"));
 		}
-	}
+	}*/
 }

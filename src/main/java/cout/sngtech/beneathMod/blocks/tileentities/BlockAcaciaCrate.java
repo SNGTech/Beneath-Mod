@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BlockAcaciaCrate extends BlockCrate
+public class BlockAcaciaCrate extends AbstractCrateBlock
 {
 	public BlockAcaciaCrate(Properties builder) 
 	{
