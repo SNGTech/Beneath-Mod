@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
-import cout.sngtech.beneathMod.tileentities.TileEntityDarkOakCrate;
+import cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -25,7 +25,7 @@ public class BlockDarkOakCrate extends AbstractCrateBlock
 	@Override
 	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
 	{
-		return new TileEntityDarkOakCrate();
+		return new DarkOakCrateTileEntity();
 	}
 	
 	@Override
@@ -38,9 +38,9 @@ public class BlockDarkOakCrate extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof TileEntityDarkOakCrate)
+			if(te instanceof DarkOakCrateTileEntity)
 			{
-				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityDarkOakCrate) te, buf -> buf.writeBlockPos(pos));
+				NetworkHooks.openGui((EntityPlayerMP) player, (DarkOakCrateTileEntity) te, buf -> buf.writeBlockPos(pos));
 			}
 		}
 		
@@ -53,9 +53,9 @@ public class BlockDarkOakCrate extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TileEntityDarkOakCrate) 
+			if (tileentity instanceof DarkOakCrateTileEntity) 
 			{
-				((TileEntityDarkOakCrate)tileentity).setCustomName(stack.getDisplayName());
+				((DarkOakCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -66,12 +66,12 @@ public class BlockDarkOakCrate extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof TileEntityDarkOakCrate)
+		if(te instanceof DarkOakCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((TileEntityDarkOakCrate) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((DarkOakCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((TileEntityDarkOakCrate) te).getInventory().getStackInSlot(i);
+				stack = ((DarkOakCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					float f = RANDOM.nextFloat() * 0.75F + 0.125F;

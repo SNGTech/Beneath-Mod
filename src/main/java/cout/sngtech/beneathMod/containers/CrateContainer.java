@@ -1,26 +1,25 @@
 package cout.sngtech.beneathMod.containers;
 
 import cout.sngtech.beneathMod.init.ContainerInit;
-import cout.sngtech.beneathMod.tileentities.TileEntityCrate;
+import cout.sngtech.beneathMod.tileentities.CrateTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class CrateContainer extends Container
 {
-	static TileEntityCrate crate = new TileEntityCrate();
+	static CrateTileEntity crate = new CrateTileEntity();
 	static PlayerEntity player;
 	
-	public CrateContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData)
+	public CrateContainer(int windowId, PlayerInventory playerInventory)
     {
-        this(windowId, playerInventory, player, crate, extraData.readString(128));
+        this(windowId, playerInventory, player, crate);
     }
 	
-	public CrateContainer(int windowId, PlayerInventory playerInventory, PlayerEntity player, TileEntityCrate inventory, String text) 
+	public CrateContainer(int windowId, PlayerInventory playerInventory, PlayerEntity player, CrateTileEntity inventory) 
 	{
 		super(ContainerInit.CRATE, windowId);
 		playerInventory.openInventory(player);

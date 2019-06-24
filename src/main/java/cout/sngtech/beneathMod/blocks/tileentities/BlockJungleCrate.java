@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
-import cout.sngtech.beneathMod.tileentities.TileEntityJungleCrate;
+import cout.sngtech.beneathMod.tileentities.JungleCrateTileEntity;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -25,7 +25,7 @@ public class BlockJungleCrate extends AbstractCrateBlock
 	@Override
 	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
 	{
-		return new TileEntityJungleCrate();
+		return new JungleCrateTileEntity();
 	}
 	
 	@Override
@@ -38,9 +38,9 @@ public class BlockJungleCrate extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof TileEntityJungleCrate)
+			if(te instanceof JungleCrateTileEntity)
 			{
-				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityJungleCrate) te, buf -> buf.writeBlockPos(pos));
+				NetworkHooks.openGui((EntityPlayerMP) player, (JungleCrateTileEntity) te, buf -> buf.writeBlockPos(pos));
 			}
 		}
 		
@@ -53,9 +53,9 @@ public class BlockJungleCrate extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TileEntityJungleCrate) 
+			if (tileentity instanceof JungleCrateTileEntity) 
 			{
-				((TileEntityJungleCrate)tileentity).setCustomName(stack.getDisplayName());
+				((JungleCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -66,12 +66,12 @@ public class BlockJungleCrate extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof TileEntityJungleCrate)
+		if(te instanceof JungleCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((TileEntityJungleCrate) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((JungleCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((TileEntityJungleCrate) te).getInventory().getStackInSlot(i);
+				stack = ((JungleCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					float f = RANDOM.nextFloat() * 0.75F + 0.125F;

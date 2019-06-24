@@ -20,7 +20,6 @@ public class CrateScreen extends ContainerScreen<CrateContainer>
 	{
 		super(crate, playerInv, name);
 		this.passEvents = false;
-		this.ySize = 133;
 	}
 	
 	@Override

@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
-import cout.sngtech.beneathMod.tileentities.TileEntityBirchCrate;
+import cout.sngtech.beneathMod.tileentities.BirchCrateTileEntity;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -25,7 +25,7 @@ public class BlockBirchCrate extends AbstractCrateBlock
 	@Override
 	public TileEntity createTileEntity(IBlockState state, IBlockReader world) 
 	{
-		return new TileEntityBirchCrate();
+		return new BirchCrateTileEntity();
 	}
 	
 	@Override
@@ -38,9 +38,9 @@ public class BlockBirchCrate extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof TileEntityBirchCrate)
+			if(te instanceof BirchCrateTileEntity)
 			{
-				NetworkHooks.openGui((EntityPlayerMP) player, (TileEntityBirchCrate) te, buf -> buf.writeBlockPos(pos));
+				NetworkHooks.openGui((EntityPlayerMP) player, (BirchCrateTileEntity) te, buf -> buf.writeBlockPos(pos));
 			}
 		}
 		
@@ -53,9 +53,9 @@ public class BlockBirchCrate extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof TileEntityBirchCrate) 
+			if (tileentity instanceof BirchCrateTileEntity) 
 			{
-				((TileEntityBirchCrate)tileentity).setCustomName(stack.getDisplayName());
+				((BirchCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -66,12 +66,12 @@ public class BlockBirchCrate extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof TileEntityBirchCrate)
+		if(te instanceof BirchCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((TileEntityBirchCrate) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((BirchCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((TileEntityBirchCrate) te).getInventory().getStackInSlot(i);
+				stack = ((BirchCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					float f = RANDOM.nextFloat() * 0.75F + 0.125F;

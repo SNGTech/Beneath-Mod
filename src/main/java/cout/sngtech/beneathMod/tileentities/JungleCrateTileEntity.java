@@ -2,9 +2,9 @@ package cout.sngtech.beneathMod.tileentities;
 
 import cout.sngtech.beneathMod.init.TileEntityInit;
 
-public class TileEntityJungleCrate extends TileEntityCrate
+public class JungleCrateTileEntity extends CrateTileEntity
 {
-	public TileEntityJungleCrate() 
+	public JungleCrateTileEntity() 
 	{
 		type = TileEntityInit.JUNGLE_CRATE;
 		containerRegistryName = "container.jungle_crate";

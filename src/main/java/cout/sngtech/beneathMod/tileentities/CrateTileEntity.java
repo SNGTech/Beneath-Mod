@@ -21,7 +21,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class TileEntityCrate extends TileEntity implements INamedContainerProvider, INameable
+public class CrateTileEntity extends TileEntity implements INamedContainerProvider, INameable
 {
 	ItemStackHandler inventory = new ItemStackHandler(15)
 	{
@@ -37,7 +37,7 @@ public class TileEntityCrate extends TileEntity implements INamedContainerProvid
 	protected String containerRegistryName;
 	protected static TileEntityType<?> type;
 	
-	public TileEntityCrate() 
+	public CrateTileEntity() 
 	{
 		super(type);
 	}
@@ -73,20 +73,22 @@ public class TileEntityCrate extends TileEntity implements INamedContainerProvid
 	@Override
 	public void read(CompoundNBT compound) 
 	{
+		super.read(compound);
 		this.inventory.deserializeNBT(compound.getCompound("inventory"));
+		//ModItemStackHelper.loadAllItems(compound, inventory);
 		
 		if (compound.contains("CustomName", 8)) 
 		{
 			this.customName = ITextComponent.Serializer.fromJson(compound.getString("CustomName"));
 	    }
-		
-		super.read(compound);
 	}
 	
 	@Override
 	public CompoundNBT write(CompoundNBT compound) 
 	{
+		super.write(compound);
 		compound.putString("inventory", inventory.serializeNBT().toString());
+		//ModItemStackHelper.saveAllItems(compound, inventory);
 		
 		ITextComponent itextcomponent = this.getCustomName();
 	    if (itextcomponent != null) 
@@ -94,7 +96,7 @@ public class TileEntityCrate extends TileEntity implements INamedContainerProvid
 	       compound.putString("CustomName", ITextComponent.Serializer.toJson(itextcomponent));
 	    }
 		
-		return super.write(compound);
+		return compound;
 	}
 	
 	@Override
@@ -113,7 +115,7 @@ public class TileEntityCrate extends TileEntity implements INamedContainerProvid
 	public SUpdateTileEntityPacket getUpdatePacket() 
 	{
 		return new SUpdateTileEntityPacket(this.pos, 0, this.getUpdateTag());
-	} 
+	}
 	
 	public ItemStackHandler getInventory()
 	{
@@ -128,7 +130,7 @@ public class TileEntityCrate extends TileEntity implements INamedContainerProvid
 	@Override
 	public Container createMenu(int windowId, PlayerInventory playerInv, PlayerEntity player) 
 	{
-		return new CrateContainer(windowId, playerInv, player, this, this.getCustomName().toString());
+		return new CrateContainer(windowId, playerInv, player, this);
 	}
 	
 	@Override
