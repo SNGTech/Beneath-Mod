@@ -1,6 +1,6 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
-import cout.sngtech.beneathMod.tileentities.OakCrateTileEntity;
+import cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,9 +16,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class OakCrateBlock extends AbstractCrateBlock
+public class DarkOakCrateBlock extends AbstractCrateBlock
 {
-	public OakCrateBlock(Properties builder) 
+	public DarkOakCrateBlock(Properties builder) 
 	{
 		super(builder);
 	}
@@ -26,7 +26,7 @@ public class OakCrateBlock extends AbstractCrateBlock
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new OakCrateTileEntity();
+		return new DarkOakCrateTileEntity();
 	}
 	
 	@Override
@@ -39,9 +39,9 @@ public class OakCrateBlock extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof OakCrateTileEntity)
+			if(te instanceof DarkOakCrateTileEntity)
 			{
-				NetworkHooks.openGui((ServerPlayerEntity) player, (OakCrateTileEntity) te, (buf -> buf.writeBlockPos(pos)));
+				NetworkHooks.openGui((ServerPlayerEntity) player, (DarkOakCrateTileEntity) te, (buf -> buf.writeBlockPos(pos)));
 			}
 		}
 		
@@ -54,9 +54,9 @@ public class OakCrateBlock extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof OakCrateTileEntity) 
+			if (tileentity instanceof DarkOakCrateTileEntity) 
 			{
-				((OakCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
+				((DarkOakCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -67,12 +67,12 @@ public class OakCrateBlock extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof OakCrateTileEntity)
+		if(te instanceof DarkOakCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((OakCrateTileEntity) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((DarkOakCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((OakCrateTileEntity) te).getInventory().getStackInSlot(i);
+				stack = ((DarkOakCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					double d0 = (double)EntityType.ITEM.getWidth();

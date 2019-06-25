@@ -36,12 +36,12 @@ public class TileEntityInit
 			e.getRegistry().registerAll
 			(
 				//Storage
-				TileEntityType.Builder.create(OakCrateTileEntity::new, BlockInit.OAK_CRATE).build(null).setRegistryName(Main.MODID, "oak_crate"),
-				TileEntityType.Builder.create(SpruceCrateTileEntity::new, BlockInit.SPRUCE_CRATE).build(null).setRegistryName(Main.MODID, "spruce_crate"),
-				TileEntityType.Builder.create(BirchCrateTileEntity::new, BlockInit.BIRCH_CRATE).build(null).setRegistryName(Main.MODID, "birch_crate"),
-				TileEntityType.Builder.create(JungleCrateTileEntity::new, BlockInit.JUNGLE_CRATE).build(null).setRegistryName(Main.MODID, "jungle_crate"),
-				TileEntityType.Builder.create(AcaciaCrateTileEntity::new, BlockInit.ACACIA_CRATE).build(null).setRegistryName(Main.MODID, "acacia_crate"),
-				TileEntityType.Builder.create(DarkOakCrateTileEntity::new, BlockInit.DARK_OAK_CRATE).build(null).setRegistryName(Main.MODID, "dark_oak_crate")
+				TileEntityType.Builder.create(OakCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "oak_crate"),
+				TileEntityType.Builder.create(SpruceCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "spruce_crate"),
+				TileEntityType.Builder.create(BirchCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "birch_crate"),
+				TileEntityType.Builder.create(JungleCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "jungle_crate"),
+				TileEntityType.Builder.create(AcaciaCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "acacia_crate"),
+				TileEntityType.Builder.create(DarkOakCrateTileEntity::new).build(null).setRegistryName(Main.MODID, "dark_oak_crate")
 				
 				//Machines (Heat Operated)
 				//TileEntityType.Builder.create(TileEntityBlockBreaker::new, BlockInit.BLOCK_BREAKER).build(null).setRegistryName(Main.MODID, "block_breaker")

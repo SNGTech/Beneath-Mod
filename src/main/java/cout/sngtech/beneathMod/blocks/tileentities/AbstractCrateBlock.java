@@ -1,10 +1,12 @@
 package cout.sngtech.beneathMod.blocks.tileentities;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ContainerBlock;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockReader;
 
-public abstract class AbstractCrateBlock extends ContainerBlock
+public class AbstractCrateBlock extends Block
 {
 	public AbstractCrateBlock(Properties builder) 
 	{
@@ -15,6 +17,11 @@ public abstract class AbstractCrateBlock extends ContainerBlock
 	public boolean hasTileEntity(BlockState state) 
 	{
 		return true;
+	}
+	
+	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
+	{
+		return null;
 	}
 	
 	public BlockRenderType getRenderType(BlockState state) 

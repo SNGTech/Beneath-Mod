@@ -3,6 +3,7 @@ package cout.sngtech.beneathMod.tileentities;
 import javax.annotation.Nullable;
 
 import cout.sngtech.beneathMod.containers.CrateContainer;
+import cout.sngtech.beneathMod.utils.ModItemStackHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -75,7 +76,7 @@ public class CrateTileEntity extends TileEntity implements INamedContainerProvid
 	{
 		super.read(compound);
 		this.inventory.deserializeNBT(compound.getCompound("inventory"));
-		//ModItemStackHelper.loadAllItems(compound, inventory);
+		ModItemStackHelper.loadAllItems(compound, inventory);
 		
 		if (compound.contains("CustomName", 8)) 
 		{
@@ -88,7 +89,7 @@ public class CrateTileEntity extends TileEntity implements INamedContainerProvid
 	{
 		super.write(compound);
 		compound.putString("inventory", inventory.serializeNBT().toString());
-		//ModItemStackHelper.saveAllItems(compound, inventory);
+		ModItemStackHelper.saveAllItems(compound, inventory);
 		
 		ITextComponent itextcomponent = this.getCustomName();
 	    if (itextcomponent != null) 

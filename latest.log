@@ -1,200 +1,199 @@
-[24Jun2019 18:55:32.639] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20190603.175704, --fml.mcVersion, 1.14.2, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 26.0.55, --version, MOD_DEV, --assetIndex, 1.14, --assetsDir, C:\Users\Titus Lim\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[24Jun2019 18:55:32.642] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher starting: java version 1.8.0_201 by Oracle Corporation
-[24Jun2019 18:55:33.003] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
-[24Jun2019 18:55:33.399] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Titus Lim\.gradle\caches\forge_gradle\assets, --assetIndex, 1.14, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[24Jun2019 18:55:35.072] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[24Jun2019 18:55:35.661] [Client thread/INFO] [net.minecraftforge.fml.ModLoader/CORE]: Loading Network data for FML net version: FML2
-[24Jun2019 18:55:43.158] [Client thread/WARN] [net.minecraft.client.GameSettings/]: Skipping bad option: lastServer:
-[24Jun2019 18:55:43.197] [Client thread/INFO] [net.minecraft.client.Minecraft/]: LWJGL Version: 3.2.1 build 12
-[24Jun2019 18:55:44.750] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 26.0.55, for MC 1.14.2 with MCP 20190603.175704
-[24Jun2019 18:55:44.750] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v26.0.55 Initialized
-[24Jun2019 18:55:46.821] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
-[24Jun2019 18:55:47.313] [Client thread/INFO] [com.mojang.realmsclient.plugin.RealmsPluginImpl/]: Built for minecraft version 1.14.2
-[24Jun2019 18:55:47.364] [modloading-worker-9/INFO] [beneath/]: Common Setup Event Registered
-[24Jun2019 18:55:47.440] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
-[24Jun2019 18:55:47.576] [modloading-worker-9/INFO] [beneath/]: Client Setup Event Registered
-[24Jun2019 18:55:49.465] [Server-Worker-1/WARN] [net.minecraft.client.gui.fonts.providers.TextureGlyphProvider/]: Codepoint '1ed0' declared multiple times in minecraft:textures/font/accented.png
-[24Jun2019 18:55:50.219] [Realms Notification Availability checker #1/INFO] [realms.g/]: Could not authorize you against Realms server: Invalid session id
-[24Jun2019 18:55:50.239] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: BETA_OUTDATED Current: 26.0.55 Target: 26.0.63
-[24Jun2019 18:55:56.094] [Client thread/WARN] [net.minecraft.client.GameSettings/]: Skipping bad option: lastServer:
-[24Jun2019 18:55:56.647] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
-[24Jun2019 18:55:56.647] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
-[24Jun2019 18:55:56.760] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
-[24Jun2019 18:55:57.378] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
-[24Jun2019 18:55:57.380] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
-[24Jun2019 18:55:57.381] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
-[24Jun2019 18:56:02.200] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[24Jun2019 18:56:02.200] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[24Jun2019 18:56:02.201] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[24Jun2019 18:56:02.201] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[24Jun2019 18:56:02.202] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[24Jun2019 18:56:02.307] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.14.2
-[24Jun2019 18:56:02.307] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Generating keypair
-[24Jun2019 18:56:02.423] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
-[24Jun2019 18:56:02.455] [Server thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this SERVER instance
-[24Jun2019 18:56:02.730] [Server thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, forge-1.14.2-26.0.55_mapped_snapshot_20190621-1.14.2-recomp.jar, main
-[24Jun2019 18:56:03.749] [Server thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 6 recipes
-[24Jun2019 18:56:06.232] [Server thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 811 advancements
-[24Jun2019 18:56:06.557] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[24Jun2019 18:56:07.988] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[24Jun2019 18:56:08.015] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[24Jun2019 18:56:08.015] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[24Jun2019 18:56:08.141] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[24Jun2019 18:56:09.766] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
-[24Jun2019 18:56:09.766] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
-[24Jun2019 18:56:09.766] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
-[24Jun2019 18:56:10.106] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 91%
-[24Jun2019 18:56:10.605] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 91%
-[24Jun2019 18:56:11.105] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 91%
-[24Jun2019 18:56:11.648] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 99%
-[24Jun2019 18:56:11.648] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 5062 ms
-[24Jun2019 18:56:12.257] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[24Jun2019 18:56:12.257] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[24Jun2019 18:56:13.775] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
-[24Jun2019 18:56:13.921] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:db0d1200] logged in with entity id 228 at (-162.1776026040743, 72.16610926093821, -191.5695955741122)
-[24Jun2019 18:56:13.945] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[24Jun2019 18:56:14.514] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[24Jun2019 18:56:14.531] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
-[24Jun2019 18:56:14.634] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 38 advancements
-[24Jun2019 18:56:15.341] [pool-3-thread-1/WARN] [com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService/]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@629369ea[id=380df991-f603-344c-a090-369bad2a924a,name=Dev,properties={},legacy=false]
-com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
-	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[authlib-1.5.25.jar:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) ~[authlib-1.5.25.jar:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) ~[authlib-1.5.25.jar:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) ~[authlib-1.5.25.jar:?]
-	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2276) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2154) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2044) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache.get(LocalCache.java:3951) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3973) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4957) ~[guava-25.1-jre.jar:?]
-	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:4963) ~[guava-25.1-jre.jar:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) ~[authlib-1.5.25.jar:?]
-	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:1944) ~[?:?]
-	at net.minecraft.client.resources.SkinManager.lambda$loadProfileTextures$1(SkinManager.java:111) ~[?:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_201]
-	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_201]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_201]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_201]
+[25Jun2019 09:01:35.553] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20190603.175704, --fml.mcVersion, 1.14.2, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 26.0.55, --version, MOD_DEV, --assetIndex, 1.14, --assetsDir, C:\Users\Titus Lim\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[25Jun2019 09:01:35.557] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher starting: java version 1.8.0_201 by Oracle Corporation
+[25Jun2019 09:01:35.913] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[25Jun2019 09:01:36.347] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Titus Lim\.gradle\caches\forge_gradle\assets, --assetIndex, 1.14, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[25Jun2019 09:01:38.266] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[25Jun2019 09:01:38.914] [Client thread/INFO] [net.minecraftforge.fml.ModLoader/CORE]: Loading Network data for FML net version: FML2
+[25Jun2019 09:01:46.954] [Client thread/WARN] [net.minecraft.client.GameSettings/]: Skipping bad option: lastServer:
+[25Jun2019 09:01:46.984] [Client thread/INFO] [net.minecraft.client.Minecraft/]: LWJGL Version: 3.2.1 build 12
+[25Jun2019 09:01:48.568] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 26.0.55, for MC 1.14.2 with MCP 20190603.175704
+[25Jun2019 09:01:48.569] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v26.0.55 Initialized
+[25Jun2019 09:01:50.296] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[25Jun2019 09:01:51.930] [Client thread/INFO] [com.mojang.realmsclient.plugin.RealmsPluginImpl/]: Built for minecraft version 1.14.2
+[25Jun2019 09:01:51.978] [modloading-worker-9/INFO] [beneath/]: Common Setup Event Registered
+[25Jun2019 09:01:51.979] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[25Jun2019 09:01:52.043] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[25Jun2019 09:01:52.170] [modloading-worker-9/INFO] [beneath/]: Client Setup Event Registered
+[25Jun2019 09:01:52.971] [Server-Worker-3/WARN] [net.minecraft.client.gui.fonts.providers.TextureGlyphProvider/]: Codepoint '1ed0' declared multiple times in minecraft:textures/font/accented.png
+[25Jun2019 09:01:53.200] [Realms Notification Availability checker #1/INFO] [realms.g/]: Could not authorize you against Realms server: Invalid session id
+[25Jun2019 09:01:53.202] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: BETA_OUTDATED Current: 26.0.55 Target: 26.0.63
+[25Jun2019 09:01:59.194] [Client thread/WARN] [net.minecraft.client.GameSettings/]: Skipping bad option: lastServer:
+[25Jun2019 09:01:59.623] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[25Jun2019 09:01:59.624] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[25Jun2019 09:01:59.796] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
+[25Jun2019 09:02:00.364] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
+[25Jun2019 09:02:00.365] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
+[25Jun2019 09:02:00.365] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
+[25Jun2019 09:02:08.829] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[25Jun2019 09:02:08.829] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[25Jun2019 09:02:08.830] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[25Jun2019 09:02:08.830] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[25Jun2019 09:02:08.831] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[25Jun2019 09:02:08.939] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.14.2
+[25Jun2019 09:02:08.939] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Generating keypair
+[25Jun2019 09:02:09.239] [Server thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this SERVER instance
+[25Jun2019 09:02:09.580] [Server thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, forge-1.14.2-26.0.55_mapped_snapshot_20190621-1.14.2-recomp.jar, main
+[25Jun2019 09:02:11.164] [Server thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 6 recipes
+[25Jun2019 09:02:14.544] [Server thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 811 advancements
+[25Jun2019 09:02:14.870] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[25Jun2019 09:02:16.063] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[25Jun2019 09:02:16.063] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[25Jun2019 09:02:16.063] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[25Jun2019 09:02:16.425] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[25Jun2019 09:02:17.964] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
+[25Jun2019 09:02:17.964] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
+[25Jun2019 09:02:17.964] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
+[25Jun2019 09:02:18.381] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 91%
+[25Jun2019 09:02:18.881] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 91%
+[25Jun2019 09:02:19.381] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 92%
+[25Jun2019 09:02:19.888] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 97%
+[25Jun2019 09:02:19.951] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 5076 ms
+[25Jun2019 09:02:20.336] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[25Jun2019 09:02:20.336] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[25Jun2019 09:02:22.026] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
+[25Jun2019 09:02:22.213] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:793a5ee3] logged in with entity id 251 at (-126.8436863635329, 69.0, -137.6751909280165)
+[25Jun2019 09:02:22.244] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[25Jun2019 09:02:22.300] [Server thread/ERROR] [net.minecraft.server.MinecraftServer/]: Encountered an unexpected exception
+net.minecraft.crash.ReportedException: Ticking memory connection
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:154) ~[?:?]
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:867) ~[?:?]
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:782) ~[?:?]
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118) ~[?:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:631) [?:?]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:56:46.008] [Server thread/FATAL] [net.minecraft.util.concurrent.ThreadTaskExecutor/]: Error executing task on Server
-java.lang.NullPointerException: null
-	at cout.sngtech.beneathMod.tileentities.TileEntityCrate.createMenu(TileEntityCrate.java:131) ~[?:?]
-	at net.minecraftforge.fml.network.NetworkHooks.openGui(NetworkHooks.java:165) ~[?:?]
-	at cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate.onBlockActivated(BlockOakCrate.java:44) ~[?:?]
-	at net.minecraft.block.BlockState.onBlockActivated(BlockState.java:297) ~[?:?]
-	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:366) ~[?:?]
-	at net.minecraft.network.play.ServerPlayNetHandler.processTryUseItemOnBlock(ServerPlayNetHandler.java:895) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:45) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:12) ~[?:?]
-	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:14) ~[?:?]
-	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:131) [?:?]
-	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:106) [?:?]
-	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:708) [?:?]
-	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:702) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:119) [?:?]
-	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:688) [?:?]
-	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) [?:?]
+Caused by: java.lang.RuntimeException: class cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity is missing a mapping! This is a bug!
+	at net.minecraft.tileentity.TileEntity.writeInternal(TileEntity.java:72) ~[?:?]
+	at net.minecraft.tileentity.TileEntity.write(TileEntity.java:66) ~[?:?]
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.write(CrateTileEntity.java:90) ~[?:?]
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.getUpdateTag(CrateTileEntity.java:106) ~[?:?]
+	at net.minecraft.network.play.server.SChunkDataPacket.<init>(SChunkDataPacket.java:59) ~[?:?]
+	at net.minecraft.world.chunk.ChunkManager.sendChunkData(ChunkManager.java:968) ~[?:?]
+	at net.minecraft.world.chunk.ChunkManager.setClientChunkLoaded(ChunkManager.java:715) ~[?:?]
+	at net.minecraft.world.chunk.ChunkManager.setPlayerTracking(ChunkManager.java:779) ~[?:?]
+	at net.minecraft.world.chunk.ChunkManager.track(ChunkManager.java:893) ~[?:?]
+	at net.minecraft.world.chunk.ServerChunkProvider.track(ServerChunkProvider.java:402) ~[?:?]
+	at net.minecraft.world.ServerWorld.onEntityAdded(ServerWorld.java:985) ~[?:?]
+	at net.minecraft.world.ServerWorld.addPlayer(ServerWorld.java:882) ~[?:?]
+	at net.minecraft.world.ServerWorld.addNewPlayer(ServerWorld.java:860) ~[?:?]
+	at net.minecraft.server.management.PlayerList.initializeConnectionToPlayer(PlayerList.java:160) ~[?:?]
+	at net.minecraft.network.login.ServerLoginNetHandler.tryAcceptPlayer(ServerLoginNetHandler.java:112) ~[?:?]
+	at net.minecraft.network.login.ServerLoginNetHandler.tick(ServerLoginNetHandler.java:63) ~[?:?]
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:253) ~[?:?]
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:148) ~[?:?]
+	... 5 more
+[25Jun2019 09:02:22.319] [Server thread/ERROR] [net.minecraft.server.MinecraftServer/]: This crash report has been saved to: C:\Users\Titus Lim\Desktop\Modding Environment\Beneath Mod\run\.\crash-reports\crash-2019-06-25_09.02.22-server.txt
+[25Jun2019 09:02:22.319] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[25Jun2019 09:02:22.320] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[25Jun2019 09:02:22.350] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
+[25Jun2019 09:02:22.351] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[25Jun2019 09:02:22.377] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
+[25Jun2019 09:02:22.377] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[25Jun2019 09:02:22.377] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[25Jun2019 09:02:22.609] [Server thread/ERROR] [net.minecraft.world.chunk.Chunk/]: A TileEntity type cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity has thrown an exception trying to write state. It will not persist, Report this to the mod author
+java.lang.RuntimeException: class cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity is missing a mapping! This is a bug!
+	at net.minecraft.tileentity.TileEntity.writeInternal(TileEntity.java:72) ~[?:?]
+	at net.minecraft.tileentity.TileEntity.write(TileEntity.java:66) ~[?:?]
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.write(CrateTileEntity.java:90) ~[?:?]
+	at net.minecraft.world.chunk.Chunk.func_223134_j(Chunk.java:443) ~[?:?]
+	at net.minecraft.world.chunk.storage.ChunkSerializer.write(ChunkSerializer.java:302) ~[?:?]
+	at net.minecraft.world.chunk.ChunkManager.func_219229_a(ChunkManager.java:663) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) [?:1.8.0_201]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source) [?:1.8.0_201]
+	at java.util.stream.ReferencePipeline.forEach(Unknown Source) [?:1.8.0_201]
+	at net.minecraft.world.chunk.ChunkManager.save(ChunkManager.java:322) [?:?]
+	at net.minecraft.world.chunk.ServerChunkProvider.save(ServerChunkProvider.java:262) [?:?]
+	at net.minecraft.world.ServerWorld.save(ServerWorld.java:757) [?:?]
+	at net.minecraft.server.MinecraftServer.save(MinecraftServer.java:513) [?:?]
+	at net.minecraft.server.MinecraftServer.stopServer(MinecraftServer.java:556) [?:?]
+	at net.minecraft.server.integrated.IntegratedServer.stopServer(IntegratedServer.java:235) [?:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:667) [?:?]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:56:47.712] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[24Jun2019 18:56:47.725] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
-[24Jun2019 18:57:51.126] [Server thread/FATAL] [net.minecraft.util.concurrent.ThreadTaskExecutor/]: Error executing task on Server
-java.lang.NullPointerException: null
-	at cout.sngtech.beneathMod.tileentities.TileEntityCrate.createMenu(TileEntityCrate.java:131) ~[?:?]
-	at net.minecraftforge.fml.network.NetworkHooks.openGui(NetworkHooks.java:165) ~[?:?]
-	at cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate.onBlockActivated(BlockOakCrate.java:44) ~[?:?]
-	at net.minecraft.block.BlockState.onBlockActivated(BlockState.java:297) ~[?:?]
-	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:366) ~[?:?]
-	at net.minecraft.network.play.ServerPlayNetHandler.processTryUseItemOnBlock(ServerPlayNetHandler.java:895) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:45) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:12) ~[?:?]
-	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:14) ~[?:?]
-	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:131) [?:?]
-	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:106) [?:?]
-	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:708) [?:?]
-	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:702) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:119) [?:?]
-	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:688) [?:?]
-	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) [?:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:57:51.327] [Server thread/FATAL] [net.minecraft.util.concurrent.ThreadTaskExecutor/]: Error executing task on Server
-java.lang.NullPointerException: null
-	at cout.sngtech.beneathMod.tileentities.TileEntityCrate.createMenu(TileEntityCrate.java:131) ~[?:?]
-	at net.minecraftforge.fml.network.NetworkHooks.openGui(NetworkHooks.java:165) ~[?:?]
-	at cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate.onBlockActivated(BlockOakCrate.java:44) ~[?:?]
-	at net.minecraft.block.BlockState.onBlockActivated(BlockState.java:297) ~[?:?]
-	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:366) ~[?:?]
-	at net.minecraft.network.play.ServerPlayNetHandler.processTryUseItemOnBlock(ServerPlayNetHandler.java:895) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:45) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:12) ~[?:?]
-	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:14) ~[?:?]
-	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:131) [?:?]
-	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:106) [?:?]
-	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:708) [?:?]
-	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:702) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:119) [?:?]
-	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:688) [?:?]
-	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) [?:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:58:23.078] [Server thread/FATAL] [net.minecraft.util.concurrent.ThreadTaskExecutor/]: Error executing task on Server
-java.lang.NullPointerException: null
-	at cout.sngtech.beneathMod.tileentities.TileEntityCrate.createMenu(TileEntityCrate.java:131) ~[?:?]
-	at net.minecraftforge.fml.network.NetworkHooks.openGui(NetworkHooks.java:165) ~[?:?]
-	at cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate.onBlockActivated(BlockOakCrate.java:44) ~[?:?]
-	at net.minecraft.block.BlockState.onBlockActivated(BlockState.java:297) ~[?:?]
-	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:366) ~[?:?]
-	at net.minecraft.network.play.ServerPlayNetHandler.processTryUseItemOnBlock(ServerPlayNetHandler.java:895) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:45) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:12) ~[?:?]
-	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:14) ~[?:?]
-	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:131) [?:?]
-	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:106) [?:?]
-	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:708) [?:?]
-	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:702) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:119) [?:?]
-	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:688) [?:?]
-	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) [?:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:58:23.327] [Server thread/FATAL] [net.minecraft.util.concurrent.ThreadTaskExecutor/]: Error executing task on Server
-java.lang.NullPointerException: null
-	at cout.sngtech.beneathMod.tileentities.TileEntityCrate.createMenu(TileEntityCrate.java:131) ~[?:?]
-	at net.minecraftforge.fml.network.NetworkHooks.openGui(NetworkHooks.java:165) ~[?:?]
-	at cout.sngtech.beneathMod.blocks.tileentities.BlockOakCrate.onBlockActivated(BlockOakCrate.java:44) ~[?:?]
-	at net.minecraft.block.BlockState.onBlockActivated(BlockState.java:297) ~[?:?]
-	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:366) ~[?:?]
-	at net.minecraft.network.play.ServerPlayNetHandler.processTryUseItemOnBlock(ServerPlayNetHandler.java:895) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:45) ~[?:?]
-	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.processPacket(CPlayerTryUseItemOnBlockPacket.java:12) ~[?:?]
-	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:14) ~[?:?]
-	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:131) [?:?]
-	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:106) [?:?]
-	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:708) [?:?]
-	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:702) [?:?]
-	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:119) [?:?]
-	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:688) [?:?]
-	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) [?:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
-[24Jun2019 18:58:26.612] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[24Jun2019 18:58:26.623] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
-[24Jun2019 18:58:27.573] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
-[24Jun2019 18:58:27.574] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[24Jun2019 18:58:27.585] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
-[24Jun2019 18:58:27.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[24Jun2019 18:58:27.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[24Jun2019 18:58:27.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[24Jun2019 18:58:27.661] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
-[24Jun2019 18:58:27.888] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (New World): All chunks are saved
-[24Jun2019 18:58:27.900] [Server thread/INFO] [net.minecraft.world.chunk.ChunkManager/]: ThreadedAnvilChunkStorage (New World): All chunks are saved
-[24Jun2019 18:58:27.977] [Client thread/INFO] [com.mojang.realmsclient.plugin.RealmsPluginImpl/]: Built for minecraft version 1.14.2
-[24Jun2019 18:58:29.055] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[25Jun2019 09:02:22.830] [Client thread/INFO] [STDOUT/]: [net.minecraft.util.registry.Bootstrap:printToSYSOUT:106]: ---- Minecraft Crash Report ----
+// This is a token for 1 free hug. Redeem at your nearest Mojangsta: [~~HUG~~]
+
+Time: 6/25/19 9:02 AM
+Description: Ticking memory connection
+
+java.lang.RuntimeException: class cout.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity is missing a mapping! This is a bug!
+	at net.minecraft.tileentity.TileEntity.writeInternal(TileEntity.java:72) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.tileentity.TileEntity.write(TileEntity.java:66) ~[?:?] {pl:accesstransformer:B}
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.write(CrateTileEntity.java:90) ~[?:?] {}
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.getUpdateTag(CrateTileEntity.java:106) ~[?:?] {}
+	at net.minecraft.network.play.server.SChunkDataPacket.<init>(SChunkDataPacket.java:59) ~[?:?] {}
+	at net.minecraft.world.chunk.ChunkManager.sendChunkData(ChunkManager.java:968) ~[?:?] {}
+	at net.minecraft.world.chunk.ChunkManager.setClientChunkLoaded(ChunkManager.java:715) ~[?:?] {}
+	at net.minecraft.world.chunk.ChunkManager.setPlayerTracking(ChunkManager.java:779) ~[?:?] {}
+	at net.minecraft.world.chunk.ChunkManager.track(ChunkManager.java:893) ~[?:?] {}
+	at net.minecraft.world.chunk.ServerChunkProvider.track(ServerChunkProvider.java:402) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.world.ServerWorld.onEntityAdded(ServerWorld.java:985) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.world.ServerWorld.addPlayer(ServerWorld.java:882) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.world.ServerWorld.addNewPlayer(ServerWorld.java:860) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.server.management.PlayerList.initializeConnectionToPlayer(PlayerList.java:160) ~[?:?] {}
+	at net.minecraft.network.login.ServerLoginNetHandler.tryAcceptPlayer(ServerLoginNetHandler.java:112) ~[?:?] {}
+	at net.minecraft.network.login.ServerLoginNetHandler.tick(ServerLoginNetHandler.java:63) ~[?:?] {}
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:253) ~[?:?] {}
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:148) ~[?:?] {}
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:867) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:782) ~[?:?] {pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118) ~[?:?] {pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:631) ~[?:?] {pl:accesstransformer:B}
+	at java.lang.Thread.run(Unknown Source) ~[?:1.8.0_201] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at net.minecraft.tileentity.TileEntity.writeInternal(TileEntity.java:72)
+	at net.minecraft.tileentity.TileEntity.write(TileEntity.java:66)
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.write(CrateTileEntity.java:90)
+	at cout.sngtech.beneathMod.tileentities.CrateTileEntity.getUpdateTag(CrateTileEntity.java:106)
+	at net.minecraft.network.play.server.SChunkDataPacket.<init>(SChunkDataPacket.java:59)
+	at net.minecraft.world.chunk.ChunkManager.sendChunkData(ChunkManager.java:968)
+	at net.minecraft.world.chunk.ChunkManager.setClientChunkLoaded(ChunkManager.java:715)
+	at net.minecraft.world.chunk.ChunkManager.setPlayerTracking(ChunkManager.java:779)
+	at net.minecraft.world.chunk.ChunkManager.track(ChunkManager.java:893)
+	at net.minecraft.world.chunk.ServerChunkProvider.track(ServerChunkProvider.java:402)
+	at net.minecraft.world.ServerWorld.onEntityAdded(ServerWorld.java:985)
+	at net.minecraft.world.ServerWorld.addPlayer(ServerWorld.java:882)
+	at net.minecraft.world.ServerWorld.addNewPlayer(ServerWorld.java:860)
+	at net.minecraft.server.management.PlayerList.initializeConnectionToPlayer(PlayerList.java:160)
+	at net.minecraft.network.login.ServerLoginNetHandler.tryAcceptPlayer(ServerLoginNetHandler.java:112)
+	at net.minecraft.network.login.ServerLoginNetHandler.tick(ServerLoginNetHandler.java:63)
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:253)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@36dca3dc
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:148)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:867)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:782)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:631)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.14.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_201, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 870516272 bytes (830 MB) / 2197291008 bytes (2095 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 2 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx4096m
+	FML: New FML!
+	Loaded coremods (and transformers): Nothing
+	Player Count: 1 / 8; [ServerPlayerEntity['Dev'/251, l='New World', x=-126.84, y=69.00, z=-137.68]]
+	Data Packs: vanilla, mod:forge, mod:beneath
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'
+[25Jun2019 09:02:22.830] [Client thread/INFO] [STDOUT/]: [net.minecraft.util.registry.Bootstrap:printToSYSOUT:106]: #@!@# Game crashed! Crash report saved to: #@!@# .\crash-reports\crash-2019-06-25_09.02.22-server.txt

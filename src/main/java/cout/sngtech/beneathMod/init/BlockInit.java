@@ -1,12 +1,12 @@
 package cout.sngtech.beneathMod.init;
 
 import cout.sngtech.beneathMod.Main;
-import cout.sngtech.beneathMod.blocks.tileentities.BlockAcaciaCrate;
-import cout.sngtech.beneathMod.blocks.tileentities.BlockBirchCrate;
-import cout.sngtech.beneathMod.blocks.tileentities.BlockDarkOakCrate;
-import cout.sngtech.beneathMod.blocks.tileentities.BlockJungleCrate;
+import cout.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
+import cout.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
+import cout.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
+import cout.sngtech.beneathMod.blocks.tileentities.JungleCrateBlock;
 import cout.sngtech.beneathMod.blocks.tileentities.OakCrateBlock;
-import cout.sngtech.beneathMod.blocks.tileentities.BlockSpruceCrate;
+import cout.sngtech.beneathMod.blocks.tileentities.SpruceCrateBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
@@ -57,11 +57,11 @@ public class BlockInit
 				
 				//Tile Entities
 				new OakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate")),
-				new BlockSpruceCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
-				new BlockBirchCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
-				new BlockJungleCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
-				new BlockAcaciaCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
-				new BlockDarkOakCrate(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
+				new SpruceCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
+				new BirchCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
+				new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
+				new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
+				new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
 			);
 			
 			Main.logger.debug("Registered Blocks");
