@@ -36,11 +36,15 @@ public class CrateTileEntity extends TileEntity implements INamedContainerProvid
 	
 	private ITextComponent customName;
 	protected String containerRegistryName;
-	protected static TileEntityType<?> type;
+	
+	public CrateTileEntity(final TileEntityType<?> type) 
+	{
+		super(type);
+	}
 	
 	public CrateTileEntity() 
 	{
-		super(type);
+		this(null);
 	}
 	
 	@Override
