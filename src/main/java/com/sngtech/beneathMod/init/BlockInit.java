@@ -1,6 +1,7 @@
 package com.sngtech.beneathMod.init;
 
 import com.sngtech.beneathMod.Main;
+import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
 import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
@@ -21,6 +22,10 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(Main.MODID)
 public class BlockInit 
 {
+	//Terrain
+	public static final Block DECAYED_GRASS = null;
+	public static final Block CRACKED_ROCKS = null;
+	
 	//Decorations
 	public static final Block CARVED_STONE_BRICKS = null;
 	public static final Block LINE_CHISELED_STONE_BRICKS = null;
@@ -47,6 +52,10 @@ public class BlockInit
 		{
 			e.getRegistry().registerAll
 			(
+				//Terrain
+				new DecayedGrassBlock(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0f).sound(SoundType.PLANT)).setRegistryName(new ResourceLocation(Main.MODID, "decayed_grass")),
+				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.4f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "cracked_rocks")),	
+				
 				//Decorations
 				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
 				new RotatedPillarBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),

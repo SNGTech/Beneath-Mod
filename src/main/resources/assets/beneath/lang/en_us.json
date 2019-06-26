@@ -1,4 +1,7 @@
 {
+	//Biomes
+	"beneath.am_plains": "AM Plains",
+
 	//Minerals (Items)
 	"item.beneath.rock": "Rock",
 	"item.beneath.iron_ore_rock": "Iron Ore Rock",
@@ -7,6 +10,10 @@
 
 	//Wearables (Items)
 	"item.beneath.mining_helmet": "Mining Helmet",
+
+	//Terrain (Blocks)
+	"block.beneath.cracked_rocks": "Cracked Rocks",
+	"block.beneath.decayed_grass": "Decayed Grass",
 
 	//Decorations (Blocks)
 	"block.beneath.carved_stone_bricks": "Carved Stone Bricks",

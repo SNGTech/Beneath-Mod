@@ -3,6 +3,7 @@ package com.sngtech.beneathMod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.sngtech.beneathMod.init.BiomeInit;
 import com.sngtech.beneathMod.init.GuiHandler;
 import com.sngtech.beneathMod.itemgroups.BeneathBlocksGroup;
 import com.sngtech.beneathMod.itemgroups.BeneathItemsGroup;

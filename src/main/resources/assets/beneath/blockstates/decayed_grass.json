@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "": [
+            { "model": "beneath:block/decayed_grass" },
+            { "model": "beneath:block/decayed_grass2"}
+        ]
+    }
+}

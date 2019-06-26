@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "beneath:block/decayed_grass"
+    }
+}

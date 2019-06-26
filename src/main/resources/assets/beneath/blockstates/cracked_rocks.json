@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "": [
+            { "model": "beneath:block/cracked_rocks" },
+            { "model": "beneath:block/cracked_rocks", "y": 90 },
+            { "model": "beneath:block/cracked_rocks", "y": 180 },
+            { "model": "beneath:block/cracked_rocks", "y": 270 },
+            { "model": "beneath:block/cracked_rocks", "y": 90, "x": 90},
+            { "model": "beneath:block/cracked_rocks", "y": 180, "x": 90},
+            { "model": "beneath:block/cracked_rocks", "y": 270, "x": 90},
+            { "model": "beneath:block/cracked_rocks", "y": 90, "x": 180},
+            { "model": "beneath:block/cracked_rocks", "y": 180, "x": 180},
+            { "model": "beneath:block/cracked_rocks", "y": 270, "x": 180},
+            { "model": "beneath:block/cracked_rocks", "y": 90, "x": 270},
+            { "model": "beneath:block/cracked_rocks", "y": 180, "x": 270},
+            { "model": "beneath:block/cracked_rocks", "y": 270, "x": 270}
+        ]
+    }
+}

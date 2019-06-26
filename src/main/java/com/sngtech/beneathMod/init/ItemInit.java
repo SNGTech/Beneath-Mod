@@ -20,6 +20,9 @@ public class ItemInit
 	public static final Item BAUXITE_ORE_ROCK = null;
 	
 	//Item Blocks
+	public static final Item CRACKED_ROCKS = null;
+	public static final Item DECAYED_GRASS = null;
+	
 	public static final Item CARVED_STONE_BRICKS = null;
 	public static final Item LINE_CHISELED_STONE_BRICKS = null;
 	
@@ -44,13 +47,16 @@ public class ItemInit
 		{
 			e.getRegistry().registerAll
 			(
-				//MineralsS
+				//Minerals
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "rock")),
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "iron_ore_rock")),
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore_rock")),
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore_rock")),
 				
 				//Item Blocks
+				new BlockItem(BlockInit.CRACKED_ROCKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "cracked_rocks")),
+				new BlockItem(BlockInit.DECAYED_GRASS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "decayed_grass")),
+				
 				new BlockItem(BlockInit.CARVED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
 				new BlockItem(BlockInit.LINE_CHISELED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
 				
