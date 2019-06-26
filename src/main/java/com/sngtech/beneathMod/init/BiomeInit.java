@@ -20,7 +20,7 @@ public class BiomeInit
 	public static class RegistryEvents
 	{
 		@SubscribeEvent
-		public static void registerTileEntities(final RegistryEvent.Register<Biome> e)
+		public static void registerBiomes(final RegistryEvent.Register<Biome> e)
 		{
 			e.getRegistry().registerAll
 			(
