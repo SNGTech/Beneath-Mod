@@ -1,6 +1,6 @@
 {
 	//Biomes
-	"beneath.am_plains": "AM Plains",
+	"biome.beneath.am_plains": "AM Plains",
 
 	//Minerals (Items)
 	"item.beneath.rock": "Rock",

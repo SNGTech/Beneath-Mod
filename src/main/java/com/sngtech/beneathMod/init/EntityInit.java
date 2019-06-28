@@ -1,13 +1,23 @@
 package com.sngtech.beneathMod.init;
 
+import com.sngtech.beneathMod.Main;
+import com.sngtech.beneathMod.entities.ColdCreeperEntity;
+import com.sngtech.beneathMod.entities.renderer.ColdCreeperRenderer;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
+@ObjectHolder(Main.MODID)
 public class EntityInit 
 {
-	//public static final EntityType<?> dynamic_light_source = EntityType.Builder.createNothing(EntityDynamicLightSource.class).disableSerialization().disableSummoning().tracker(200, 1, true).build("dynamic_light_source").setRegistryName(Main.MODID, "dynamic_light_source");
+	public static final EntityType<ColdCreeperEntity> COLD_CREEPER = null;
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -17,8 +27,21 @@ public class EntityInit
 		{
 			e.getRegistry().registerAll
 			(
-				//dynamic_light_source
+				setup("cold_creeper", EntityType.Builder.<ColdCreeperEntity>create(ColdCreeperEntity::new, EntityClassification.MONSTER).size(0.6F, 1.7F).size(0.6F, 1.7F))
 			);
+			
+			Main.logger.debug("Entities Registered");
 		}
+	}
+	
+	public static void registerEntityRenderers()
+	{
+		RenderingRegistry.registerEntityRenderingHandler(ColdCreeperEntity.class, ColdCreeperRenderer::new);
+	}
+	
+	@SuppressWarnings("deprecation")
+	private static <T extends Entity> EntityType<T> setup(String key, EntityType.Builder<T> builder) 
+	{
+		return Registry.register(Registry.ENTITY_TYPE, Main.MODID + ":" + key, builder.build(key));
 	}
 }
