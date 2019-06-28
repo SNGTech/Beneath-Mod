@@ -51,9 +51,10 @@ public class ColdCreeperModel<T extends Entity> extends EntityModel<T>
         this.coldCreeperArmor.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, size + 0.5F);
     }
     
-    public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    @Override
+    public void render(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
-        this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+        this.setRotationAngles(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         this.head.render(scale);
         this.body.render(scale);
         this.leftLegFront.render(scale);
@@ -62,7 +63,8 @@ public class ColdCreeperModel<T extends Entity> extends EntityModel<T>
         this.legRightBack.render(scale);
     }
 
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+    @Override
+    public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
     {
         this.head.rotateAngleY = netHeadYaw * 0.017453292F;
         this.head.rotateAngleX = headPitch * 0.017453292F;

@@ -24,7 +24,8 @@ public class ColdCreeperRenderer extends MobRenderer<ColdCreeperEntity, ColdCree
       this.addLayer(new ColdCreeperChargeLayer(this));
    }
 
-   protected void func_77041_b(ColdCreeperEntity entitylivingbase, float partialTickTime) 
+   @Override
+   protected void preRenderCallback(ColdCreeperEntity entitylivingbase, float partialTickTime) 
    {
       float f = entitylivingbase.getColdCreeperFlashIntensity(partialTickTime);
       float f1 = 1.0F + MathHelper.sin(f * 100.0F) * f * 0.01F;
@@ -36,7 +37,8 @@ public class ColdCreeperRenderer extends MobRenderer<ColdCreeperEntity, ColdCree
       GlStateManager.scalef(f2, f3, f2);
    }
 
-   protected int func_77030_a(ColdCreeperEntity entitylivingbase, float lightBrightness, float partialTickTime) 
+   @Override
+   protected int getColorMultiplier(ColdCreeperEntity entitylivingbase, float lightBrightness, float partialTickTime) 
    {
       float f = entitylivingbase.getColdCreeperFlashIntensity(partialTickTime);
       if ((int)(f * 10.0F) % 2 == 0) 
@@ -51,7 +53,8 @@ public class ColdCreeperRenderer extends MobRenderer<ColdCreeperEntity, ColdCree
       }
    }
 
-   protected ResourceLocation func_110775_a(ColdCreeperEntity entity) 
+   @Override
+   protected ResourceLocation getEntityTexture(ColdCreeperEntity entity) 
    {
       return COLD_CREEPER_TEXTURES;
    }

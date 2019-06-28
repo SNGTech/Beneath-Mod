@@ -6,11 +6,10 @@ import com.sngtech.beneathMod.entities.ColdCreeperEntity;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.monster.CreeperEntity;
 
 public class ColdCreeperSwellGoal extends Goal 
 {
-private final ColdCreeperEntity coldCreeper;
+	private final ColdCreeperEntity coldCreeper;
    private LivingEntity livingEntity;
 
    public ColdCreeperSwellGoal(ColdCreeperEntity coldCreeper) 
@@ -19,35 +18,27 @@ private final ColdCreeperEntity coldCreeper;
       this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
    }
 
-   /**
-    * Returns whether the EntityAIBase should begin execution.
-    */
+   @Override
    public boolean shouldExecute() 
    {
       LivingEntity livingentity = this.coldCreeper.getAttackTarget();
       return this.coldCreeper.getColdCreeperState() > 0 || livingentity != null && this.coldCreeper.getDistanceSq(livingentity) < 9.0D;
    }
 
-   /**
-    * Execute a one shot task or start executing a continuous task
-    */
+   @Override
    public void startExecuting() 
    {
       this.coldCreeper.getNavigator().clearPath();
       this.livingEntity = this.coldCreeper.getAttackTarget();
    }
 
-   /**
-    * Reset the task's internal state. Called when this task is interrupted by another one
-    */
+   @Override
    public void resetTask() 
    {
       this.livingEntity = null;
    }
 
-   /**
-    * Keep ticking a continuous task that has already been started
-    */
+   @Override
    public void tick() {
       if (this.livingEntity == null) 
       {

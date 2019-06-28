@@ -21,7 +21,8 @@ public class ColdCreeperChargeLayer extends LayerRenderer<ColdCreeperEntity, Col
       super(coldCreeper);
    }
 
-   public void func_212842_a_(ColdCreeperEntity entityIn, float p_212842_2_, float p_212842_3_, float p_212842_4_, float p_212842_5_, float p_212842_6_, float p_212842_7_, float p_212842_8_) 
+   @Override
+   public void render(ColdCreeperEntity entityIn, float p_212842_2_, float p_212842_3_, float p_212842_4_, float p_212842_5_, float p_212842_6_, float p_212842_7_, float p_212842_8_) 
    {
       if (entityIn.getPowered()) 
       {
@@ -34,14 +35,13 @@ public class ColdCreeperChargeLayer extends LayerRenderer<ColdCreeperEntity, Col
          GlStateManager.translatef(f * 0.01F, f * 0.01F, 0.0F);
          GlStateManager.matrixMode(5888);
          GlStateManager.enableBlend();
-         float f1 = 0.5F;
          GlStateManager.color4f(0.5F, 0.5F, 0.5F, 1.0F);
          GlStateManager.disableLighting();
          GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
          this.getEntityModel().setModelAttributes(this.coldCreeperModel);
          GameRenderer gamerenderer = Minecraft.getInstance().gameRenderer;
          gamerenderer.setupFogColor(true);
-         this.coldCreeperModel.func_78088_a(entityIn, p_212842_2_, p_212842_3_, p_212842_5_, p_212842_6_, p_212842_7_, p_212842_8_);
+         this.coldCreeperModel.setRotationAngles(entityIn, p_212842_2_, p_212842_3_, p_212842_5_, p_212842_6_, p_212842_7_, p_212842_8_);
          gamerenderer.setupFogColor(false);
          GlStateManager.matrixMode(5890);
          GlStateManager.loadIdentity();
@@ -52,6 +52,7 @@ public class ColdCreeperChargeLayer extends LayerRenderer<ColdCreeperEntity, Col
       }
    }
 
+   @Override
    public boolean shouldCombineTextures() 
    {
       return false;

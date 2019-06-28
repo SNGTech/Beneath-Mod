@@ -4,6 +4,8 @@ import com.sngtech.beneathMod.Main;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +20,9 @@ public class ItemInit
 	public static final Item IRON_ORE_ROCK = null;
 	public static final Item COPPER_ORE_ROCK = null;
 	public static final Item BAUXITE_ORE_ROCK = null;
+	
+	//Spawn Eggs
+	public static final Item COLD_CREEPER_SPAWN_EGG = null;
 	
 	//Item Blocks
 	public static final Item CRACKED_ROCKS = null;
@@ -52,6 +57,9 @@ public class ItemInit
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "iron_ore_rock")),
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore_rock")),
 				new Item(new Item.Properties().group(Main.BENEATH_ITEMS)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore_rock")),
+				
+				//Spawn Eggs
+				new SpawnEggItem(EntityInit.COLD_CREEPER, 6790088, 3295581, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(Main.MODID, "cold_creeper_spawn_egg"),
 				
 				//Item Blocks
 				new BlockItem(BlockInit.CRACKED_ROCKS, new Item.Properties().group(Main.BENEATH_BLOCKS)).setRegistryName(new ResourceLocation(Main.MODID, "cracked_rocks")),
