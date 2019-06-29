@@ -26,29 +26,30 @@ public class ColdCreeperChargeLayer extends LayerRenderer<ColdCreeperEntity, Col
    {
       if (entityIn.getPowered()) 
       {
-         boolean flag = entityIn.isInvisible();
-         GlStateManager.depthMask(!flag);
-         this.bindTexture(LIGHTNING_TEXTURE);
-         GlStateManager.matrixMode(5890);
-         GlStateManager.loadIdentity();
-         float f = (float)entityIn.ticksExisted + p_212842_4_;
-         GlStateManager.translatef(f * 0.01F, f * 0.01F, 0.0F);
-         GlStateManager.matrixMode(5888);
-         GlStateManager.enableBlend();
-         GlStateManager.color4f(0.5F, 0.5F, 0.5F, 1.0F);
-         GlStateManager.disableLighting();
-         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
-         this.getEntityModel().setModelAttributes(this.coldCreeperModel);
-         GameRenderer gamerenderer = Minecraft.getInstance().gameRenderer;
-         gamerenderer.setupFogColor(true);
-         this.coldCreeperModel.setRotationAngles(entityIn, p_212842_2_, p_212842_3_, p_212842_5_, p_212842_6_, p_212842_7_, p_212842_8_);
-         gamerenderer.setupFogColor(false);
-         GlStateManager.matrixMode(5890);
-         GlStateManager.loadIdentity();
-         GlStateManager.matrixMode(5888);
-         GlStateManager.enableLighting();
-         GlStateManager.disableBlend();
-         GlStateManager.depthMask(true);
+    	  boolean flag = entityIn.isInvisible();
+          GlStateManager.depthMask(!flag);
+          this.bindTexture(LIGHTNING_TEXTURE);
+          GlStateManager.matrixMode(5890);
+          GlStateManager.loadIdentity();
+          float f = (float)entityIn.ticksExisted + p_212842_4_;
+          GlStateManager.translatef(f * 0.01F, f * 0.01F, 0.0F);
+          GlStateManager.matrixMode(5888);
+          GlStateManager.enableBlend();
+          float f1 = 0.5F;
+          GlStateManager.color4f(0.5F, 0.5F, 0.5F, 1.0F);
+          GlStateManager.disableLighting();
+          GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
+          this.getEntityModel().setModelAttributes(this.coldCreeperModel);
+          GameRenderer gamerenderer = Minecraft.getInstance().gameRenderer;
+          gamerenderer.setupFogColor(true);
+          this.coldCreeperModel.render(entityIn, p_212842_2_, p_212842_3_, p_212842_5_, p_212842_6_, p_212842_7_, p_212842_8_);
+          gamerenderer.setupFogColor(false);
+          GlStateManager.matrixMode(5890);
+          GlStateManager.loadIdentity();
+          GlStateManager.matrixMode(5888);
+          GlStateManager.enableLighting();
+          GlStateManager.disableBlend();
+          GlStateManager.depthMask(true);
       }
    }
 

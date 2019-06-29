@@ -1,5 +1,8 @@
 package com.sngtech.beneathMod.init;
 
+import javax.annotation.Nonnull;
+
+import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.world.biomes.AMPlainsBiome;
 
@@ -31,13 +34,18 @@ public class BiomeInit
 		}
 	}
 	
-	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) 
+	@Nonnull
+	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) 
 	{
+		Preconditions.checkNotNull(name, "Name to assign to entry cannot be null!");
 		return setup(entry, new ResourceLocation(Main.MODID, name));
 	}
 
-	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final ResourceLocation registryName) 
+	@Nonnull
+	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final ResourceLocation registryName) 
 	{
+		Preconditions.checkNotNull(entry, "Entry cannot be null!");
+		Preconditions.checkNotNull(registryName, "Registry name to assign to entry cannot be null!");
 		entry.setRegistryName(registryName);
 		return entry;
 	}

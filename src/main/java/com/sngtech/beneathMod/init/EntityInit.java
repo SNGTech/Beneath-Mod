@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(Main.MODID)
 public class EntityInit 
 {
-	public static final EntityType<ColdCreeperEntity> COLD_CREEPER = null;
+	public static final EntityType<ColdCreeperEntity> COLD_CREEPER = setup("cold_creeper", EntityType.Builder.<ColdCreeperEntity>create(ColdCreeperEntity::new, EntityClassification.MONSTER).size(0.6F, 1.7F).size(0.6F, 1.7F));
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -27,7 +27,7 @@ public class EntityInit
 		{
 			e.getRegistry().registerAll
 			(
-				setup("cold_creeper", EntityType.Builder.<ColdCreeperEntity>create(ColdCreeperEntity::new, EntityClassification.MONSTER).size(0.6F, 1.7F).size(0.6F, 1.7F))
+				COLD_CREEPER
 			);
 			
 			Main.logger.debug("Entities Registered");

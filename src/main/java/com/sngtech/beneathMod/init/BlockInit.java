@@ -1,5 +1,8 @@
 package com.sngtech.beneathMod.init;
 
+import javax.annotation.Nonnull;
+
+import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
 import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
@@ -17,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(Main.MODID)
@@ -53,28 +57,44 @@ public class BlockInit
 			e.getRegistry().registerAll
 			(
 				//Terrain
-				new DecayedGrassBlock(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0f).sound(SoundType.PLANT)).setRegistryName(new ResourceLocation(Main.MODID, "decayed_grass")),
-				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.4f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "cracked_rocks")),	
+				setup(new DecayedGrassBlock(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0f).sound(SoundType.PLANT)), "decayed_grass"),
+				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.4f).sound(SoundType.STONE)), "cracked_rocks"),	
 				
 				//Decorations
-				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "carved_stone_bricks")),
-				new RotatedPillarBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "line_chiseled_stone_bricks")),
+				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)), "carved_stone_bricks"),
+				setup(new RotatedPillarBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)), "line_chiseled_stone_bricks"),
 					
 				//Minerals
-				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "raw_limestone")),
-				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "copper_ore")),
-				new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)).setRegistryName(new ResourceLocation(Main.MODID, "bauxite_ore")),
+				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)), "raw_limestone"),
+				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)), "copper_ore"),
+				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)), "bauxite_ore"),
 				
 				//Tile Entities
-				new OakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "oak_crate")),
-				new SpruceCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "spruce_crate")),
-				new BirchCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "birch_crate")),
-				new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "jungle_crate")),
-				new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "acacia_crate")),
-				new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)).setRegistryName(new ResourceLocation(Main.MODID, "dark_oak_crate"))
+				setup(new OakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "oak_crate"),
+				setup(new SpruceCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "spruce_crate"),
+				setup(new BirchCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "birch_crate"),
+				setup(new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "jungle_crate"),
+				setup(new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "acacia_crate"),
+				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate")
 			);
 			
 			Main.logger.debug("Registered Blocks");
 		}
+	}
+	
+	@Nonnull
+	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) 
+	{
+		Preconditions.checkNotNull(name, "Name to assign to entry cannot be null!");
+		return setup(entry, new ResourceLocation(Main.MODID, name));
+	}
+
+	@Nonnull
+	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final ResourceLocation registryName) 
+	{
+		Preconditions.checkNotNull(entry, "Entry cannot be null!");
+		Preconditions.checkNotNull(registryName, "Registry name to assign to entry cannot be null!");
+		entry.setRegistryName(registryName);
+		return entry;
 	}
 }

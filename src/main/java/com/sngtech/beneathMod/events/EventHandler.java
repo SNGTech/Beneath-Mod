@@ -88,7 +88,7 @@ public class EventHandler
 		
 		//Handle Blindness Fog Event
   
-		Main.logger.debug("Fog Density: " + event.getDensity() + " : " + t0 + " : " + t1);
+		//Main.logger.debug("Fog Density: " + event.getDensity() + " : " + t0 + " : " + t1);
 		event.setCanceled(true); // must cancel event for event handler to take effect
     }
 
