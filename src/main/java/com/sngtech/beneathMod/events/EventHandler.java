@@ -1,6 +1,5 @@
 package com.sngtech.beneathMod.events;
 
-import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.init.BiomeInit;
 
 import net.minecraft.client.Minecraft;
@@ -43,7 +42,7 @@ public class EventHandler
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public static void fogDensityEvent(FogDensity event)
     {
-    	iFluidState = event.getInfo().func_216771_k();
+    	iFluidState = event.getInfo().getFluidState();
     	
 		if (iFluidState.isTagged(FluidTags.WATER))
 		{
@@ -95,16 +94,16 @@ public class EventHandler
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public static void fogColorEvent(EntityViewRenderEvent.FogColors event)
     {
-    	iFluidState = event.getInfo().func_216771_k();
+    	iFluidState = event.getInfo().getFluidState();
     	
     	if (Minecraft.getInstance().world != null && !isPlayerInMaterial)
         {
-        	ClientPlayerEntity clientplayerentity = (ClientPlayerEntity)event.getInfo().func_216773_g();
+        	ClientPlayerEntity clientplayerentity = (ClientPlayerEntity)event.getInfo().getRenderViewEntity();
         	Biome biome = clientplayerentity.world.getBiome(new BlockPos(clientplayerentity));
         	
-        	if (event.getInfo().func_216773_g() instanceof LivingEntity) 
+        	if (event.getInfo().getRenderViewEntity() instanceof LivingEntity) 
         	{
-                if (event.getInfo().func_216773_g() instanceof ClientPlayerEntity) 
+                if (event.getInfo().getRenderViewEntity() instanceof ClientPlayerEntity) 
                 {
                 	if (Minecraft.getInstance().world.canBlockSeeSky(new BlockPos(Minecraft.getInstance().getRenderViewEntity().posX, Minecraft.getInstance().getRenderViewEntity().posY + (double)Minecraft.getInstance().getRenderViewEntity().getEyeHeight(), Minecraft.getInstance().getRenderViewEntity().posZ)) 
                 	&& biome == BiomeInit.AM_PLAINS)

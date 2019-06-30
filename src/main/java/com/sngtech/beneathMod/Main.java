@@ -7,6 +7,7 @@ import com.sngtech.beneathMod.init.EntityInit;
 import com.sngtech.beneathMod.init.GuiHandler;
 import com.sngtech.beneathMod.itemgroups.BeneathBlocksGroup;
 import com.sngtech.beneathMod.itemgroups.BeneathItemsGroup;
+import com.sngtech.beneathMod.world.features.structures.StructurePieceInit;
 import com.sngtech.beneathMod.world.gen.features.OreGeneration;
 
 import net.minecraft.item.ItemGroup;
@@ -31,19 +32,19 @@ public class Main
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStartup);
 		
-		EntityInit.registerEntityRenderers();
-		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	void commonSetup(FMLCommonSetupEvent e)
 	{
 		OreGeneration.registerOreGeneration();
+		StructurePieceInit.registerPieces();
 		logger.info("Common Setup Event Registered");
 	}
 	
 	void clientSetup(FMLClientSetupEvent e)
 	{
+		EntityInit.registerEntityRenderers();
 		GuiHandler.registerScreens();
 		logger.info("Client Setup Event Registered");
 	}
