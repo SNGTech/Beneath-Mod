@@ -34,7 +34,8 @@ public class EventHandler
 		PlayerEntity player = e.player;
 		if(player.posY <= -2)
 		{
-			//To be removed when layer two is created
+			// To be removed when layer two is created
+			// SENDING PLAYER TO LAYER ONE IS ONLY TEMPORARY!!!
 			player.sendMessage(new TranslationTextComponent("TODO: TRANSPORT PLAYER TO LAYER 2 OF THE WORLD!!!"));
 		}
 	}
@@ -44,47 +45,65 @@ public class EventHandler
     {
     	iFluidState = event.getInfo().getFluidState();
     	
-		if (iFluidState.isTagged(FluidTags.WATER))
-		{
-			event.setDensity(0.5F);
-			isPlayerInMaterial = true;
-		}
-		else if (iFluidState.isTagged(FluidTags.LAVA))
-		{ 
-			event.setDensity(2.0F);
-			isPlayerInMaterial = true;
-		}
-		else if(isNight)
-		{
-			if(t1 >= 1F)
-			{
-				t1 = 0;
-			}
-			
-			if(t0 <= 1F)
-			{
-				t0 += 0.002F;
-				t0 = MathHelper.clamp(t0, 0F, 1F);
-				event.setDensity(MathHelper.lerp(t0, 0.02F, 0.001F));
-			}
-			isPlayerInMaterial = false;
-		}
-		else
-		{
-			if(t0 >= 1F)
-			{
-				t0 = 0;
-			}
-			
-			if(t1 <= 1F)
-			{
-				t1 += 0.002F;
-				t1 = MathHelper.clamp(t1, 0F, 1F);
-				event.setDensity(MathHelper.lerp(t1, 0.001F, 0.02F));
-			}
-			isPlayerInMaterial = false;
-		}
-		
+    	if (Minecraft.getInstance().world != null && !isPlayerInMaterial)
+        {
+        	ClientPlayerEntity clientplayerentity = (ClientPlayerEntity)event.getInfo().getRenderViewEntity();
+        	Biome biome = clientplayerentity.world.getBiome(new BlockPos(clientplayerentity));
+        	
+        	if (event.getInfo().getRenderViewEntity() instanceof LivingEntity) 
+        	{
+                if (event.getInfo().getRenderViewEntity() instanceof ClientPlayerEntity) 
+                {
+                	if (biome == BiomeInit.AM_PLAINS)
+            		{
+						if (iFluidState.isTagged(FluidTags.WATER))
+						{
+							event.setDensity(0.5F);
+							isPlayerInMaterial = true;
+						}
+						else if (iFluidState.isTagged(FluidTags.LAVA))
+						{ 
+							event.setDensity(2.0F);
+							isPlayerInMaterial = true;
+						}
+						else if(isNight)
+						{
+							if(t1 >= 1F)
+							{
+								t1 = 0;
+							}
+							
+							if(t0 <= 1F)
+							{
+								t0 += 0.002F;
+								t0 = MathHelper.clamp(t0, 0F, 1F);
+								event.setDensity(MathHelper.lerp(t0, 0.02F, 0.001F));
+							}
+							isPlayerInMaterial = false;
+						}
+						else
+						{
+							if(t0 >= 1F)
+							{
+								t0 = 0;
+							}
+							
+							if(t1 <= 1F)
+							{
+								t1 += 0.002F;
+								t1 = MathHelper.clamp(t1, 0F, 1F);
+								event.setDensity(MathHelper.lerp(t1, 0.001F, 0.02F));
+							}
+							isPlayerInMaterial = false;
+						}
+            		}
+		            else if(biome != BiomeInit.AM_PLAINS)
+		            {
+		            	event.setDensity(0.001F);
+		            }
+                }
+        	}
+        }
 		//Handle Blindness Fog Event
   
 		//Main.logger.debug("Fog Density: " + event.getDensity() + " : " + t0 + " : " + t1);

@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
+import com.sngtech.beneathMod.blocks.AMPortalBlock;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
 import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
@@ -47,6 +48,8 @@ public class BlockInit
 	public static final Block ACACIA_CRATE = null;
 	public static final Block DARK_OAK_CRATE = null;
 	
+	//Portal Blocks
+	public static final Block AM_PORTAL = null;
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -75,7 +78,10 @@ public class BlockInit
 				setup(new BirchCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "birch_crate"),
 				setup(new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "jungle_crate"),
 				setup(new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "acacia_crate"),
-				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate")
+				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate"),
+				
+				//Portal Blocks\
+				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal")
 			);
 			
 			Main.logger.debug("Registered Blocks");

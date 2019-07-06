@@ -3,6 +3,7 @@ package com.sngtech.beneathMod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.sngtech.beneathMod.init.DimensionInit;
 import com.sngtech.beneathMod.init.EntityInit;
 import com.sngtech.beneathMod.init.GuiHandler;
 import com.sngtech.beneathMod.itemgroups.BeneathBlocksGroup;
@@ -37,6 +38,7 @@ public class Main
 	
 	void commonSetup(FMLCommonSetupEvent e)
 	{
+		DimensionInit.registerDimensions();
 		OreGeneration.registerOreGeneration();
 		StructurePieceInit.registerPieces();
 		logger.info("Common Setup Event Registered");
