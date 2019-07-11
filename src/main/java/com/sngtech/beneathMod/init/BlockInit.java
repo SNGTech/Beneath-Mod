@@ -6,6 +6,7 @@ import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.blocks.AMPortalBlock;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
+import com.sngtech.beneathMod.blocks.NuclearTNTBlock;
 import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
@@ -51,6 +52,9 @@ public class BlockInit
 	//Portal Blocks
 	public static final Block AM_PORTAL = null;
 	
+	//TNT
+	public static final Block NUCLEAR_TNT = null;
+	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
 	{
@@ -81,7 +85,10 @@ public class BlockInit
 				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate"),
 				
 				//Portal Blocks\
-				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal")
+				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal"),
+			
+				//TNT
+				setup(new NuclearTNTBlock(Block.Properties.create(Material.TNT).hardnessAndResistance(0.0f).sound(SoundType.PLANT).lightValue(13)), "nuclear_tnt")
 			);
 			
 			Main.logger.debug("Registered Blocks");

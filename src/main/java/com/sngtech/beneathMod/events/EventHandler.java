@@ -99,7 +99,7 @@ public class EventHandler
             		}
 		            else if(biome != BiomeInit.AM_PLAINS)
 		            {
-		            	event.setDensity(0.001F);
+		            	event.setDensity(0F);
 		            }
                 }
         	}
@@ -145,31 +145,39 @@ public class EventHandler
                 	}
                 }
             } 
+    	
+	    	if (iFluidState.isTagged(FluidTags.WATER))
+	    	{
+	    		int color = 0x000000;
+				event.setRed((color >> 16 & 255) / 255.0F);
+				event.setGreen((color >> 8 & 255) / 255.0F);
+		        event. setBlue((color & 255) / 255.0F);
+	    	}  
+	    	
+	    	else if (iFluidState.isTagged(FluidTags.LAVA))
+	    	{
+	    		int color = 0xFF2A00;
+				event.setRed((color >> 16 & 255) / 255.0F);
+				event.setGreen((color >> 8 & 255) / 255.0F);
+		        event.setBlue((color & 255) / 255.0F);
+	    	}
+	    	
+	    	else if(!isPlayerInMaterial && biome == BiomeInit.AM_PLAINS)
+	    	{
+	    		int color = 0xD89B2C;
+				event.setRed((color >> 16 & 255) / 255.0F);
+				event.setGreen((color >> 8 & 255) / 255.0F);
+		        event.setBlue((color & 255) / 255.0F);
+	    	}
+	    	
+	    	else if(!isPlayerInMaterial && biome != BiomeInit.AM_PLAINS)
+	    	{
+	    		int color = 0xFFFFFF;
+				event.setRed((color >> 16 & 255) / 255.0F);
+				event.setGreen((color >> 8 & 255) / 255.0F);
+		        event.setBlue((color & 255) / 255.0F);
+	    	}
         }
-    	
-    	if (iFluidState.isTagged(FluidTags.WATER))
-    	{
-    		int color = 0x000000;
-			event.setRed((color >> 16 & 255) / 255.0F);
-			event.setGreen((color >> 8 & 255) / 255.0F);
-	        event.setBlue((color & 255) / 255.0F);
-    	}  
-    	
-    	else if (iFluidState.isTagged(FluidTags.LAVA))
-    	{
-    		int color = 0xFF2A00;
-			event.setRed((color >> 16 & 255) / 255.0F);
-			event.setGreen((color >> 8 & 255) / 255.0F);
-	        event.setBlue((color & 255) / 255.0F);
-    	}
-    	
-    	else if(!isPlayerInMaterial)
-    	{
-    		int color = 0xD89B2C;
-			event.setRed((color >> 16 & 255) / 255.0F);
-			event.setGreen((color >> 8 & 255) / 255.0F);
-	        event.setBlue((color & 255) / 255.0F);
-    	}
     }
     
     /*private static float getLightExposure(float d0, float d1)

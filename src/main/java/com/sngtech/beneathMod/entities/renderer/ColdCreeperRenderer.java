@@ -16,7 +16,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class ColdCreeperRenderer extends MobRenderer<ColdCreeperEntity, ColdCreeperModel<ColdCreeperEntity>> 
 {
-   private static final ResourceLocation COLD_CREEPER_TEXTURES = new ResourceLocation(Main.MODID, "textures/entity/creeper/cold_creeper.png");
+   private static final ResourceLocation COLD_CREEPER_TEXTURE = new ResourceLocation(Main.MODID, "textures/entity/creeper/cold_creeper.png");
 
    public ColdCreeperRenderer(EntityRendererManager renderManager) 
    {
@@ -56,6 +56,6 @@ public class ColdCreeperRenderer extends MobRenderer<ColdCreeperEntity, ColdCree
    @Override
    protected ResourceLocation getEntityTexture(ColdCreeperEntity entity) 
    {
-      return COLD_CREEPER_TEXTURES;
+      return COLD_CREEPER_TEXTURE;
    }
 }

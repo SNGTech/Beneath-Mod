@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "beneath:block/nuclear_tnt_bottom",
+        "top": "beneath:block/nuclear_tnt_top",
+        "side": "beneath:block/nuclear_tnt_side"
+    }
+}

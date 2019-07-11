@@ -1,6 +1,7 @@
 package com.sngtech.beneathMod.world.biomes.providers;
 
 import com.sngtech.beneathMod.world.gen.AMGenSettings;
+import com.sngtech.beneathMod.world.gen.AMWorldType;
 
 import net.minecraft.world.biome.provider.IBiomeProviderSettings;
 import net.minecraft.world.storage.WorldInfo;
@@ -12,7 +13,7 @@ public class AMBiomeProviderSettings implements IBiomeProviderSettings
 
     public AMBiomeProviderSettings setWorldInfo(WorldInfo worldInfo) 
     {
-    	//worldInfo.setGenerator(new AMWorldType());
+    	worldInfo.setGenerator(new AMWorldType());
         this.worldInfo = worldInfo;
         return this;
     }
@@ -25,7 +26,7 @@ public class AMBiomeProviderSettings implements IBiomeProviderSettings
 
     public WorldInfo getWorldInfo() 
     {
-    	//worldInfo.setGenerator(new AMWorldType());
+    	worldInfo.setGenerator(new AMWorldType());
         return worldInfo;
     }
 

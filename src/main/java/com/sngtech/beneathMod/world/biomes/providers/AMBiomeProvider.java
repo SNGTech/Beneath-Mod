@@ -8,30 +8,30 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Sets;
+import com.sngtech.beneathMod.init.BiomeInit;
+import com.sngtech.beneathMod.world.biomes.layers.AMLayerUtil;
 import com.sngtech.beneathMod.world.gen.AMGenSettings;
+import com.sngtech.beneathMod.world.gen.AMWorldType;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
-import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.layer.Layer;
-import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.storage.WorldInfo;
 
 public class AMBiomeProvider extends BiomeProvider
 {
    private final Layer genBiomes;
    private final Layer biomeFactoryLayer;
-   private final Biome[] biomes = new Biome[]{Biomes.OCEAN, Biomes.PLAINS};
+   private final Biome[] biomes = new Biome[]{BiomeInit.AM_PLAINS, Biomes.ICE_SPIKES};
 
    public AMBiomeProvider(AMBiomeProviderSettings settingsProvider) {
       WorldInfo worldinfo = settingsProvider.getWorldInfo();
       AMGenSettings overworldgensettings = settingsProvider.getGeneratorSettings();
-      Layer[] alayer = LayerUtil.buildOverworldProcedure(worldinfo.getSeed(), worldinfo.getGenerator(), overworldgensettings);
+      Layer[] alayer = AMLayerUtil.buildOverworldProcedure(worldinfo.getSeed(), new AMWorldType(), overworldgensettings);
       this.genBiomes = alayer[0];
       this.biomeFactoryLayer = alayer[1];
    }

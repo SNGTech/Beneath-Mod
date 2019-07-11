@@ -48,6 +48,8 @@ public class ItemInit
 	public static final Item ACACIA_CRATE = null;
 	public static final Item DARK_OAK_CRATE = null;
 	
+	public static final Item NUCLEAR_TNT = null;
+	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
 	{
@@ -81,7 +83,9 @@ public class ItemInit
 				setup(new BlockItem(BlockInit.BIRCH_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "birch_crate"),
 				setup(new BlockItem(BlockInit.JUNGLE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "jungle_crate"),
 				setup(new BlockItem(BlockInit.ACACIA_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "acacia_crate"),
-				setup(new BlockItem(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "dark_oak_crate")
+				setup(new BlockItem(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "dark_oak_crate"),
+				
+				setup(new BlockItem(BlockInit.NUCLEAR_TNT, new Item.Properties().group(Main.BENEATH_BLOCKS)), "nuclear_tnt")
 			);
 			
 			Main.logger.debug("Registered Items");

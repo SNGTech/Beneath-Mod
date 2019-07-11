@@ -42,7 +42,7 @@ public class AMDimension extends Dimension
 
 	   ChunkGeneratorType<AMGenSettings, AMChunkGenerator> chunkgeneratortype4 = new ChunkGeneratorType<>(AMChunkGenerator::new, true, AMGenSettings::new);
 	   AMGenSettings gensettings1 = chunkgeneratortype4.createSettings();
-	   gensettings1.setDefaultFluid(Blocks.BEDROCK.getDefaultState());
+	   gensettings1.setDefaultFluid(Blocks.LAVA.getDefaultState());
 	   return chunkgeneratortype4.create(this.world, biomeprovider, gensettings1);
    }
 
@@ -116,6 +116,12 @@ public class AMDimension extends Dimension
 	   double d0 = MathHelper.frac((double)worldTime / 24000.0D - 0.25D);
 	   double d1 = 0.5D - Math.cos(d0 * Math.PI) / 2.0D;
 	   return (float)(d0 * 2.0D + d1) / 3.0F;
+   }
+   
+   @Override
+   public boolean hasSkyLight() 
+   {
+	   return true;
    }
 
    /**

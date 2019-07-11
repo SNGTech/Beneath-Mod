@@ -39,6 +39,9 @@
 	"container.jungle_crate": "Jungle Crate",
 	"container.acacia_crate": "Acacia Crate",
 	"container.dark_oak_crate": "Dark Oak Crate",
+	
+	//TNTs
+	"block.beneath.nuclear_tnt": "Nuclear TNT",
 
 	//Item Groups
     "itemGroup.Beneath Items": "Beneath Items",

@@ -6,7 +6,7 @@ public class AMGenSettings extends OverworldGenSettings
 {
 	public int getBiomeSize() 
 	{
-		return 6;
+		return 3;
 	}
 	
 	public int getRiverSize() 
@@ -99,7 +99,8 @@ public class AMGenSettings extends OverworldGenSettings
 		return 512.0D;
 	}
 	
-	public double getUpperLimitScale() {
+	public double getUpperLimitScale() 
+	{
 		return 512.0D;
 	}
 }

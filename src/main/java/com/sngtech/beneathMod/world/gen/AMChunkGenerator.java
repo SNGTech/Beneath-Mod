@@ -181,7 +181,7 @@ public class AMChunkGenerator extends NoiseChunkGenerator<AMGenSettings>
 	@Override
 	public void spawnMobs(ServerWorld worldIn, boolean spawnHostileMobs, boolean spawnPeacefulMobs) 
 	{
-		this.phantomSpawner.spawnMobs(worldIn, spawnHostileMobs, spawnPeacefulMobs);
+		this.phantomSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
 		this.patrolSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
 		this.catSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
 	}
