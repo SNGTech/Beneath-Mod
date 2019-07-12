@@ -3,6 +3,7 @@ package com.sngtech.beneathMod.entities;
 import javax.annotation.Nullable;
 
 import com.sngtech.beneathMod.init.EntityInit;
+import com.sngtech.beneathMod.packets.ModSSpawnObjectPacket;
 import com.sngtech.beneathMod.world.explosions.NuclearExplosion;
 
 import net.minecraft.entity.Entity;
@@ -16,7 +17,6 @@ import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.network.play.server.SSpawnObjectPacket;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
@@ -27,14 +27,16 @@ public class NuclearTNTEntity extends Entity
    @Nullable
    private LivingEntity placedBy;
    private int fuse = 200;
-   private int displacement = 10;
+   private int displacement = 15;
 
-   public NuclearTNTEntity(EntityType<? extends NuclearTNTEntity> p_i50216_1_, World p_i50216_2_) {
+   public NuclearTNTEntity(EntityType<? extends NuclearTNTEntity> p_i50216_1_, World p_i50216_2_) 
+   {
       super(p_i50216_1_, p_i50216_2_);
       this.preventEntitySpawning = true;
    }
 
-   public NuclearTNTEntity(World worldIn, double x, double y, double z, @Nullable LivingEntity igniter) {
+   public NuclearTNTEntity(World worldIn, double x, double y, double z, @Nullable LivingEntity igniter) 
+   {
       this(EntityInit.NUCLEAR_TNT, worldIn);
       this.setPosition(x, y, z);
       double d0 = worldIn.rand.nextDouble() * (double)((float)Math.PI * 2F);
@@ -46,6 +48,7 @@ public class NuclearTNTEntity extends Entity
       this.placedBy = igniter;
    }
 
+   @Override
    protected void registerData() 
    {
       this.dataManager.register(FUSE, 80);
@@ -55,6 +58,7 @@ public class NuclearTNTEntity extends Entity
     * returns if this entity triggers Block.onEntityWalking on the blocks they walk on. used for spiders and wolves to
     * prevent them from trampling crops
     */
+   @Override
    protected boolean canTriggerWalking() 
    {
       return false;
@@ -64,6 +68,7 @@ public class NuclearTNTEntity extends Entity
     * Returns true if other Entities should be prevented from moving through this Entity.
     */
    @SuppressWarnings("deprecation")
+   @Override
    public boolean canBeCollidedWith() 
    {
       return !this.removed;
@@ -72,7 +77,9 @@ public class NuclearTNTEntity extends Entity
    /**
     * Called to update the entity's position/logic.
     */
-   public void tick() {
+   @Override
+   public void tick() 
+   {
       this.prevPosX = this.posX;
       this.prevPosY = this.posY;
       this.prevPosZ = this.posZ;
@@ -87,12 +94,16 @@ public class NuclearTNTEntity extends Entity
       }
 
       --this.fuse;
-      if (this.fuse <= 0) {
+      if (this.fuse <= 0) 
+      {
          this.remove();
-         if (!this.world.isRemote) {
+         if (!this.world.isRemote) 
+         {
             this.explode();
          }
-      } else {
+      } 
+      else 
+      {
          this.handleWaterMovement();
          this.world.addParticle(ParticleTypes.SMOKE, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
       }
@@ -127,6 +138,7 @@ public class NuclearTNTEntity extends Entity
 	   return nuclearExplosion;
    }
 
+   @Override
    protected void writeAdditional(CompoundNBT compound) 
    {
       compound.putShort("Fuse", (short)this.getFuse());
@@ -135,6 +147,7 @@ public class NuclearTNTEntity extends Entity
    /**
     * (abstract) Protected helper method to read subclass entity data from NBT.
     */
+   @Override
    protected void readAdditional(CompoundNBT compound) 
    {
       this.setFuse(compound.getShort("Fuse"));
@@ -149,6 +162,7 @@ public class NuclearTNTEntity extends Entity
       return this.placedBy;
    }
 
+   @Override
    protected float getEyeHeight(Pose p_213316_1_, EntitySize p_213316_2_)
    {
       return 0.0F;
@@ -160,9 +174,11 @@ public class NuclearTNTEntity extends Entity
       this.fuse = fuseIn;
    }
 
+   @Override
    public void notifyDataManagerChange(DataParameter<?> key) 
    {
-      if (FUSE.equals(key)) {
+      if (FUSE.equals(key)) 
+      {
          this.fuse = this.getFuseDataManager();
       }
 
@@ -181,8 +197,9 @@ public class NuclearTNTEntity extends Entity
       return this.fuse;
    }
 
+   @Override
    public IPacket<?> createSpawnPacket() 
    {
-      return new SSpawnObjectPacket(this);
+      return new ModSSpawnObjectPacket(this);
    }
 }
