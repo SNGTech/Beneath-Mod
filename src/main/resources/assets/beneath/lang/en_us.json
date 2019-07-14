@@ -24,6 +24,9 @@
 	"block.beneath.copper_ore": "Copper Ore",
 	"block.beneath.bauxite_ore": "Bauxite Ore",
 
+	//Functional Blocks
+	"block.beneath.tesseract_chamber": "Tesseract Chamber",
+
 	//Tile Entities
 	"block.beneath.oak_crate": "Oak Crate",
 	"block.beneath.spruce_crate": "Spruce Crate",

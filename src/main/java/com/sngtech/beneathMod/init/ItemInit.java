@@ -41,6 +41,8 @@ public class ItemInit
 	public static final Item COPPER_ORE = null;
 	public static final Item BAUXITE_ORE = null;
 	
+	public static final Item TESSERACT_CHAMBER = null;
+	
 	public static final Item OAK_CRATE = null;
 	public static final Item SPRUCE_CRATE = null;
 	public static final Item BIRCH_CRATE = null;
@@ -77,6 +79,8 @@ public class ItemInit
 				setup(new BlockItem(BlockInit.RAW_LIMESTONE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "raw_limestone"),
 				setup(new BlockItem(BlockInit.COPPER_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "copper_ore"),
 				setup(new BlockItem(BlockInit.BAUXITE_ORE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "bauxite_ore"),
+				
+				setup(new BlockItem(BlockInit.TESSERACT_CHAMBER, new Item.Properties().group(Main.BENEATH_BLOCKS)), "tesseract_chamber"),
 				
 				setup(new BlockItem(BlockInit.OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "oak_crate"),
 				setup(new BlockItem(BlockInit.SPRUCE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "spruce_crate"),

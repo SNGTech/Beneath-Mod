@@ -7,6 +7,7 @@ import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.blocks.AMPortalBlock;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
 import com.sngtech.beneathMod.blocks.NuclearTNTBlock;
+import com.sngtech.beneathMod.blocks.TesseractChamberBlock;
 import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
@@ -40,6 +41,9 @@ public class BlockInit
 	public static final Block RAW_LIMESTONE = null;
 	public static final Block COPPER_ORE = null;
 	public static final Block BAUXITE_ORE = null;
+	
+	//Functional Blocks
+	public static final Block TESSERACT_CHAMBER = null;
 	
 	//Tile Entities
 	public static final Block OAK_CRATE = null;
@@ -75,6 +79,9 @@ public class BlockInit
 				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f).sound(SoundType.STONE)), "raw_limestone"),
 				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)), "copper_ore"),
 				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)), "bauxite_ore"),
+				
+				//Functional Blocks
+				setup(new TesseractChamberBlock(Block.Properties.create(Material.PORTAL).hardnessAndResistance(2.5f).sound(SoundType.GLASS)), "tesseract_chamber"),
 				
 				//Tile Entities
 				setup(new OakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "oak_crate"),

@@ -112,19 +112,34 @@ public class NuclearTNTEntity extends Entity
 
    private void explode() 
    {
-      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F), this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX - displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX - displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX + displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX + displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ + displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F), this.posZ + displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F), this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F), this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX - displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ + displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX + displacement, this.posY + (double)(this.getHeight() / 16.0F), this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosionSet(1.0F);
+      
       this.createExplosion(this.world, this, this.posX - displacement, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 2, this.posZ + displacement, 50.0F, NuclearExplosion.Mode.BREAK);
       this.createExplosion(this.world, this, this.posX + displacement, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 2, this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
-      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 2, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX + displacement, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 1.8, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 1.8, this.posZ + displacement, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX - displacement, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 1.8, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - displacement * 1.8, this.posZ - displacement, 50.0F, NuclearExplosion.Mode.BREAK);
+      
+      this.createExplosionSet(1.5F);
+      
+      this.createExplosionSet(3F);
+      
+      this.createExplosionSet(4.5F);
+   }
+   
+   private void createExplosionSet(float multiplier)
+   {
+	  this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX - displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX - displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ - displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX + displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX + displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ + displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ + displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ - displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ - displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX - displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ + displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
+      this.createExplosion(this.world, this, this.posX + displacement * multiplier, this.posY + (double)(this.getHeight() / 16.0F) - 3, this.posZ - displacement * multiplier, 50.0F, NuclearExplosion.Mode.BREAK);
    }
    
    private NuclearExplosion createExplosion(World p_i50007_1_, @Nullable Entity p_i50007_2_, double p_i50007_3_, double p_i50007_5_, double p_i50007_7_, float p_i50007_9_, NuclearExplosion.Mode p_i50007_11_) 

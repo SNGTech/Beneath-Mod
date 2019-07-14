@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "beneath:block/tesseract_chamber", "x": 90 },
+        "facing=down": { "model": "beneath:block/tesseract_chamber", "x": 270 },
+        "facing=north": { "model": "beneath:block/tesseract_chamber", "y": 180 },
+        "facing=south": { "model": "beneath:block/tesseract_chamber" },
+        "facing=west": { "model": "beneath:block/tesseract_chamber", "y": 90 },
+        "facing=east": { "model": "beneath:block/tesseract_chamber", "y": 270 }
+    }
+}
