@@ -34,6 +34,7 @@
 	"block.beneath.jungle_crate": "Jungle Crate",
 	"block.beneath.acacia_crate": "Acacia Crate",
 	"block.beneath.dark_oak_crate": "Dark Oak Crate",
+	"block.beneath.placer": "Placer",
 	
 	//Containers
 	"container.oak_crate": "Oak Crate",
@@ -42,6 +43,7 @@
 	"container.jungle_crate": "Jungle Crate",
 	"container.acacia_crate": "Acacia Crate",
 	"container.dark_oak_crate": "Dark Oak Crate",
+	"container.placer": "Placer",
 	
 	//TNTs
 	"block.beneath.nuclear_tnt": "Nuclear TNT",

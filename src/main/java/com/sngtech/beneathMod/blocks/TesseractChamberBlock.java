@@ -106,7 +106,7 @@ public class TesseractChamberBlock extends DirectionalBlock
    @Override
    public BlockState getStateForPlacement(BlockItemUseContext context) 
    {
-      return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite().getOpposite());
+      return this.getDefaultState().with(FACING, context.getNearestLookingDirection());
    }
    
    @Override

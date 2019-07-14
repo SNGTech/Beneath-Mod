@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "beneath:block/placer_top",
+        "front": "beneath:block/placer_front",
+        "side": "beneath:block/placer_side"
+    }
+}

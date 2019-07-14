@@ -13,6 +13,7 @@ import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.JungleCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.OakCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.PlacerBlock;
 import com.sngtech.beneathMod.blocks.tileentities.SpruceCrateBlock;
 
 import net.minecraft.block.Block;
@@ -52,6 +53,7 @@ public class BlockInit
 	public static final Block JUNGLE_CRATE = null;
 	public static final Block ACACIA_CRATE = null;
 	public static final Block DARK_OAK_CRATE = null;
+	public static final Block PLACER = null;
 	
 	//Portal Blocks
 	public static final Block AM_PORTAL = null;
@@ -90,6 +92,7 @@ public class BlockInit
 				setup(new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "jungle_crate"),
 				setup(new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "acacia_crate"),
 				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate"),
+				setup(new PlacerBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)), "placer"),
 				
 				//Portal Blocks\
 				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal"),

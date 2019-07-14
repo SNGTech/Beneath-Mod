@@ -4,9 +4,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.sngtech.beneathMod.containers.PlacerContainer;
 import com.sngtech.beneathMod.init.TileEntityInit;
 
-import net.minecraft.client.renderer.texture.ITickable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -26,7 +26,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class PlacerTileEntity extends TileEntity implements INamedContainerProvider, INameable
 {
-	Random rand = new Random();
+	private static final Random RNG = new Random();
 	
 	ItemStackHandler inventory = new ItemStackHandler(9)
 	{
@@ -71,24 +71,19 @@ public class PlacerTileEntity extends TileEntity implements INamedContainerProvi
 	
 	public int getPlaceSlot() 
 	{
-      	int i = -1;
-      	int j = 1;
+		int i = -1;
+		int j = 1;
 
-      	for(int k = 0; k < this.inventory.getSlots(); ++k) 
-      	{
-      		if (!this.inventory.getStackInSlot(k).isEmpty() && rand.nextInt(j++) == 0) 
-      		{
-      			i = k;
-         	}
-      	}
+		for(int k = 0; k < this.inventory.getSlots(); ++k) 
+		{
+			if (!this.inventory.getStackInSlot(k).isEmpty() && RNG.nextInt(j++) == 0) 
+			{
+				i = k;
+			}
+		}
 
-      	return i;
- 	}
-	
-	public void setInventorySlotContents()
-	{
-		
-	}
+		return i;
+   }
 	
 	@Override
 	public void read(CompoundNBT compound) 
@@ -146,9 +141,9 @@ public class PlacerTileEntity extends TileEntity implements INamedContainerProvi
 	}
 
 	@Override
-	public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) 
+	public Container createMenu(int windowId, PlayerInventory playerInv, PlayerEntity player) 
 	{
-		return null;
+		return new PlacerContainer(windowId, playerInv, player, this);
 	}
 	
 	@Override

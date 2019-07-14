@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.containers.CrateContainer;
+import com.sngtech.beneathMod.containers.PlacerContainer;
 
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
@@ -15,18 +16,17 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.ObjectHolder;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unchecked"})
 @ObjectHolder(Main.MODID)
 public class ContainerInit<T extends Container> extends ContainerType
 {
-	@SuppressWarnings("unchecked")
 	public ContainerInit(IFactory<T> factory) 
 	{
 		super(factory);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static final ContainerType<CrateContainer> CRATE = new ContainerInit<CrateContainer>(CrateContainer::new);
+	public static final ContainerType<PlacerContainer> PLACER = new ContainerInit<PlacerContainer>(PlacerContainer::new);
 	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
@@ -36,7 +36,8 @@ public class ContainerInit<T extends Container> extends ContainerType
 		{
 			e.getRegistry().registerAll
 			(
-				setup(ContainerInit.CRATE, "crate")
+				setup(ContainerInit.CRATE, "crate"),
+				setup(ContainerInit.PLACER, "placer")
 			);
 			
 			Main.logger.debug("Registered Containers");

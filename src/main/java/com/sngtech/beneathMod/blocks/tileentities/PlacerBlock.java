@@ -2,7 +2,6 @@ package com.sngtech.beneathMod.blocks.tileentities;
 
 import java.util.Random;
 
-import com.sngtech.beneathMod.tileentities.OakCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.PlacerTileEntity;
 
 import net.minecraft.block.Block;
@@ -10,9 +9,6 @@ import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DirectionalBlock;
-import net.minecraft.block.IBlockState;
-import net.minecraft.dispenser.IDispenseItemBehavior;
-import net.minecraft.dispenser.ProxyBlockSource;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -20,13 +16,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tileentity.DispenserTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -87,6 +82,27 @@ public class PlacerBlock extends Block
 		return true;
 	}
 	
+	protected void place(World worldIn, BlockPos pos) 
+	{
+		PlacerTileEntity te = (PlacerTileEntity)worldIn.getTileEntity(pos);
+      	int i = te.getPlaceSlot();
+      	if(i > 0)
+      	{
+      		ItemStack itemstack = te.getInventory().getStackInSlot(i);
+      		if(itemstack.getItem() instanceof BlockItem)
+      		{
+      			BlockItem blockitem = (BlockItem)itemstack.getItem();
+      			Direction direction = te.getBlockState().get(FACING);
+      	    	BlockPos blockpos = pos.offset(direction.getOpposite());
+      	    	if(worldIn.getBlockState(blockpos) == Blocks.TALL_GRASS.getDefaultState() || worldIn.getBlockState(blockpos) == Blocks.AIR.getDefaultState())
+      	    	{
+      	    		worldIn.setBlockState(blockpos, blockitem.getBlock().getDefaultState(), 3);
+      	    		itemstack.shrink(1);
+      			}
+      		}
+      	}
+	}
+	
 	@Override
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) 
 	{
@@ -99,7 +115,7 @@ public class PlacerBlock extends Block
   		} 
       	else if (!flag && flag1) 
       	{
-    	  worldIn.setBlockState(pos, state.with(TRIGGERED, Boolean.valueOf(false)), 4);
+      		worldIn.setBlockState(pos, state.with(TRIGGERED, Boolean.valueOf(false)), 4);
       	}
 	}
 
@@ -110,27 +126,6 @@ public class PlacerBlock extends Block
 		{
 			this.place(worldIn, pos);
 		}
-	}
-	
-	protected void place(World worldIn, BlockState state, BlockPos pos) 
-	{
-		ProxyBlockSource proxyblocksource = new ProxyBlockSource(worldIn, pos);
-		PlacerTileEntity te = proxyblocksource.getBlockTileEntity();
-      	int i = te.getPlaceSlot();
-      	if (i < 0) 
-      	{
-    	  worldIn.playEvent(1001, pos, 0);
-      	} 
-      	else 
-      	{
-      		ItemStack itemstack = te.getInventory().getStackInSlot(i);
-      		if(itemstack.getItem() instanceof BlockItem)
-      		{
-      			Direction direction = state.get(FACING);
-      	    	BlockPos blockpos = pos.offset(direction.getOpposite());
-      	    	worldIn.setBlockState(blockpos, itemstack.);
-      		}
-      	}
 	}
 	
 	@Override
@@ -152,27 +147,30 @@ public class PlacerBlock extends Block
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof PlacerTileEntity)
+		if (state.getBlock() != newState.getBlock())
 		{
-			ItemStack stack;
-			for(int i = 0; i < ((PlacerTileEntity) te).getInventory().getSlots(); i++)
+			if(te instanceof PlacerTileEntity)
 			{
-				stack = ((PlacerTileEntity) te).getInventory().getStackInSlot(i);
-				if(stack != null)
+				ItemStack stack;
+				for(int i = 0; i < ((PlacerTileEntity) te).getInventory().getSlots(); i++)
 				{
-					double d0 = (double)EntityType.ITEM.getWidth();
-			        double d1 = 1.0D - d0;
-			        double d2 = d0 / 2.0D;
-			        double d3 = Math.floor((double)pos.getX()) + RANDOM.nextDouble() * d1 + d2;
-			        double d4 = Math.floor((double)pos.getY()) + RANDOM.nextDouble() * d1;
-			        double d5 = Math.floor((double)pos.getZ()) + RANDOM.nextDouble() * d1 + d2;
-
-			        while(!stack.isEmpty()) 
-			        {
-			           ItemEntity itementity = new ItemEntity(world, d3, d4, d5, stack.split(RANDOM.nextInt(21) + 10));
-			           itementity.setMotion(RANDOM.nextGaussian() * (double)0.05F, RANDOM.nextGaussian() * (double)0.05F + (double)0.2F, RANDOM.nextGaussian() * (double)0.05F);
-			           world.addEntity(itementity);
-			        }
+					stack = ((PlacerTileEntity) te).getInventory().getStackInSlot(i);
+					if(stack != null)
+					{
+						double d0 = (double)EntityType.ITEM.getWidth();
+				        double d1 = 1.0D - d0;
+				        double d2 = d0 / 2.0D;
+				        double d3 = Math.floor((double)pos.getX()) + RANDOM.nextDouble() * d1 + d2;
+				        double d4 = Math.floor((double)pos.getY()) + RANDOM.nextDouble() * d1;
+				        double d5 = Math.floor((double)pos.getZ()) + RANDOM.nextDouble() * d1 + d2;
+		
+				        while(!stack.isEmpty()) 
+				        {
+				           ItemEntity itementity = new ItemEntity(world, d3, d4, d5, stack.split(RANDOM.nextInt(21) + 10));
+				           itementity.setMotion(RANDOM.nextGaussian() * (double)0.05F, RANDOM.nextGaussian() * (double)0.05F + (double)0.2F, RANDOM.nextGaussian() * (double)0.05F);
+				           world.addEntity(itementity);
+				        }
+					}
 				}
 			}
 			
@@ -180,6 +178,12 @@ public class PlacerBlock extends Block
 		}
 			
 		super.onReplaced(state, world, pos, newState, isMoving);
+	}
+	
+	@Override
+	public BlockState getStateForPlacement(BlockItemUseContext context) 
+	{
+		return this.getDefaultState().with(FACING, context.getNearestLookingDirection());
 	}
 	
 	@Override

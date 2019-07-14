@@ -9,6 +9,7 @@ import com.sngtech.beneathMod.tileentities.BirchCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.JungleCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.OakCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.PlacerTileEntity;
 import com.sngtech.beneathMod.tileentities.SpruceCrateTileEntity;
 
 import net.minecraft.tileentity.TileEntityType;
@@ -30,6 +31,9 @@ public class TileEntityInit
 	public static final TileEntityType<?> ACACIA_CRATE = null;
 	public static final TileEntityType<?> DARK_OAK_CRATE = null;
 	
+	//Machines
+	public static final TileEntityType<?> PLACER = null;
+	
 	//Machines (Heat Operated)
 	//public static final TileEntityType<?> BLOCK_BREAKER = null;
 	
@@ -47,10 +51,10 @@ public class TileEntityInit
 				setup(TileEntityType.Builder.create(BirchCrateTileEntity::new, BlockInit.BIRCH_CRATE).build(null), "birch_crate"),
 				setup(TileEntityType.Builder.create(JungleCrateTileEntity::new, BlockInit.JUNGLE_CRATE).build(null), "jungle_crate"),
 				setup(TileEntityType.Builder.create(AcaciaCrateTileEntity::new, BlockInit.ACACIA_CRATE).build(null), "acacia_crate"),
-				setup(TileEntityType.Builder.create(DarkOakCrateTileEntity::new, BlockInit.DARK_OAK_CRATE).build(null), "dark_oak_crate")
+				setup(TileEntityType.Builder.create(DarkOakCrateTileEntity::new, BlockInit.DARK_OAK_CRATE).build(null), "dark_oak_crate"),
 				
 				//Machines (Heat Operated)
-				//TileEntityType.Builder.create(TileEntityBlockBreaker::new, BlockInit.BLOCK_BREAKER).build(null).setRegistryName(Main.MODID, "block_breaker")
+				setup(TileEntityType.Builder.create(PlacerTileEntity::new, BlockInit.PLACER).build(null), "placer")
 			);
 			
 			Main.logger.debug("Registered Tile Entities");
