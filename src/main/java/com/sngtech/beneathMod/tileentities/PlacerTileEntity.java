@@ -81,7 +81,7 @@ public class PlacerTileEntity extends TileEntity implements INamedContainerProvi
 				i = k;
 			}
 		}
-
+		
 		return i;
    }
 	

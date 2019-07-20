@@ -86,7 +86,7 @@ public class PlacerBlock extends Block
 	{
 		PlacerTileEntity te = (PlacerTileEntity)worldIn.getTileEntity(pos);
       	int i = te.getPlaceSlot();
-      	if(i > 0)
+      	if(i >= 0)
       	{
       		ItemStack itemstack = te.getInventory().getStackInSlot(i);
       		if(itemstack.getItem() instanceof BlockItem)
@@ -94,10 +94,18 @@ public class PlacerBlock extends Block
       			BlockItem blockitem = (BlockItem)itemstack.getItem();
       			Direction direction = te.getBlockState().get(FACING);
       	    	BlockPos blockpos = pos.offset(direction.getOpposite());
-      	    	if(worldIn.getBlockState(blockpos) == Blocks.TALL_GRASS.getDefaultState() || worldIn.getBlockState(blockpos) == Blocks.AIR.getDefaultState())
+      	    	if(worldIn.getBlockState(blockpos) == Blocks.TALL_GRASS.getDefaultState() || worldIn.isAirBlock(blockpos))
       	    	{
-      	    		worldIn.setBlockState(blockpos, blockitem.getBlock().getDefaultState(), 3);
-      	    		itemstack.shrink(1);
+      	    		if(blockitem.getBlock().getDefaultState().has(FACING))
+      	    		{
+      	    			worldIn.setBlockState(blockpos, blockitem.getBlock().getDefaultState().with(FACING, te.getBlockState().get(FACING)), 3);
+      	    			itemstack.shrink(1);
+      	    		}
+      	    		else
+      	    		{
+      	    			worldIn.setBlockState(blockpos, blockitem.getBlock().getDefaultState(), 3);
+      	    			itemstack.shrink(1);
+      	    		}
       			}
       		}
       	}

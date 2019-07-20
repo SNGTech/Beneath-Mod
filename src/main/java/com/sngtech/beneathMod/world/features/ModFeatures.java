@@ -1,54 +1,53 @@
 package com.sngtech.beneathMod.world.features;
 
-import javax.annotation.Nonnull;
-
-import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.world.features.structures.TestStructure;
+import com.sngtech.beneathMod.world.gen.features.ModOreFeature;
+import com.sngtech.beneathMod.world.gen.features.ModOreFeatureConfig;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.GameData;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(Main.MODID)
 public class ModFeatures 
 {
-	public static final Structure<NoFeatureConfig> TEST = null;
+	public static final Feature<ModOreFeatureConfig> MOD_ORE = new ModOreFeature(ModOreFeatureConfig::deserialize);
+	public static final Structure<NoFeatureConfig> TEST = new TestStructure(NoFeatureConfig::deserialize);
 	
-	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-	public static class RegistryEvents
+	@SubscribeEvent
+    public static void registerFeatures(IForgeRegistry<Feature<?>> event) 
 	{
-		@SubscribeEvent
-		public static void registerFeatures(final RegistryEvent.Register<Feature<?>> e)
-		{
-			e.getRegistry().registerAll
-			(
-				setup(new TestStructure(NoFeatureConfig::deserialize), "test")
-			);
-			
-			Main.logger.debug("Registered Features");
-		}
+		generic(event).add("mod_ore", MOD_ORE);
+		generic(event).add("test", TEST);
 	}
 	
-	@Nonnull
-	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) 
+	public static <T extends IForgeRegistryEntry<T>> Generic<T> generic(IForgeRegistry<T> registry) 
 	{
-		Preconditions.checkNotNull(name, "Name to assign to entry cannot be null!");
-		return setup(entry, new ResourceLocation(Main.MODID, name));
+		return new Generic<>(registry);
 	}
+	
+	public static class Generic<T extends IForgeRegistryEntry<T>> 
+	{
+		private final IForgeRegistry<T> registry;
 
-	@Nonnull
-	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final ResourceLocation registryName) 
-	{
-		Preconditions.checkNotNull(entry, "Entry cannot be null!");
-		Preconditions.checkNotNull(registryName, "Registry name to assign to entry cannot be null!");
-		entry.setRegistryName(registryName);
-		return entry;
-	}
+		private Generic(IForgeRegistry<T> registry) 
+		{
+			this.registry = registry;
+		}
+
+		public Generic<T> add(String name, T entry) 
+		{
+			ResourceLocation registryName = GameData.checkPrefix(name, false);
+			entry.setRegistryName(registryName);
+			this.registry.register(entry);
+			return this;
+        }
+    }
 }
