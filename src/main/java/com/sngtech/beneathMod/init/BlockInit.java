@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.blocks.AMPortalBlock;
+import com.sngtech.beneathMod.blocks.BlueFireBlock;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
 import com.sngtech.beneathMod.blocks.NuclearTNTBlock;
 import com.sngtech.beneathMod.blocks.TesseractChamberBlock;
@@ -61,6 +62,9 @@ public class BlockInit
 	//TNT
 	public static final Block NUCLEAR_TNT = null;
 	
+	//Fires
+	public static final Block BLUE_FIRE = null;
+	
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents
 	{
@@ -98,7 +102,10 @@ public class BlockInit
 				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal"),
 			
 				//TNT
-				setup(new NuclearTNTBlock(Block.Properties.create(Material.TNT).hardnessAndResistance(0.0f).sound(SoundType.PLANT).lightValue(13)), "nuclear_tnt")
+				setup(new NuclearTNTBlock(Block.Properties.create(Material.TNT).hardnessAndResistance(0.0f).sound(SoundType.PLANT).lightValue(13)), "nuclear_tnt"),
+				
+				//Fires
+				setup(new BlueFireBlock(Block.Properties.create(Material.FIRE).hardnessAndResistance(0.0f).tickRandomly().sound(SoundType.CLOTH).lightValue(16)), "blue_fire")
 			);
 			
 			Main.logger.debug("Registered Blocks");

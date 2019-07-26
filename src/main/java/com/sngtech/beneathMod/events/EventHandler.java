@@ -1,9 +1,15 @@
 package com.sngtech.beneathMod.events;
 
+import com.sngtech.beneathMod.capability.BlueFireTick;
+import com.sngtech.beneathMod.capability.BlueFireTickCapability;
+import com.sngtech.beneathMod.capability.IBlueFireTick;
 import com.sngtech.beneathMod.init.BiomeInit;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.IFluidState;
@@ -14,6 +20,8 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -180,12 +188,15 @@ public class EventHandler
         }
     }
     
-    /*private static float getLightExposure(float d0, float d1)
+    @SuppressWarnings("rawtypes")
+    @SubscribeEvent
+    public static void renderModFires(RenderLivingEvent.Post e)
     {
-    	for(float t = 0; t < 1F; t += 0.02F)
-    		timer = t;
-    	
-    	float f = MathHelper.lerp(timer, d0, d1);
-		return f;
-    }*/
+    	Entity entity = e.getEntity();
+    	if(entity instanceof LivingEntity)
+    	{
+    		LazyOptional<IBlueFireTick> bluefiretickk = entity.getCapability(BlueFireTickCapability.BLUE_FIRE_TICK, null);
+    		
+    	}
+    }
 }
