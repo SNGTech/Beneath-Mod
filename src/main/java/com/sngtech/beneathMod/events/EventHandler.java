@@ -1,14 +1,13 @@
 package com.sngtech.beneathMod.events;
 
-import com.sngtech.beneathMod.capability.BlueFireTick;
+import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.capability.BlueFireTickCapability;
 import com.sngtech.beneathMod.capability.IBlueFireTick;
 import com.sngtech.beneathMod.init.BiomeInit;
+import com.sngtech.beneathMod.utils.ModRenderOverlays;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +21,7 @@ import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -188,15 +188,42 @@ public class EventHandler
         }
     }
     
-    @SuppressWarnings("rawtypes")
     @SubscribeEvent
-    public static void renderModFires(RenderLivingEvent.Post e)
+    public static void entityTickEvent(LivingUpdateEvent e)
     {
     	Entity entity = e.getEntity();
     	if(entity instanceof LivingEntity)
     	{
-    		LazyOptional<IBlueFireTick> bluefiretickk = entity.getCapability(BlueFireTickCapability.BLUE_FIRE_TICK, null);
-    		
+    		//Main.logger.info(ModRenderOverlays.collidedwithBlueFire(entity.getEntity().world, entity.getBoundingBox().shrink(0.001D)));
+    		LazyOptional<IBlueFireTick> bluefiretick = entity.getCapability(BlueFireTickCapability.BLUE_FIRE_TICK, null);
+    		bluefiretick.ifPresent(data -> 
+    		{
+    			if(data.getBlueFire() <= 0 && ModRenderOverlays.collidedwithBlueFire(entity.getEntity().world, entity.getBoundingBox().shrink(0.001D)))
+    			{
+					data.tick(e.getEntity());
+					Main.logger.info("Entity: " + e.getEntity() + " Tick: " + data.getBlueFire());
+    			}
+    		});
+    	}
+    }
+    
+    @SuppressWarnings("rawtypes")
+    @SubscribeEvent
+    public static void renderModFiresEvent(RenderLivingEvent.Post e)
+    {
+    	Entity entity = e.getEntity();
+    	if(entity instanceof LivingEntity)
+    	{
+    		LazyOptional<IBlueFireTick> bluefiretick = entity.getCapability(BlueFireTickCapability.BLUE_FIRE_TICK, null);
+    		bluefiretick.ifPresent(data -> 
+    		{
+    			if(data.getBlueFire() <= 0 && ModRenderOverlays.collidedwithBlueFire(entity.getEntity().world, entity.getBoundingBox().shrink(0.001D)))
+    			{
+    				data.setBlueFire(20);
+    				data.isBurning();
+    				ModRenderOverlays.renderEntityOnBlueFire(entity, e.getRenderer(), e.getX(), e.getY(), e.getZ(), 1.0F);
+    			}
+    		});
     	}
     }
 }

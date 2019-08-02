@@ -1,4 +1,4 @@
-package com.sngtech.beneathMod.blocks.tileentities;
+package com.sngtech.beneathMod.blocks.tileentities.crates;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;

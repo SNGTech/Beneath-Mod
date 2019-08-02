@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "beneath:block/decayed_planks_drying_rack", "x": 90 },
+        "facing=down": { "model": "beneath:block/decayed_planks_drying_rack", "x": 270 },
+        "facing=north": { "model": "beneath:block/decayed_planks_drying_rack", "y": 180 },
+        "facing=south": { "model": "beneath:block/decayed_planks_drying_rack" },
+        "facing=west": { "model": "beneath:block/decayed_planks_drying_rack", "y": 90 },
+        "facing=east": { "model": "beneath:block/decayed_planks_drying_rack", "y": 270 }
+    }
+}

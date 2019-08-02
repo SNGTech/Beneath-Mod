@@ -1,6 +1,6 @@
-package com.sngtech.beneathMod.blocks.tileentities;
+package com.sngtech.beneathMod.blocks.tileentities.crates;
 
-import com.sngtech.beneathMod.tileentities.SpruceCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;

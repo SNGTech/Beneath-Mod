@@ -2,6 +2,7 @@ package com.sngtech.beneathMod.capability;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.DamageSource;
 
@@ -39,7 +40,7 @@ public class BlueFireTick implements IBlueFireTick
 	}
 
 	@Override
-	public void tick() 
+	public void tick(Entity e) 
 	{
 		if(this.blueFire < 0)
 		{
@@ -47,7 +48,7 @@ public class BlueFireTick implements IBlueFireTick
 		}
 		if (this.blueFire % 20 == 0) 
 		{
-			entity.attackEntityFrom(DamageSource.ON_FIRE, 3.0F);
+			e.attackEntityFrom(DamageSource.ON_FIRE, 3.0F);
 		}
 		
 		--blueFire;

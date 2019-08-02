@@ -1,5 +1,7 @@
 package com.sngtech.beneathMod.capability;
 
+import net.minecraft.entity.Entity;
+
 public interface IBlueFireTick 
 {
 	boolean isBurning();
@@ -8,5 +10,5 @@ public interface IBlueFireTick
 	
 	int getBlueFire();
 	
-	void tick();
+	void tick(Entity entity);
 }

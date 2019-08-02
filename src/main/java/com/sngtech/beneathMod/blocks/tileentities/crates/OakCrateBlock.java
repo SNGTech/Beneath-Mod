@@ -1,6 +1,6 @@
-package com.sngtech.beneathMod.blocks.tileentities;
+package com.sngtech.beneathMod.blocks.tileentities.crates;
 
-import com.sngtech.beneathMod.tileentities.BirchCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.OakCrateTileEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -17,9 +17,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class BirchCrateBlock extends AbstractCrateBlock
+public class OakCrateBlock extends AbstractCrateBlock
 {
-	public BirchCrateBlock(Properties builder) 
+	public OakCrateBlock(Properties builder) 
 	{
 		super(builder);
 	}
@@ -27,7 +27,7 @@ public class BirchCrateBlock extends AbstractCrateBlock
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new BirchCrateTileEntity();
+		return new OakCrateTileEntity();
 	}
 	
 	@Override
@@ -40,9 +40,9 @@ public class BirchCrateBlock extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof BirchCrateTileEntity)
+			if(te instanceof OakCrateTileEntity)
 			{
-				NetworkHooks.openGui((ServerPlayerEntity) player, (BirchCrateTileEntity) te, (buf -> buf.writeBlockPos(pos)));
+				NetworkHooks.openGui((ServerPlayerEntity) player, (OakCrateTileEntity) te, (buf -> buf.writeBlockPos(pos)));
 			}
 		}
 		
@@ -55,9 +55,9 @@ public class BirchCrateBlock extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof BirchCrateTileEntity) 
+			if (tileentity instanceof OakCrateTileEntity) 
 			{
-				((BirchCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
+				((OakCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
 			}
 		}
 	}
@@ -68,12 +68,12 @@ public class BirchCrateBlock extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof BirchCrateTileEntity)
+		if(te instanceof OakCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((BirchCrateTileEntity) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((OakCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((BirchCrateTileEntity) te).getInventory().getStackInSlot(i);
+				stack = ((OakCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					double d0 = (double)EntityType.ITEM.getWidth();

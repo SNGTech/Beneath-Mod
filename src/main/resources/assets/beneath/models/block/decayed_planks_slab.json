@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "beneath:block/decayed_planks",
+        "top": "beneath:block/decayed_planks",
+        "side": "beneath:block/decayed_planks"
+    }
+}

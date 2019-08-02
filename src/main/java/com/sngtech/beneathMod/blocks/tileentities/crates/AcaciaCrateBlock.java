@@ -1,6 +1,6 @@
-package com.sngtech.beneathMod.blocks.tileentities;
+package com.sngtech.beneathMod.blocks.tileentities.crates;
 
-import com.sngtech.beneathMod.tileentities.AcaciaCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.AcaciaCrateTileEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;

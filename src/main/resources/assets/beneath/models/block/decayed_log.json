@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "beneath:block/decayed_log_top",
+        "side": "beneath:block/decayed_log"
+    }
+}

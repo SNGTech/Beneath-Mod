@@ -2,7 +2,7 @@ package com.sngtech.beneathMod.blocks.tileentities;
 
 import java.util.Random;
 
-import com.sngtech.beneathMod.tileentities.PlacerTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.PlacerTileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;

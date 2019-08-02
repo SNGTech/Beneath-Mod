@@ -13,6 +13,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.Capability.IStorage;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -43,6 +44,11 @@ public class BlueFireTickCapability
 			}
 		}, () -> new BlueFireTick(null));
 	}
+	
+	public static LazyOptional<IBlueFireTick> data(ICapabilityProvider data) 
+	{
+        return data.getCapability(BLUE_FIRE_TICK);
+    }
 	
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	private static class EventHandler 

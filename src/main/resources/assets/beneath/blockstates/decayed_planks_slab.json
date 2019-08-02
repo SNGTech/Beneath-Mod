@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "beneath:block/decayed_planks_slab" },
+        "type=top": { "model": "beneath:block/decayed_planks_slab_top" },
+        "type=double": { "model": "beneath:block/decayed_planks" }
+    }
+}

@@ -1,4 +1,4 @@
-package com.sngtech.beneathMod.tileentities;
+package com.sngtech.beneathMod.tileentities.crates;
 
 import com.sngtech.beneathMod.init.TileEntityInit;
 

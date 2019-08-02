@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "beneath:block/decayed_log" },
+        "axis=z":   { "model": "beneath:block/decayed_log", "x": 90 },
+        "axis=x":   { "model": "beneath:block/decayed_log", "x": 90, "y": 90 }
+    }
+}

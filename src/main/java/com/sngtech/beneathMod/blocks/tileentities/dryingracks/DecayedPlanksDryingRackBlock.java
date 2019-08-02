@@ -1,13 +1,13 @@
-package com.sngtech.beneathMod.blocks.tileentities;
+package com.sngtech.beneathMod.blocks.tileentities.dryingracks;
 
-import com.sngtech.beneathMod.tileentities.OakCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.dryingracks.DecayedPlanksDryingRackTileEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Hand;
@@ -15,19 +15,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkHooks;
 
-public class OakCrateBlock extends AbstractCrateBlock
+public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock 
 {
-	public OakCrateBlock(Properties builder) 
+	public DecayedPlanksDryingRackBlock(Properties builder) 
 	{
 		super(builder);
 	}
-	
+
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new OakCrateTileEntity();
+		return new DecayedPlanksDryingRackTileEntity();
 	}
 	
 	@Override
@@ -40,9 +39,11 @@ public class OakCrateBlock extends AbstractCrateBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof OakCrateTileEntity)
+			if(te instanceof DecayedPlanksDryingRackTileEntity)
 			{
-				NetworkHooks.openGui((ServerPlayerEntity) player, (OakCrateTileEntity) te, (buf -> buf.writeBlockPos(pos)));
+				DecayedPlanksDryingRackTileEntity dryingrack = (DecayedPlanksDryingRackTileEntity) te;
+				ItemStack stack = player.getHeldItem(handIn);
+				dryingrack.addItem(stack);
 			}
 		}
 		
@@ -55,9 +56,9 @@ public class OakCrateBlock extends AbstractCrateBlock
 		if (stack.hasDisplayName()) 
 		{
 			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof OakCrateTileEntity) 
+			if (tileentity instanceof DecayedPlanksDryingRackTileEntity) 
 			{
-				((OakCrateTileEntity)tileentity).setCustomName(stack.getDisplayName());
+				
 			}
 		}
 	}
@@ -68,12 +69,12 @@ public class OakCrateBlock extends AbstractCrateBlock
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof OakCrateTileEntity)
+		if(te instanceof SpruceCrateTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((OakCrateTileEntity) te).getInventory().getSlots(); i++)
+			for(int i = 0; i < ((SpruceCrateTileEntity) te).getInventory().getSlots(); i++)
 			{
-				stack = ((OakCrateTileEntity) te).getInventory().getStackInSlot(i);
+				stack = ((SpruceCrateTileEntity) te).getInventory().getStackInSlot(i);
 				if(stack != null)
 				{
 					double d0 = (double)EntityType.ITEM.getWidth();

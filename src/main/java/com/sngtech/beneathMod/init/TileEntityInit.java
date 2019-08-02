@@ -4,13 +4,14 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
 import com.sngtech.beneathMod.Main;
-import com.sngtech.beneathMod.tileentities.AcaciaCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.BirchCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.DarkOakCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.JungleCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.OakCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.PlacerTileEntity;
-import com.sngtech.beneathMod.tileentities.SpruceCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.AcaciaCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.BirchCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.DarkOakCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.JungleCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.OakCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.PlacerTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.dryingracks.DecayedPlanksDryingRackTileEntity;
 
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
@@ -30,6 +31,8 @@ public class TileEntityInit
 	public static final TileEntityType<?> JUNGLE_CRATE = null;
 	public static final TileEntityType<?> ACACIA_CRATE = null;
 	public static final TileEntityType<?> DARK_OAK_CRATE = null;
+	
+	public static final TileEntityType<?> DECAYED_PLANKS_DRYING_RACK = null;
 	
 	//Machines
 	public static final TileEntityType<?> PLACER = null;
@@ -52,6 +55,8 @@ public class TileEntityInit
 				setup(TileEntityType.Builder.create(JungleCrateTileEntity::new, BlockInit.JUNGLE_CRATE).build(null), "jungle_crate"),
 				setup(TileEntityType.Builder.create(AcaciaCrateTileEntity::new, BlockInit.ACACIA_CRATE).build(null), "acacia_crate"),
 				setup(TileEntityType.Builder.create(DarkOakCrateTileEntity::new, BlockInit.DARK_OAK_CRATE).build(null), "dark_oak_crate"),
+				
+				setup(TileEntityType.Builder.create(DecayedPlanksDryingRackTileEntity::new, BlockInit.DECAYED_PLANKS_DRYING_RACK).build(null), "decayed_planks_drying_rack"),
 				
 				//Machines (Heat Operated)
 				setup(TileEntityType.Builder.create(PlacerTileEntity::new, BlockInit.PLACER).build(null), "placer")

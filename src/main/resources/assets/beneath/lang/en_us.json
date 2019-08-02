@@ -15,6 +15,21 @@
 	"block.beneath.cracked_rocks": "Cracked Rocks",
 	"block.beneath.decayed_grass": "Decayed Grass",
 
+	//Logs
+	"block.beneath.decayed_log": "Decayed Log",
+	
+	//Woods
+	"block.beneath.decayed_wood": "Decayed Wood",
+	
+	//Planks
+	"block.beneath.decayed_planks": "Decayed Planks",
+	
+	//Slabs
+	"block.beneath.decayed_planks_slab": "Decayed Planks Slab",
+	
+	//Stairs
+	"block.beneath.decayed_planks_stairs": "Decayed Planks Stairs",
+	
 	//Decorations (Blocks)
 	"block.beneath.carved_stone_bricks": "Carved Stone Bricks",
 	"block.beneath.line_chiseled_stone_bricks": "Line Chiseled Stone Bricks",
@@ -34,7 +49,13 @@
 	"block.beneath.jungle_crate": "Jungle Crate",
 	"block.beneath.acacia_crate": "Acacia Crate",
 	"block.beneath.dark_oak_crate": "Dark Oak Crate",
+	
+	"block.beneath.decayed_planks_drying_rack": "Decayed Planks Drying Rack",
+	
 	"block.beneath.placer": "Placer",
+	
+	//Doors (Blocks)
+	"block.beneath.decayed_wood_door": "Decayed Wood Door",
 	
 	//Containers
 	"container.oak_crate": "Oak Crate",

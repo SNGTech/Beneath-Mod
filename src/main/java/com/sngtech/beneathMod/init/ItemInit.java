@@ -9,6 +9,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.TallBlockItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,6 +33,14 @@ public class ItemInit
 	public static final Item CRACKED_ROCKS = null;
 	public static final Item DECAYED_GRASS = null;
 	
+	public static final Item DECAYED_LOG = null;
+	
+	public static final Item DECAYED_PLANKS = null;
+	
+	public static final Item DECAYED_PLANKS_SLAB = null;
+	
+	public static final Item DECAYED_PLANKS_STAIRS = null;
+	
 	public static final Item CARVED_STONE_BRICKS = null;
 	public static final Item LINE_CHISELED_STONE_BRICKS = null;
 	
@@ -49,7 +58,12 @@ public class ItemInit
 	public static final Item JUNGLE_CRATE = null;
 	public static final Item ACACIA_CRATE = null;
 	public static final Item DARK_OAK_CRATE = null;
+	
+	public static final Item DECAYED_PLANKS_DRYING_RACK = null;
+	
 	public static final Item PLACER = null;
+	
+	public static final Item DECAYED_WOOD_DOOR = null;
 	
 	public static final Item NUCLEAR_TNT = null;
 	
@@ -74,6 +88,16 @@ public class ItemInit
 				setup(new BlockItem(BlockInit.CRACKED_ROCKS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "cracked_rocks"),
 				setup(new BlockItem(BlockInit.DECAYED_GRASS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_grass"),
 				
+				setup(new BlockItem(BlockInit.DECAYED_LOG, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_log"),
+				
+				setup(new BlockItem(BlockInit.DECAYED_WOOD, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_wood"),
+				
+				setup(new BlockItem(BlockInit.DECAYED_PLANKS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_planks"),
+				
+				setup(new BlockItem(BlockInit.DECAYED_PLANKS_SLAB, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_planks_slab"),
+				
+				setup(new BlockItem(BlockInit.DECAYED_PLANKS_STAIRS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_planks_stairs"),
+				
 				setup(new BlockItem(BlockInit.CARVED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "carved_stone_bricks"),
 				setup(new BlockItem(BlockInit.LINE_CHISELED_STONE_BRICKS, new Item.Properties().group(Main.BENEATH_BLOCKS)), "line_chiseled_stone_bricks"),
 				
@@ -89,6 +113,10 @@ public class ItemInit
 				setup(new BlockItem(BlockInit.JUNGLE_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "jungle_crate"),
 				setup(new BlockItem(BlockInit.ACACIA_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "acacia_crate"),
 				setup(new BlockItem(BlockInit.DARK_OAK_CRATE, new Item.Properties().group(Main.BENEATH_BLOCKS)), "dark_oak_crate"),
+				
+				setup(new BlockItem(BlockInit.DECAYED_PLANKS_DRYING_RACK, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_planks_drying_rack"),
+				
+				setup(new TallBlockItem(BlockInit.DECAYED_WOOD_DOOR, new Item.Properties().group(Main.BENEATH_BLOCKS)), "decayed_wood_door"),
 				
 				setup(new BlockItem(BlockInit.PLACER, new Item.Properties().group(Main.BENEATH_BLOCKS)), "placer"),
 				

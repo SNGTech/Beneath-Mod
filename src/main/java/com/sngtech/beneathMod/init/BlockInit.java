@@ -7,21 +7,28 @@ import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.blocks.AMPortalBlock;
 import com.sngtech.beneathMod.blocks.BlueFireBlock;
 import com.sngtech.beneathMod.blocks.DecayedGrassBlock;
+import com.sngtech.beneathMod.blocks.ModDoorBlock;
+import com.sngtech.beneathMod.blocks.ModStairsBlock;
 import com.sngtech.beneathMod.blocks.NuclearTNTBlock;
 import com.sngtech.beneathMod.blocks.TesseractChamberBlock;
-import com.sngtech.beneathMod.blocks.tileentities.AcaciaCrateBlock;
-import com.sngtech.beneathMod.blocks.tileentities.BirchCrateBlock;
-import com.sngtech.beneathMod.blocks.tileentities.DarkOakCrateBlock;
-import com.sngtech.beneathMod.blocks.tileentities.JungleCrateBlock;
-import com.sngtech.beneathMod.blocks.tileentities.OakCrateBlock;
 import com.sngtech.beneathMod.blocks.tileentities.PlacerBlock;
-import com.sngtech.beneathMod.blocks.tileentities.SpruceCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.AcaciaCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.BirchCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.DarkOakCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.JungleCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.OakCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.crates.SpruceCrateBlock;
+import com.sngtech.beneathMod.blocks.tileentities.dryingracks.DecayedPlanksDryingRackBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.LogBlock;
 import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +41,21 @@ public class BlockInit
 	//Terrain
 	public static final Block DECAYED_GRASS = null;
 	public static final Block CRACKED_ROCKS = null;
+	
+	//Logs
+	public static final Block DECAYED_LOG = null;
+	
+	//Woods
+	public static final Block DECAYED_WOOD = null;
+	
+	//Planks
+	public static final Block DECAYED_PLANKS = null;
+	
+	//Slabs
+	public static final Block DECAYED_PLANKS_SLAB = null;
+	
+	//Stairs
+	public static final Block DECAYED_PLANKS_STAIRS = null;
 	
 	//Decorations
 	public static final Block CARVED_STONE_BRICKS = null;
@@ -54,7 +76,11 @@ public class BlockInit
 	public static final Block JUNGLE_CRATE = null;
 	public static final Block ACACIA_CRATE = null;
 	public static final Block DARK_OAK_CRATE = null;
+	public static final Block DECAYED_PLANKS_DRYING_RACK = null;
 	public static final Block PLACER = null;
+	
+	//Doors 
+	public static final Block DECAYED_WOOD_DOOR = null;
 	
 	//Portal Blocks
 	public static final Block AM_PORTAL = null;
@@ -77,6 +103,18 @@ public class BlockInit
 				setup(new DecayedGrassBlock(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0f).sound(SoundType.PLANT)), "decayed_grass"),
 				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.4f).sound(SoundType.STONE)), "cracked_rocks"),	
 				
+				//Logs
+				setup(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_log"),
+				
+				//Wood
+				setup(new RotatedPillarBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_wood"),
+				
+				//Planks
+				setup(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_planks"),
+				
+				//Slabs
+				setup(new SlabBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_planks_slab"),
+				
 				//Decorations
 				setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.7f).sound(SoundType.STONE)), "carved_stone_bricks"),
 				setup(new RotatedPillarBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.9f).sound(SoundType.STONE)), "line_chiseled_stone_bricks"),
@@ -96,7 +134,12 @@ public class BlockInit
 				setup(new JungleCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "jungle_crate"),
 				setup(new AcaciaCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "acacia_crate"),
 				setup(new DarkOakCrateBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5f).sound(SoundType.WOOD)), "dark_oak_crate"),
+				
+				setup(new DecayedPlanksDryingRackBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)), "decayed_planks_drying_rack"),
 				setup(new PlacerBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5f).sound(SoundType.STONE)), "placer"),
+				
+				//Doors
+				setup(new ModDoorBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_wood_door"),
 				
 				//Portal Blocks\
 				setup(new AMPortalBlock(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS).lightValue(11)), "am_portal"),
@@ -109,6 +152,19 @@ public class BlockInit
 			);
 			
 			Main.logger.debug("Registered Blocks");
+		}
+		
+		@SubscribeEvent
+		public static void registerPostBlocks(final RegistryEvent.Register<Block> e)
+		{
+			Block block0 = new Block((Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE))).setRegistryName("decayed_planks");
+			
+			e.getRegistry().register
+			(
+				setup(new ModStairsBlock(block0.getDefaultState(), Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE)), "decayed_planks_stairs")
+			);
+			
+			Main.logger.debug("Registered PostBlocks");
 		}
 	}
 	

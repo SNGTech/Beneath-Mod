@@ -1,7 +1,7 @@
 package com.sngtech.beneathMod.containers;
 
 import com.sngtech.beneathMod.init.ContainerInit;
-import com.sngtech.beneathMod.tileentities.CrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.CrateTileEntity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
