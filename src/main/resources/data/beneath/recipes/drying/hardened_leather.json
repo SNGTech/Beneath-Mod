@@ -1,0 +1,11 @@
+{
+  "type": "beneath:drying",
+  "ingredient": {
+    "item": "minecraft:leather"
+  },
+  "result": {
+    "item": "beneath:rock"
+  },
+  "experience": 0.35,
+  "dryingtime": 600
+}

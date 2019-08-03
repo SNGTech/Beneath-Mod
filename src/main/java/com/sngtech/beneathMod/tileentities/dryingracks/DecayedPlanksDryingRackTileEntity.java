@@ -1,12 +1,21 @@
 package com.sngtech.beneathMod.tileentities.dryingracks;
 
+import java.util.Optional;
+
+import com.sngtech.beneathMod.Main;
+import com.sngtech.beneathMod.init.RecipeInit;
+import com.sngtech.beneathMod.recipes.DryingRecipe;
+
 import net.minecraft.client.renderer.texture.ITickable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Hand;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITickable
@@ -37,24 +46,7 @@ public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITi
 	@Override
 	public void tick() 
 	{
-		if(itemstack.getStackInSlot(0) != null)
-		{
-			dryingTime = 1000;
-			dryingTimeTotal = dryingTime;
-			
-			if(dryingTime < 0)
-			{
-				dryingTime = 0;
-				dryingTimeTotal = dryingTime;
-			}
-			else
-				dryingTime--;
-		}
-		else
-		{
-			dryingTime = 0;
-			dryingTimeTotal = dryingTime;
-		}
+		
 	}
 	
 	@Override
@@ -94,13 +86,30 @@ public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITi
 		return new SUpdateTileEntityPacket(this.pos, 0, this.getUpdateTag());
 	}
 	
-	public void addItem(ItemStack stack)
+	public Optional<DryingRecipe> findMatchingRecipe(ItemStack itemStack) 
+	{
+		return this.itemstack.getStackInSlot(0) == null ? Optional.empty() : this.world.getRecipeManager().getRecipe(RecipeInit.DRYING, new Inventory(itemStack), this.world);
+	}
+	
+	public void addItem(ItemStack stack, int dryingTime)
 	{
 		if(this.itemstack.getStackInSlot(0) != null)
 		{
-			this.itemstack.extractItem(0, 1, false);
+			Main.logger.debug("hm");
+			this.itemstack.setStackInSlot(0, stack.split(1));
+			this.dryingTimeTotal = dryingTime;
+			this.dryingTime = 0;
 		}
-
-		this.itemstack.setStackInSlot(0, stack.split(1));
+	}
+	
+	public void retrieveItem(ItemStack stack, PlayerEntity player, Hand hand)
+	{
+		if(this.itemstack.getStackInSlot(0) != null)
+		{
+			player.setHeldItem(hand, this.itemstack.getStackInSlot(0));
+			this.itemstack.extractItem(0, 1, false);
+			this.dryingTimeTotal = 0;
+			this.dryingTime = 0;
+		}
 	}
 }

@@ -1,5 +1,8 @@
 package com.sngtech.beneathMod.blocks.tileentities.dryingracks;
 
+import java.util.Optional;
+
+import com.sngtech.beneathMod.recipes.DryingRecipe;
 import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.dryingracks.DecayedPlanksDryingRackTileEntity;
 
@@ -43,7 +46,15 @@ public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock
 			{
 				DecayedPlanksDryingRackTileEntity dryingrack = (DecayedPlanksDryingRackTileEntity) te;
 				ItemStack stack = player.getHeldItem(handIn);
-				dryingrack.addItem(stack);
+				Optional<DryingRecipe> optional = dryingrack.findMatchingRecipe(stack);
+				
+				if(!world.isRemote)
+				{
+					if(optional.isPresent())
+					{
+						dryingrack.addItem(stack, optional.get().getDryingTime());
+					}
+				}
 			}
 		}
 		
