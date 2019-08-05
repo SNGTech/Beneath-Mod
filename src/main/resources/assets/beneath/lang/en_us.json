@@ -5,6 +5,9 @@
 	"item.beneath.copper_ore_rock": "Copper Ore Rock",
 	"item.beneath.bauxite_ore_rock": "Bauxite Ore Rock",
 	
+	//Materials (Item)
+	"item.beneath.hardened_leather": "Hardened Leather",
+	
 	//Spawn Eggs (Items)
 	"item.beneath.cold_creeper_spawn_egg": "Cold Creeper Spawn Egg",
 

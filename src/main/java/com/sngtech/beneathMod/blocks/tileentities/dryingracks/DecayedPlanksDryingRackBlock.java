@@ -52,7 +52,17 @@ public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock
 				{
 					if(optional.isPresent())
 					{
-						dryingrack.addItem(stack, optional.get().getDryingTime());
+						if(!dryingrack.canRetrieve)
+							dryingrack.addItem(stack, player, handIn, optional.get().getDryingTime());
+						
+						else if(dryingrack.canRetrieve)
+							dryingrack.retrieveItem(player, handIn);
+						
+						
+					}
+					else if(player.getHeldItem(handIn).isEmpty())
+					{
+						dryingrack.retrieveItem(player, handIn);
 					}
 				}
 			}

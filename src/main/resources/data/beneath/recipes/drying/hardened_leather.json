@@ -4,7 +4,7 @@
     "item": "minecraft:leather"
   },
   "result": {
-    "item": "beneath:rock"
+    "item": "beneath:hardened_leather"
   },
   "experience": 0.35,
   "dryingtime": 600

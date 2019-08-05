@@ -32,6 +32,7 @@ public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITi
 	
 	private int dryingTime;
 	private int dryingTimeTotal;
+	public boolean canRetrieve = false;
 	
 	public DecayedPlanksDryingRackTileEntity(TileEntityType<?> tileEntityTypeIn) 
 	{
@@ -46,6 +47,18 @@ public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITi
 	@Override
 	public void tick() 
 	{
+		Main.logger.debug("ok...");
+		if(this.itemstack.getStackInSlot(0).getCount() > 0)
+		{
+			++this.dryingTime;
+			Main.logger.debug(this.dryingTime);
+			
+			if(this.dryingTime >= this.dryingTimeTotal)
+			{
+				Optional<DryingRecipe> optional = this.findMatchingRecipe(itemstack.getStackInSlot(0));
+				this.itemstack.setStackInSlot(0, optional.get().getRecipeOutput());
+			}
+		}
 		
 	}
 	
@@ -91,25 +104,38 @@ public class DecayedPlanksDryingRackTileEntity extends TileEntity implements ITi
 		return this.itemstack.getStackInSlot(0) == null ? Optional.empty() : this.world.getRecipeManager().getRecipe(RecipeInit.DRYING, new Inventory(itemStack), this.world);
 	}
 	
-	public void addItem(ItemStack stack, int dryingTime)
+	public void addItem(ItemStack stack, PlayerEntity player, Hand hand, int dryingTime)
 	{
-		if(this.itemstack.getStackInSlot(0) != null)
+		if(this.itemstack.getStackInSlot(0).getCount() <= 0)
 		{
-			Main.logger.debug("hm");
 			this.itemstack.setStackInSlot(0, stack.split(1));
 			this.dryingTimeTotal = dryingTime;
 			this.dryingTime = 0;
+			this.canRetrieve = true;
 		}
 	}
 	
-	public void retrieveItem(ItemStack stack, PlayerEntity player, Hand hand)
+	public void retrieveItem(PlayerEntity player, Hand hand)
 	{
-		if(this.itemstack.getStackInSlot(0) != null)
+		if(this.itemstack.getStackInSlot(0).getCount() > 0 && !player.getHeldItem(hand).isEmpty())
+		{
+			player.getHeldItem(hand).grow(1);
+			this.itemstack.extractItem(0, 1, false);
+			resetDryingTime();
+			this.canRetrieve = false;
+		}
+		else if(this.itemstack.getStackInSlot(0).getCount() > 0 && player.getHeldItem(hand).isEmpty())
 		{
 			player.setHeldItem(hand, this.itemstack.getStackInSlot(0));
 			this.itemstack.extractItem(0, 1, false);
-			this.dryingTimeTotal = 0;
-			this.dryingTime = 0;
+			resetDryingTime();
+			this.canRetrieve = false;
 		}
+	}
+	
+	private void resetDryingTime()
+	{
+		this.dryingTimeTotal = 0;
+		this.dryingTime = 0;
 	}
 }

@@ -26,6 +26,9 @@ public class ItemInit
 	public static final Item COPPER_ORE_ROCK = null;
 	public static final Item BAUXITE_ORE_ROCK = null;
 	
+	//Materials
+	public static final Item HARDENED_LEATHER = null;
+	
 	//Spawn Eggs
 	public static final Item COLD_CREEPER_SPAWN_EGG = null;
 	
@@ -80,6 +83,9 @@ public class ItemInit
 				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS)), "iron_ore_rock"),
 				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS)), "copper_ore_rock"),
 				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS)), "bauxite_ore_rock"),
+				
+				//Materials
+				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS)), "hardened_leather"),
 				
 				//Spawn Eggs
 				setup(new SpawnEggItem(EntityInit.COLD_CREEPER, 6790088, 3295581, new Item.Properties().group(ItemGroup.MISC)), "cold_creeper_spawn_egg"),
