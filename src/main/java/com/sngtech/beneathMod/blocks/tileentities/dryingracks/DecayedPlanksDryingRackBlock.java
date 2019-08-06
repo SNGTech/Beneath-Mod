@@ -3,12 +3,10 @@ package com.sngtech.beneathMod.blocks.tileentities.dryingracks;
 import java.util.Optional;
 
 import com.sngtech.beneathMod.recipes.DryingRecipe;
-import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.dryingracks.DecayedPlanksDryingRackTileEntity;
+import com.sngtech.beneathMod.tileentities.dryingracks.DryingRackTileEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -29,7 +27,7 @@ public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new DecayedPlanksDryingRackTileEntity();
+		return new DryingRackTileEntity();
 	}
 	
 	@Override
@@ -42,9 +40,9 @@ public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock
 		else
 		{
 			TileEntity te = world.getTileEntity(pos);
-			if(te instanceof DecayedPlanksDryingRackTileEntity)
+			if(te instanceof DryingRackTileEntity)
 			{
-				DecayedPlanksDryingRackTileEntity dryingrack = (DecayedPlanksDryingRackTileEntity) te;
+				DryingRackTileEntity dryingrack = (DryingRackTileEntity) te;
 				ItemStack stack = player.getHeldItem(handIn);
 				Optional<DryingRecipe> optional = dryingrack.findMatchingRecipe(stack);
 				
@@ -71,47 +69,31 @@ public class DecayedPlanksDryingRackBlock extends AbstractDryingRackBlock
 		return true;
 	}
 	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) 
-	{
-		if (stack.hasDisplayName()) 
-		{
-			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof DecayedPlanksDryingRackTileEntity) 
-			{
-				
-			}
-		}
-	}
-	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) 
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if(te instanceof SpruceCrateTileEntity)
+		if(te instanceof DryingRackTileEntity)
 		{
 			ItemStack stack;
-			for(int i = 0; i < ((SpruceCrateTileEntity) te).getInventory().getSlots(); i++)
+			stack = ((DryingRackTileEntity) te).getInventory().getStackInSlot(0);
+			if(stack != null)
 			{
-				stack = ((SpruceCrateTileEntity) te).getInventory().getStackInSlot(i);
-				if(stack != null)
-				{
-					double d0 = (double)EntityType.ITEM.getWidth();
-			        double d1 = 1.0D - d0;
-			        double d2 = d0 / 2.0D;
-			        double d3 = Math.floor((double)pos.getX()) + RANDOM.nextDouble() * d1 + d2;
-			        double d4 = Math.floor((double)pos.getY()) + RANDOM.nextDouble() * d1;
-			        double d5 = Math.floor((double)pos.getZ()) + RANDOM.nextDouble() * d1 + d2;
+				double d0 = (double)EntityType.ITEM.getWidth();
+		        double d1 = 1.0D - d0;
+		        double d2 = d0 / 2.0D;
+		        double d3 = Math.floor((double)pos.getX()) + RANDOM.nextDouble() * d1 + d2;
+		        double d4 = Math.floor((double)pos.getY()) + RANDOM.nextDouble() * d1;
+		        double d5 = Math.floor((double)pos.getZ()) + RANDOM.nextDouble() * d1 + d2;
 
-			        while(!stack.isEmpty()) 
-			        {
-			           ItemEntity itementity = new ItemEntity(world, d3, d4, d5, stack.split(RANDOM.nextInt(21) + 10));
-			           itementity.setMotion(RANDOM.nextGaussian() * (double)0.05F, RANDOM.nextGaussian() * (double)0.05F + (double)0.2F, RANDOM.nextGaussian() * (double)0.05F);
-			           world.addEntity(itementity);
-			        }
-				}
+		        while(!stack.isEmpty()) 
+		        {
+		           ItemEntity itementity = new ItemEntity(world, d3, d4, d5, stack.split(RANDOM.nextInt(21) + 10));
+		           itementity.setMotion(RANDOM.nextGaussian() * (double)0.05F, RANDOM.nextGaussian() * (double)0.05F + (double)0.2F, RANDOM.nextGaussian() * (double)0.05F);
+		           world.addEntity(itementity);
+		        }
 			}
 			
 			world.updateComparatorOutputLevel(pos, this);

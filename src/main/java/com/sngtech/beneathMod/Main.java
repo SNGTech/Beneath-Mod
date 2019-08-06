@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.sngtech.beneathMod.init.DimensionInit;
 import com.sngtech.beneathMod.init.EntityInit;
 import com.sngtech.beneathMod.init.GuiHandler;
+import com.sngtech.beneathMod.init.TileEntityInit;
 import com.sngtech.beneathMod.itemgroups.BeneathBlocksGroup;
 import com.sngtech.beneathMod.itemgroups.BeneathItemsGroup;
 import com.sngtech.beneathMod.world.features.structures.StructurePieceInit;
@@ -48,6 +49,7 @@ public class Main
 	{
 		EntityInit.registerEntityRenderers();
 		GuiHandler.registerScreens();
+		TileEntityInit.registerRenderers();
 		logger.info("Client Setup Event Registered");
 	}
 	

@@ -11,12 +11,14 @@ import com.sngtech.beneathMod.tileentities.crates.JungleCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.OakCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.PlacerTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
-import com.sngtech.beneathMod.tileentities.dryingracks.DecayedPlanksDryingRackTileEntity;
+import com.sngtech.beneathMod.tileentities.dryingracks.DryingRackTileEntity;
+import com.sngtech.beneathMod.tileentities.renderer.DryingRackRenderer;
 
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -56,7 +58,7 @@ public class TileEntityInit
 				setup(TileEntityType.Builder.create(AcaciaCrateTileEntity::new, BlockInit.ACACIA_CRATE).build(null), "acacia_crate"),
 				setup(TileEntityType.Builder.create(DarkOakCrateTileEntity::new, BlockInit.DARK_OAK_CRATE).build(null), "dark_oak_crate"),
 				
-				setup(TileEntityType.Builder.create(DecayedPlanksDryingRackTileEntity::new, BlockInit.DECAYED_PLANKS_DRYING_RACK).build(null), "decayed_planks_drying_rack"),
+				setup(TileEntityType.Builder.create(DryingRackTileEntity::new, BlockInit.DECAYED_PLANKS_DRYING_RACK).build(null), "decayed_planks_drying_rack"),
 				
 				//Machines (Heat Operated)
 				setup(TileEntityType.Builder.create(PlacerTileEntity::new, BlockInit.PLACER).build(null), "placer")
@@ -64,6 +66,11 @@ public class TileEntityInit
 			
 			Main.logger.debug("Registered Tile Entities");
 		}
+	}
+	
+	public static void registerRenderers()
+	{
+		ClientRegistry.bindTileEntitySpecialRenderer(DryingRackTileEntity.class, new DryingRackRenderer<DryingRackTileEntity>());
 	}
 	
 	@Nonnull
