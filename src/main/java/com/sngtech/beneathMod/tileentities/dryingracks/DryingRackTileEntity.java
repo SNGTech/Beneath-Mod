@@ -71,6 +71,7 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 	@Override
 	public CompoundNBT write(CompoundNBT compound) 
 	{
+		super.write(compound);
 		compound.putString("inventory", itemstack.serializeNBT().toString());
 		ModItemStackHelper.saveAllItems(compound, itemstack);
 		compound.putInt("DryingTime", this.dryingTime);

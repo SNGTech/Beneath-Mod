@@ -47,9 +47,9 @@ public class Main
 	
 	void clientSetup(FMLClientSetupEvent e)
 	{
+		TileEntityInit.registerRenderers();
 		EntityInit.registerEntityRenderers();
 		GuiHandler.registerScreens();
-		TileEntityInit.registerRenderers();
 		logger.info("Client Setup Event Registered");
 	}
 	

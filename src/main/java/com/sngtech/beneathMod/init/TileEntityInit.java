@@ -70,7 +70,7 @@ public class TileEntityInit
 	
 	public static void registerRenderers()
 	{
-		ClientRegistry.bindTileEntitySpecialRenderer(DryingRackTileEntity.class, new DryingRackRenderer<DryingRackTileEntity>());
+		ClientRegistry.bindTileEntitySpecialRenderer(DryingRackTileEntity.class, new DryingRackRenderer());
 	}
 	
 	@Nonnull
