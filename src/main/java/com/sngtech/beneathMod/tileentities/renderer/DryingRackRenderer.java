@@ -6,6 +6,7 @@ import com.sngtech.beneathMod.tileentities.dryingracks.DryingRackTileEntity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.model.IBakedModel;
+import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.item.ItemStack;
@@ -38,7 +39,7 @@ public class DryingRackRenderer extends TileEntityRenderer<DryingRackTileEntity>
 		       GlStateManager.scalef(0.8F, 0.8F, 0.8F);
 		       IBakedModel model = Minecraft.getInstance().getItemRenderer().getItemModelWithOverrides(itemstack, tileEntityIn.getWorld(), null);
 			   model = ForgeHooksClient.handleCameraTransforms(model, TransformType.NONE, false);
-		       Minecraft.getInstance().getItemRenderer().renderItem(itemstack, model);
+		       Minecraft.getInstance().getItemRenderer().renderItem(itemstack, ItemCameraTransforms.TransformType.FIXED);
 		       GlStateManager.popMatrix();
 		    }
 		}

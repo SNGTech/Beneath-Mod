@@ -16,6 +16,7 @@ import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class DryingRackTileEntity extends TileEntity implements ITickableTileEntity
@@ -52,7 +53,10 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 				Optional<DryingRecipe> optional = this.findMatchingRecipe(itemstack.getStackInSlot(0));
 				
 				if(optional.isPresent())
+				{
 					this.itemstack.setStackInSlot(0, optional.get().getCraftingResult(new Inventory(itemstack.getStackInSlot(0))));
+					this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
+				}
 			}
 		}
 		
@@ -98,6 +102,12 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 		return new SUpdateTileEntityPacket(this.pos, 0, this.getUpdateTag());
 	}
 	
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() 
+	{
+		return super.getRenderBoundingBox();
+	}
+	
 	public ItemStackHandler getInventory()
 	{
 		return this.itemstack;
@@ -116,6 +126,7 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 			this.dryingTimeTotal = dryingTime;
 			this.dryingTime = 0;
 			this.canRetrieve = true;
+			this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
 		}
 	}
 	
@@ -127,6 +138,7 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 			this.itemstack.extractItem(0, 1, false);
 			this.resetDryingTime();
 			this.canRetrieve = false;
+			this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
 		}
 		else if(this.itemstack.getStackInSlot(0).getCount() > 0 && player.getHeldItem(hand).isEmpty())
 		{
@@ -134,12 +146,14 @@ public class DryingRackTileEntity extends TileEntity implements ITickableTileEnt
 			this.itemstack.extractItem(0, 1, false);
 			this.resetDryingTime();
 			this.canRetrieve = false;
+			this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
 		}
 		else if(this.itemstack.getStackInSlot(0).getCount() > 0 && !player.getHeldItem(hand).isEmpty())
 		{
 			player.getHeldItem(hand).grow(1);
 			this.itemstack.extractItem(0, 1, false);
 			this.resetDryingTime();
+			this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
 		}
 			
 	}
