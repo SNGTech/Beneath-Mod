@@ -1,0 +1,11 @@
+{
+  "type": "beneath:drying",
+  "ingredient": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "result": {
+    "item": "beneath:dried_flesh"
+  },
+  "experience": 0.15,
+  "dryingtime": 600
+}

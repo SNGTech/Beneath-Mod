@@ -8,6 +8,9 @@
 	//Materials (Item)
 	"item.beneath.hardened_leather": "Hardened Leather",
 	
+	//Food (Item)
+	"item.beneath.dried_flesh": "Dried Flesh",
+	
 	//Spawn Eggs (Items)
 	"item.beneath.cold_creeper_spawn_egg": "Cold Creeper Spawn Egg",
 

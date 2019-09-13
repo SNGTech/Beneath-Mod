@@ -3,9 +3,11 @@ package com.sngtech.beneathMod.init;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Preconditions;
+import com.google.common.base.Supplier;
 import com.sngtech.beneathMod.Main;
 import com.sngtech.beneathMod.tileentities.crates.AcaciaCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.BirchCrateTileEntity;
+import com.sngtech.beneathMod.tileentities.crates.CrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.DarkOakCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.JungleCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.crates.OakCrateTileEntity;
@@ -14,6 +16,8 @@ import com.sngtech.beneathMod.tileentities.crates.SpruceCrateTileEntity;
 import com.sngtech.beneathMod.tileentities.dryingracks.DryingRackTileEntity;
 import com.sngtech.beneathMod.tileentities.renderer.DryingRackRenderer;
 
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -72,6 +76,17 @@ public class TileEntityInit
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(DryingRackTileEntity.class, new DryingRackRenderer());
 	}
+	
+	/*private static void setupVarients(Supplier<? extends TileEntity>[] te, Block[] blockVarients, String[] nameVarients)
+	{
+		if(blockVarients.length == nameVarients.length)
+		{
+			for(int i = 0; i < nameVarients.length; i++)
+			{
+				setup(TileEntityType.Builder.create(te[i], blockVarients[i]).build(null), nameVarients[i]);
+			}
+		}
+	}*/
 	
 	@Nonnull
 	private static <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) 

@@ -3,6 +3,7 @@ package com.sngtech.beneathMod.tileentities.crates;
 import javax.annotation.Nullable;
 
 import com.sngtech.beneathMod.containers.CrateContainer;
+import com.sngtech.beneathMod.init.TileEntityInit;
 import com.sngtech.beneathMod.utils.ModItemStackHelper;
 
 import net.minecraft.entity.player.PlayerEntity;

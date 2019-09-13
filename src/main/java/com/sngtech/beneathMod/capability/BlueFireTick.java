@@ -1,20 +1,11 @@
 package com.sngtech.beneathMod.capability;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.DamageSource;
 
 public class BlueFireTick implements IBlueFireTick
 {
-	private final LivingEntity entity;
 	private int blueFire = 0;
-	
-	public BlueFireTick(@Nullable final LivingEntity entity)
-	{
-		this.entity = entity;
-	}
 	
 	@Override
 	public boolean isBurning() 
@@ -23,7 +14,7 @@ public class BlueFireTick implements IBlueFireTick
 	}
 
 	@Override
-	public void setBlueFire(int seconds) 
+	public void setBlueFireTick(int seconds) 
 	{
 		int i = seconds * 20;
 		
@@ -34,9 +25,9 @@ public class BlueFireTick implements IBlueFireTick
 	}
 	
 	@Override
-	public int getBlueFire() 
+	public int getBlueFireTick() 
 	{
-		return this.blueFire;
+		return (int) this.blueFire;
 	}
 
 	@Override

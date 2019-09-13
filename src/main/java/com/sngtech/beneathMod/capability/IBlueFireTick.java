@@ -6,9 +6,9 @@ public interface IBlueFireTick
 {
 	boolean isBurning();
 	
-	void setBlueFire(final int seconds);
+	void setBlueFireTick(final int seconds);
 	
-	int getBlueFire();
+	int getBlueFireTick();
 	
 	void tick(Entity entity);
 }

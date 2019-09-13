@@ -11,7 +11,7 @@ public class AcaciaCrateTileEntity extends CrateTileEntity
 		super(type);
 	}
 	
-	public AcaciaCrateTileEntity()
+	public AcaciaCrateTileEntity() 
 	{
 		this(TileEntityInit.ACACIA_CRATE);
 		containerRegistryName = "container.acacia_crate";

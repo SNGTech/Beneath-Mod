@@ -29,6 +29,9 @@ public class ItemInit
 	//Materials
 	public static final Item HARDENED_LEATHER = null;
 	
+	//Food
+	public static final Item DRIED_FLESH = null;
+	
 	//Spawn Eggs
 	public static final Item COLD_CREEPER_SPAWN_EGG = null;
 	
@@ -86,6 +89,9 @@ public class ItemInit
 				
 				//Materials
 				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS)), "hardened_leather"),
+				
+				//Food
+				setup(new Item(new Item.Properties().group(Main.BENEATH_ITEMS).food(FoodInit.DRIED_FLESH)), "dried_flesh"),
 				
 				//Spawn Eggs
 				setup(new SpawnEggItem(EntityInit.COLD_CREEPER, 6790088, 3295581, new Item.Properties().group(ItemGroup.MISC)), "cold_creeper_spawn_egg"),
